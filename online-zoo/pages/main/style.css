@@ -6,7 +6,6 @@ a {
 * {
   margin: 0;
   padding: 0;
-  transition: 0.4s;
 }
 
 .wrapper {
@@ -22,6 +21,8 @@ a {
 
 .header {
   background: #000;
+  position: relative;
+  z-index: 1;
 }
 .header .wrapper {
   display: flex;
@@ -87,14 +88,104 @@ a {
   margin-left: auto;
 }
 
-.stream-info__background {
-  margin: auto;
+.stream-info {
+  background-image: url(../../../assets/images/giant-panda.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 780px;
+  top: -80px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.stream-info .wrapper {
+  margin-top: 166px;
 }
 
-.stream-info {
-  height: 780px;
-  background-image: url(../../../assets/images/giant-panda.png);
+.stream-info-content__ellipse {
+  width: 465px;
+  height: 465px;
+  border-radius: 100%;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  position: relative;
+  top: -470px;
+  left: -90px;
+  z-index: -1;
+  display: inline-block;
+}
+
+.stream-info-content__text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 106.496px;
+  line-height: 75%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  width: 500.31px;
+  height: 200px;
+  z-index: 1;
+}
+.stream-info-content__text .stream-info-content__text_colored {
+  color: #FFEE2E;
+}
+
+.stream-info-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  row-gap: 60px;
+}
+
+.stream-info-buttons {
+  margin-right: 100px;
+  margin-top: 200px;
+  z-index: 2;
+}
+
+.button {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 16px 1px;
+  text-align: center;
+  width: 298px;
+  height: 54px;
+  border: none;
+  color: #fff;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+}
+
+.button:hover {
+  background: #E47209;
+  background: linear-gradient(#E47209);
+  cursor: pointer;
+}
+
+.button_ellipsise {
+  border-radius: 25px;
+}
+
+.backstage-info {
+  background-image: url(../../../assets/images/flower-foto1.png);
   background-repeat: no-repeat;
+  background-position: right;
+  height: 605px;
+  margin-top: -60px;
+}
+
+.backstage-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 87px;
 }
 
 /*# sourceMappingURL=style.css.map */

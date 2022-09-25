@@ -1,0 +1,14 @@
+.stream-info {
+  background-image: url(../../../assets/images/giant-panda.png);
+  background-position: top center ;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 780px;
+  top: -80px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  .wrapper {
+    margin-top: 166px;
+  }
+}
