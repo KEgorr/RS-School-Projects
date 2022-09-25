@@ -4,11 +4,23 @@
   background-position: right;
   height: 605px;
   margin-top: -60px;
+
 }
 
 .backstage-content {
   display:  flex;
-  align-items: center;
-  justify-content: space-between;
   column-gap: 87px;
+  padding-top: 120px;
+}
+
+.backstage-text__about {
+  margin-top: 20px;
+}
+
+.backstage-text__subittle {
+  margin-top: 54px;
+}
+
+.backstage-text__regular-text {
+  margin-top: 34px;
 }
