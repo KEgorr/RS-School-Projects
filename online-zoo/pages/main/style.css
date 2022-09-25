@@ -47,10 +47,10 @@ a {
 
 .logo_ico {
   position: relative;
-  width: 7.03px;
+  width: 11px;
   height: 20.98px;
-  left: 14.23px;
-  top: -21.36px;
+  left: 10px;
+  top: -28.5px;
   display: inline-block;
   background-image: url(../../../assets/icons/bamboo.svg);
 }
@@ -85,6 +85,16 @@ a {
 
 .copyright-link {
   margin-left: auto;
+}
+
+.stream-info__background {
+  margin: auto;
+}
+
+.stream-info {
+  height: 780px;
+  background-image: url(../../../assets/images/giant-panda.png);
+  background-repeat: no-repeat;
 }
 
 /*# sourceMappingURL=style.css.map */
