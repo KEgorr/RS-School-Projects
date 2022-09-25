@@ -1,0 +1,33 @@
+.header__navigation {
+  ul {
+    display: flex;
+    column-gap: 58px;
+    width: 1160px - 82px - 63px;
+    li {
+      list-style-type: none;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 140%;
+      color: #FFFFFF;
+      a {
+        color: #fff;
+      }
+      &:first-child {
+        background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      &:active {
+        background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+}
+
+.copyright-link {
+  margin-left: auto;
+}

@@ -1,0 +1,36 @@
+.header {
+  background: #000;
+  .wrapper {
+    display: flex;
+    height: 80px;
+    align-items: center;
+  }
+}
+
+
+.logo {
+  width: 82px;
+  height: 52px;
+  border: 1px solid #FFFFFF;
+  border-radius: 2px;
+  margin-right: 63px;
+}
+
+.logo__title {
+  margin: 3.55px 4.74px;
+  font-size: 19.0145px;
+  line-height: 120%;
+  text-align: center;
+  color: #fff;
+}
+
+.logo_ico {
+  position: relative;
+  width: 7.03px;
+  height: 20.98px;
+  left: 14.23px;
+  top: -21.36px;
+  display: inline-block;
+  background-image: url(../../../assets/icons/bamboo.svg);
+}
+

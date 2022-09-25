@@ -5,32 +5,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pet Story</title>
+  <link rel="stylesheet" href="../../node_modules\normalize.css\normalize.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header id="header">
+  <header class="header">
     <div class="wrapper">
       <div class="logo">
         <a href="index.html">
-          <h1 class="standart-txt logo__title">PetStory Online</h1>
+          <h1 class="standard-txt logo__title">PetStory online</h1>
           <span class="logo_ico"></span>
         </a>
       </div>
       <nav class="header__navigation">
           <ul>
             <li>About</li>
-            <li>Map</li>
-            <li>Zoos</li>
+            <li><a href="#">Map</a></li>
+            <li><a href="#">Zoos</a></li>
             <li><a href="../donate/index.html">Donate</a></li>
-            <li>Contact us</li>
-            <li><a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">Designed by ©</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li class="copyright-link"><a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">Designed by ©</a></li>
           </ul>
       </nav>
     </div>
   </header>
   <main>
     <section class="stream-info">
+      <img class="stream-info__background" src="../../assets/images/giant-panda.png" alt="background-img">
       <div class="wrapper">
-        <img class="stream-info__background" src="../../assets/images/giant-panda.png" alt="background-img">
         <div class="stream-info-content">
           <p class="stream-info-content__text">
             Watch your <span class="stream-info-content__text stream-info-content__text_colored">favorite</span>animal online
@@ -72,7 +74,7 @@
     <section class="pets">
       <div class="pets-background">
         <img src="../../assets/images/palm_foto.png" alt="palm">
-        <img src="../../assets/images/strelitzia 1.png" alt="strelitzia">
+        <img src="../../assets/images/strelitzia.png" alt="strelitzia">
       </div>
       <div class="wrapper">
         <div class="pets-content">
@@ -137,6 +139,7 @@
         </div>
         <div class="pets-content-buttons">
           <button class="button button_ellipsise">choose your favorite</button>
+        </div>
       </div>
     </section>
     <section class="feed-pets">
