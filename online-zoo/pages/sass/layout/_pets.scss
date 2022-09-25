@@ -1,0 +1,90 @@
+.pets-background__palm {
+  background-image: url(../../../assets/images/palm_foto.png);
+  width: 880px - 588px;
+  height: 460px;
+}
+
+.pets-background__strelitzia{
+  background-image: url(../../../assets/images/strelitzia.png);
+  width: 368px;
+  height: 275px;
+}
+
+.pets-background {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: -425px;
+  z-index: -1;
+}
+
+.pets {
+  margin-top: 106px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.pet-cards-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 80px;
+  .pet-card {
+    width: 366px;
+    height: 366px;
+    border-radius: 5px;
+    border: 2px solid #FA6F32;
+    img {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+  }
+}
+
+.pets-buttons {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 1198px + 2 * 62px;
+  position: relative;
+  /* z-index: -1; */
+  top: -600px;
+}
+
+.pets-content{
+  column-gap: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.pet-info {
+  display: flex;
+  position: relative;
+  z-index: -1;
+  top: -60px;
+  padding: 8px 12px 14px 16px;
+  justify-content: space-between;
+}
+
+.pet-card:hover .pet-info{
+  transition: 0.5s;
+  top: 0px;
+}
+
+.pet-card:hover {
+  height: 426px;
+  transition: 0.5s;
+  margin-bottom: -60px;
+}
+
+.pet-card:hover img {
+  transform: scale(1.03);
+  transition: 0.5s;
+}
+
+
+.pets-content-buttons{
+  display: flex;
+  justify-content: center;
+  margin-top: 80px+60px;
+}

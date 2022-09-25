@@ -197,6 +197,35 @@ a {
   border-radius: 25px;
 }
 
+.button_cercle {
+  width: 62px;
+  height: 62px;
+  border-radius: 100%;
+}
+
+.arrow-left {
+  background-image: url(../../../assets/icons/arrow_button.svg);
+  width: 16px;
+  height: 8px;
+  display: inline-block;
+}
+
+.arrow-right {
+  background-image: url(../../../assets/icons/arrow_button.svg);
+  transform: rotate(180deg);
+  width: 16px;
+  height: 8px;
+  display: inline-block;
+}
+
+.pet-info p img {
+  text-align: end;
+}
+
+.button:active {
+  background: #4B9200;
+}
+
 .backstage-info {
   background-image: url(../../../assets/images/flower-foto1.png);
   background-repeat: no-repeat;
@@ -221,6 +250,115 @@ a {
 
 .backstage-text__regular-text {
   margin-top: 34px;
+}
+
+.pets-background__palm {
+  background-image: url(../../../assets/images/palm_foto.png);
+  width: 292px;
+  height: 460px;
+}
+
+.pets-background__strelitzia {
+  background-image: url(../../../assets/images/strelitzia.png);
+  width: 368px;
+  height: 275px;
+}
+
+.pets-background {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: -425px;
+  z-index: -1;
+}
+
+.pets {
+  margin-top: 106px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.pet-cards-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 80px;
+}
+.pet-cards-block .pet-card {
+  width: 366px;
+  height: 366px;
+  border-radius: 5px;
+  border: 2px solid #FA6F32;
+}
+.pet-cards-block .pet-card img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.pets-buttons {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 1322px;
+  position: relative;
+  /* z-index: -1; */
+  top: -600px;
+}
+
+.pets-content {
+  column-gap: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.pet-info {
+  display: flex;
+  position: relative;
+  z-index: -1;
+  top: -60px;
+  padding: 8px 12px 14px 16px;
+  justify-content: space-between;
+}
+
+.pet-card:hover .pet-info {
+  transition: 0.5s;
+  top: 0px;
+}
+
+.pet-card:hover {
+  height: 426px;
+  transition: 0.5s;
+  margin-bottom: -60px;
+}
+
+.pet-card:hover img {
+  transform: scale(1.03);
+  transition: 0.5s;
+}
+
+.pets-content-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 140px;
+}
+
+.pet-loc-name__pet-name {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.ppet-loc-name__pet-loc {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #000000;
 }
 
 /*# sourceMappingURL=style.css.map */

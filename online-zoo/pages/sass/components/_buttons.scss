@@ -24,3 +24,32 @@
 .button_ellipsise {
   border-radius: 25px;
 }
+
+.button_cercle {
+  width: 62px;
+  height: 62px;
+  border-radius: 100%;
+}
+
+.arrow-left {
+  background-image: url(../../../assets/icons/arrow_button.svg);
+  width: 16px;
+  height: 8px;
+  display: inline-block;
+}
+
+.arrow-right {
+  background-image: url(../../../assets/icons/arrow_button.svg);
+  transform: rotate(180deg);
+  width: 16px;
+  height: 8px;
+  display: inline-block;
+}
+
+.pet-info p img {
+  text-align: end;
+}
+
+.button:active {
+  background: #4B9200;
+}
