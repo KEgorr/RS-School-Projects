@@ -1,0 +1,70 @@
+.feed-pets {
+  padding: 69px 0 100px;
+  .wrapper {
+    height: 835px;
+  }
+}
+
+
+.feed-info__tittle {
+  padding-top: 41px;
+}
+
+.feed-info__subittle {
+  margin-top: 30px;
+}
+
+.feed-info {
+  padding-left: 99px;
+}
+
+.feed-info__warrning {
+  margin-top: 40px;
+}
+
+.feed-info__about {
+  margin-top: 10px;
+  margin-right: 198px;
+}
+
+.feed-info__h3 {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.feed-exploration {
+  display: flex;
+  margin-top: 40px;
+  column-gap: 30px;
+  justify-content: center;
+}
+
+.exploration-card__arrow {
+  background-image: url(../../../assets/icons/arrow_icon.svg);
+  width: 69px;
+  height: 35.08px;
+  display: inline-block;
+  margin-top: 62px;
+}
+
+.exploration-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 168px;
+  height: 168px;
+}
+
+.exploration-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  width: 168px;
+  height: 244px;
+}
+
+.feed-buttons {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
