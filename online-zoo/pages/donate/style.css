@@ -202,6 +202,13 @@ a {
   padding: 10px 39px;
 }
 
+.giant-panda-background {
+  height: 390px;
+  background-image: url(../../assets/images/giant-panda.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 footer {
   background: #111115;
 }
