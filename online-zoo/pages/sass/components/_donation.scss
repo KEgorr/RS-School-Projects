@@ -1,0 +1,211 @@
+.donation {
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+}
+
+.donate-intro {
+  color: #fff;
+}
+
+.donate-intro__regular-text {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.donate-intro__h3_colored {
+  color: #FE9013;
+}
+
+.donate-block {
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+}
+
+.donate-block__tittle {
+  text-align: center;
+  color: #FE9013;
+}
+
+.donate-block__subittle {
+  color: #333B41;
+}
+
+.donate-visualization-text__number {
+  font-size: 72px;
+  line-height: 80%;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.donate-visualization-text__text {
+  color: #333B41;
+}
+
+.separator {
+  background-image: url(../../assets/icons/separator.svg);
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  margin-left: 11px;
+}
+
+.panda-ico {
+  background-image: url(../../assets/icons/panda_icon.svg);
+  width: 284px;
+  height: 246px;
+  display: inline-block;
+  margin-left: 64px;
+}
+
+.donate-slider {
+  margin-top: 48px;
+  input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-sizing: border-box;
+    appearance: none;
+    width: 976px;
+    height: 27px;
+    background: #404950;
+    border-radius: 2px;
+    padding: 0 12px;
+    z-index: 1;
+    margin-top: 17px;
+    &::before {
+      content: "";
+      width:915px;
+      background-color: #72828E;
+      display: inline-block;
+      position: absolute;
+      height: 2px;
+      top: 552px;
+      left: 119px;
+    }
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 2px;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    cursor: pointer;
+    position: relative;
+    border: 2px solid #FE9013;
+    outline: 2px solid #FE9013;
+    outline-offset: -10.52px;
+    bottom: 19px;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    border-radius: 100%;
+    background: transparent;
+    -webkit-appearance: none;
+  }
+  
+  input[type="range"]::-moz-range-track {
+    height: 2px;
+    background: #72828E;
+  }
+  input[type="range"]::-moz-range-thumb {
+    cursor: pointer;
+    position: relative;
+    border: 2px solid #FE9013;
+    outline: 2px solid #FE9013;
+    outline-offset: -10.52px;
+    bottom: 18px;
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    border-radius: 100%;
+    background: transparent;
+    -webkit-appearance: none;
+  }
+}
+
+.slider-in-beetween-tracks {
+  display: flex;
+  width: 922px;
+  justify-content: space-between;
+  position:absolute;
+  top: 548px;
+  left: 119px;
+}
+
+.slider-in-beetween-track__track {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  display: inline-block;
+  background: #FFEE2E;
+}
+
+.donate-value__value {
+  font-size: 26px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #333B41;
+}
+
+.donate-value__value_colored {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #FE9013;
+}
+
+.donate-another-amount {
+  input[type="number"] {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    background-image: url(../../assets/icons/dollar_default.svg);
+    background-repeat: no-repeat;
+    background-position: 248px center;
+    border: 1px solid #929699;
+    border-radius: 2px;
+    &:focus {
+      outline: none;
+      color: #4B9200;
+      border: 1px solid #4B9200;
+      background-image: url(../../assets/icons/dollar_active.svg);
+    }
+    &:invalid {
+      outline: none;
+      border: 1px solid #D31414;
+      color: #D31414;
+      background-image: url(../../assets/icons/dollar_mistake.svg);
+    }
+  }
+}
+
+  .custom-radio-btn {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: transparent;
+    border: 1px solid #FE9013;
+    border-radius: 100%;
+    vertical-align: text-top;
+}
+
+
+.custom-radio-btn::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #FE9013;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.2s ease-in;
+}
+
+input[type="radio"]:checked + .custom-radio-btn::before {
+  transform: translate(-50%, -50%) scale(1);
+}  
+
