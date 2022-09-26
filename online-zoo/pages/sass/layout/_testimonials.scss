@@ -1,0 +1,56 @@
+.testimonials {
+  background-image: url(../../../assets/images/leav_foto.png);
+  background-repeat: no-repeat;
+  background-position: bottom -130px  right;
+}
+
+.testimonials__h3 {
+  margin-top: 140px;
+  text-align: center;
+}
+
+.testimonials-block {
+  display: flex;
+  column-gap: 30px;
+  margin-top: 47px;
+}
+
+.rew-txt::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonials-person {
+  display: flex;
+  column-gap: 10px;
+}
+
+.testimonal-loc-time {
+  display: flex;
+  column-gap: 5px;
+  margin-top: 1px;
+}
+
+.testimonials-card {
+  box-sizing: border-box;
+  padding: 15px 15px 19px 16px;
+  width: 268px;
+  height: 391px;
+}
+
+.rew-txt {
+  width: 237px;
+  height: 309px;
+  overflow: scroll;
+  margin-top: 10px;
+}
+
+.testimonials-slider {
+  margin-top: 21px;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonials-buttons {
+  margin-top: 31px;
+}
+
