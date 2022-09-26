@@ -207,6 +207,7 @@ a {
   background-image: url(../../assets/images/giant-panda.png);
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 footer {
@@ -627,10 +628,6 @@ footer .wrapper {
 
 .donate-footer {
   margin-top: 0;
-}
-
-footer {
-  margin-top: 180px;
 }
 
 .footer-left-column .logo {
