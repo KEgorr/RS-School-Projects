@@ -526,7 +526,18 @@ a {
 .testimonials-card {
   border-radius: 20px;
   background: #F1F3F2;
-  border: 2px solid rgba(243, 169, 248, 0.66);
+  position: relative;
+}
+.testimonials-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  background: linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+  border-radius: 20px;
+  z-index: -1;
 }
 
 .testimonials__text {
