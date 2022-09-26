@@ -137,7 +137,7 @@ a {
 }
 
 .stream-info {
-  background-image: url(../../../assets/images/giant-panda.png);
+  background-image: url(../../assets/images/giant-panda.png);
   background-position: top center;
   background-repeat: no-repeat;
   position: relative;
@@ -228,14 +228,14 @@ a {
 }
 
 .arrow-left {
-  background-image: url(../../../assets/icons/arrow_button.svg);
+  background-image: url(../../assets/icons/arrow_button.svg);
   width: 16px;
   height: 8px;
   display: inline-block;
 }
 
 .arrow-right {
-  background-image: url(../../../assets/icons/arrow_button.svg);
+  background-image: url(../../assets/icons/arrow_button.svg);
   transform: rotate(180deg);
   width: 16px;
   height: 8px;
@@ -261,7 +261,7 @@ a {
 }
 
 .backstage-info {
-  background-image: url(../../../assets/images/flower-foto1.png);
+  background-image: url(../../assets/images/flower-foto1.png);
   background-repeat: no-repeat;
   background-position: right;
   height: 605px;
@@ -287,13 +287,13 @@ a {
 }
 
 .pets-background__palm {
-  background-image: url(../../../assets/images/palm_foto.png);
+  background-image: url(../../assets/images/palm_foto.png);
   width: 292px;
   height: 460px;
 }
 
 .pets-background__strelitzia {
-  background-image: url(../../../assets/images/strelitzia.png);
+  background-image: url(../../assets/images/strelitzia.png);
   width: 368px;
   height: 275px;
 }
@@ -436,7 +436,7 @@ a {
 }
 
 .exploration-card__arrow {
-  background-image: url(../../../assets/icons/arrow_icon.svg);
+  background-image: url(../../assets/icons/arrow_icon.svg);
   width: 69px;
   height: 35.08px;
   display: inline-block;
@@ -578,7 +578,7 @@ a {
 }
 
 .testimonials {
-  background-image: url(../../../assets/images/leav_foto.png);
+  background-image: url(../../assets/images/leav_foto.png);
   background-repeat: no-repeat;
   background-position: bottom -130px right;
 }
@@ -645,28 +645,28 @@ footer {
 }
 
 .social-logo__facebook {
-  background-image: url(../../../assets/icons/facebook.svg);
+  background-image: url(../../assets/icons/facebook.svg);
   width: 8px;
   height: 16px;
   display: inline-block;
 }
 
 .social-logo__twitter {
-  background-image: url(../../../assets/icons/twitter.svg);
+  background-image: url(../../assets/icons/twitter.svg);
   width: 16px;
   height: 14px;
   display: inline-block;
 }
 
 .social-logo__instagram {
-  background-image: url(../../../assets/icons/instagram.svg);
+  background-image: url(../../assets/icons/instagram.svg);
   width: 16px;
   height: 16px;
   display: inline-block;
 }
 
 .social-logo__youtube {
-  background-image: url(../../../assets/icons/youtube.svg);
+  background-image: url(../../assets/icons/youtube.svg);
   width: 18px;
   height: 12.99px;
   display: inline-block;

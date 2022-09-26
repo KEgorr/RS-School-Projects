@@ -170,14 +170,14 @@ a {
 }
 
 .arrow-left {
-  background-image: url(../../../assets/icons/arrow_button.svg);
+  background-image: url(../../assets/icons/arrow_button.svg);
   width: 16px;
   height: 8px;
   display: inline-block;
 }
 
 .arrow-right {
-  background-image: url(../../../assets/icons/arrow_button.svg);
+  background-image: url(../../assets/icons/arrow_button.svg);
   transform: rotate(180deg);
   width: 16px;
   height: 8px;
@@ -221,28 +221,28 @@ footer {
 }
 
 .social-logo__facebook {
-  background-image: url(../../../assets/icons/facebook.svg);
+  background-image: url(../../assets/icons/facebook.svg);
   width: 8px;
   height: 16px;
   display: inline-block;
 }
 
 .social-logo__twitter {
-  background-image: url(../../../assets/icons/twitter.svg);
+  background-image: url(../../assets/icons/twitter.svg);
   width: 16px;
   height: 14px;
   display: inline-block;
 }
 
 .social-logo__instagram {
-  background-image: url(../../../assets/icons/instagram.svg);
+  background-image: url(../../assets/icons/instagram.svg);
   width: 16px;
   height: 16px;
   display: inline-block;
 }
 
 .social-logo__youtube {
-  background-image: url(../../../assets/icons/youtube.svg);
+  background-image: url(../../assets/icons/youtube.svg);
   width: 18px;
   height: 12.99px;
   display: inline-block;
