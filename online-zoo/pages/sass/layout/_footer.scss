@@ -1,0 +1,64 @@
+footer .wrapper {
+  display: flex;
+  padding-bottom: 50px;
+}
+
+footer {
+  margin-top: 180px;
+}
+
+.footer-left-column .logo {
+  margin-top: 41px;
+}
+
+.footer-left-column-buttons {
+  margin-top: 68px;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  margin-top: 44px;
+  row-gap: 10px;
+}
+
+.social-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.socials-item {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.footer-center-column {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 101px;
+}
+
+.footer-right-column {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.email-subscribe {
+  margin-top: 40px;
+}
+
+.email-form {
+  display: flex;
+  column-gap: 10px;
+}
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-self: end;
+}
