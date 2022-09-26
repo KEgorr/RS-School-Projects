@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "style-main": "sass --watch pages/sass/main.scss pages/main/style.css"
+    "style-main": "sass --watch pages/sass/main.scss pages/main/style.css",
+    "style-donate": "sass --watch pages/sass/donate.scss pages/donate/style.css"
   },
   "author": "",
   "license": "ISC",

@@ -5,24 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pet Story</title>
+  <link rel="stylesheet" href="../../node_modules\normalize.css\normalize.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header id="header">
+  <header class="header" id="header">
     <div class="wrapper">
       <div class="logo">
-        <a href="../main/index.html">
-          <h1 class="standart-txt logo__title">PetStory Online</h1>
+        <a href="index.html">
+          <h1 class="standard-txt logo__title">PetStory online</h1>
           <span class="logo_ico"></span>
         </a>
       </div>
       <nav class="header__navigation">
           <ul>
             <li><a href="../main/index.html">About</a></li>
-            <li>Map</li>
-            <li>Zoos</li>
-            <li>Donate</li>
-            <li>Contact us</li>
-            <li><a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">Designed by ©</a></li>
+            <li><a href="#">Map</a></li>
+            <li><a href="#">Zoos</a></li>
+            <li><a>Donate</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li class="copyright-link"><a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">Designed by ©</a></li>
           </ul>
       </nav>
     </div>
@@ -89,7 +91,7 @@
       <div class="footer-left-column">
         <div class="logo">
           <a href="#header">
-            <h1 class="standart-txt logo__title">PetStory Online</h1>
+            <h1 class="standard-txt logo__title">PetStory Online</h1>
             <span class="logo_ico"></span>
           </a>
         </div>
@@ -100,33 +102,33 @@
           <a href="https://www.facebook.com/">
             <div class="socials-item">
               <div class="social-logo">
-                <span class="social-logo__logo"></span>
+                <span class="social-logo__facebook"></span>
               </div>
-              <p class="standart-txt social-logo__name">Facebook</p>
+              <p class="standard-txt social-logo__name">Facebook</p>
+            </div>
           </a>
-          </div>
           <a href="https://twitter.com/">
             <div class="socials-item">
               <div class="social-logo">
-                <span class="social-logo__logo"></span>
+                <span class="social-logo__twitter"></span>
               </div>
-              <p class="standart-txt social-logo__name">Twitter</p>
+              <p class="standard-txt social-logo__name">Twitter</p>
             </div>
           </a>
           <a href="https://instagram.com/">
             <div class="socials-item">
               <div class="social-logo">
-                <span class="social-logo__logo"></span>
+                <span class="social-logo__instagram"></span>
               </div>
-              <p class="standart-txt social-logo__name">Instagram</p>
+              <p class="standard-txt social-logo__name">Instagram</p>
             </div>
           </a>
           <a href="https://www.youtube.com/">
             <div class="socials-item">
               <div class="social-logo">
-                <span class="social-logo__logo"></span>
+                <span class="social-logo__youtube"></span>
               </div>
-              <p class="standart-txt social-logo__name">YouTube</p>
+              <p class="standard-txt social-logo__name">YouTube</p>
             </div>
           </a>
         </div>
@@ -134,10 +136,10 @@
       <div class="footer-center-column">
         <nav class="footer__navigation">
           <ul>
-            <li>About</li>
-            <li>Map</li>
-            <li>Zoos</li>
-            <li>Contact us</li>
+            <li><a href="#header">About</a></li>
+            <li><a href="#">Map</a></li>
+            <li><a href="#">Zoos</a></li>
+            <li><a href="#">Contact us</a></li>
           </ul>
       </nav>
       </div>
@@ -146,16 +148,16 @@
           <p class="subtittle-text email-subscribe__subittle">
             Subscribe to our news
           </p>
-          <div class="email-form">
-            <input type="email" placeholder="Enter your email">
+          <form action="#" class="email-form">
+            <input type="email" placeholder="Enter your email" required="email">
             <div class="email-form-button">
-              <button class="button button_submit">Submit</button>
+              <button class="button__submit">Submit</button>
             </div>
-          </div>
-          <div class="copyright">
-            <p class="copyright__text">Designed by Alisa Samborskaya</p>
-            <p class="copyright__text">©RSSchool & ©Yem Digital 2021</p>
-          </div>
+          </form>
+        </div>
+        <div class="copyright">
+          <p class="copyright__text">Designed by Alisa Samborskaya</p>
+          <p class="copyright__text">©RSSchool & ©Yem Digital 2021</p>
         </div>
       </div>
     </div>
