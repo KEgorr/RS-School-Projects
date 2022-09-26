@@ -70,6 +70,23 @@ footer {
   }
 }
 
+.footer__navigation_donate-page {
+  ul {
+    li {
+      &:first-child {
+        background: #fff;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: #fff;
+        &:active {
+          background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+  }
+}
+
 .email-subscribe__subittle {
   color: #FFFFFF;
 }
