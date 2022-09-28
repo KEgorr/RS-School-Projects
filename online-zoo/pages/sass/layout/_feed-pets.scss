@@ -15,7 +15,9 @@
 }
 
 .feed-info {
-  padding-left: 99px;
+  .feed-info__subittle, .feed-info__warrning, .feed-info__about {
+    padding-left: 99px;
+  }
 }
 
 .feed-info__warrning {
