@@ -1,3 +1,8 @@
+.range-bar__1000px {
+  display: none;
+}
+
+
 @media (min-width: 1000px) and (max-width: 1599px) {
   .wrapper {
       width: 940px;
@@ -181,5 +186,76 @@
   .email-subscribe {
     position: relative;
     left: -35px;
+  }
+
+
+  .donation {
+    height: 1333px;
+  }
+
+  .giant-panda-background {
+    background-image: url(../../assets/images/panda_bg-donate.png);
+  }
+  .donate-intro__h3 {
+    width: 778px;
+  }
+  .donate-intro__regular-text {
+    margin-top: 30px;
+  }
+  .donate-block {
+    margin-top: 40px;
+    padding: 20px 0 46px;
+    height: 918px;
+  }
+  .donate-block__tittle {
+    text-align: start;
+    padding-left: 231px;
+  }
+  .donate-block__subittle {
+    margin-top: 16px;
+    padding-left: 47px;
+  }
+  .donate-visualization-text {
+    margin-top: 55px;
+    margin-left: -13px;
+  }
+  .separator {
+    margin-top: 25px;
+}
+  .range-bar__1600px {
+    display: none;
+  }
+  .range-bar__1000px {
+    display: inline-block;
+  }
+  .donate-slider {
+    margin-top: 48px;
+    padding-left: 65px;
+    input[type="range"] {
+      width: 810px;
+      padding: 0;
+      margin-top: 15px;
+      &::before {
+        content: "";
+        width: 780px;
+        top: 525px;
+        left: 79px;
+      }
+    }
+  }
+  .slider-in-beetween-tracks {
+    width: 781px;
+    top: 522px;
+    left: 79px;
+}
+  option:first-child {
+    display: none;
+  }
+  .donate-values {
+    width: 852px;
+    margin-top: 10px;
+  }
+  .donate-value__value:first-child {
+    display: none;
   }
 }
