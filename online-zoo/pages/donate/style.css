@@ -486,7 +486,7 @@ input[type=radio] {
   background: #404950;
   border-radius: 2px;
   padding: 0 12px;
-  z-index: 1;
+  z-index: 2;
   margin-top: 17px;
 }
 .donate-slider input[type=range]::before {
@@ -500,7 +500,10 @@ input[type=radio] {
   left: 119px;
 }
 .donate-slider input[type=range]::-webkit-slider-runnable-track {
-  height: 2px;
+  height: 40px;
+  background-color: transparent;
+  z-index: 3;
+  cursor: pointer;
 }
 .donate-slider input[type=range]::-webkit-slider-thumb {
   cursor: pointer;
@@ -508,7 +511,6 @@ input[type=radio] {
   border: 2px solid #FE9013;
   outline: 2px solid #FE9013;
   outline-offset: -10.52px;
-  bottom: 19px;
   width: 40px;
   height: 40px;
   z-index: 10;
@@ -517,8 +519,10 @@ input[type=radio] {
   -webkit-appearance: none;
 }
 .donate-slider input[type=range]::-moz-range-track {
-  height: 2px;
-  background: #72828E;
+  height: 40px;
+  background-color: transparent;
+  z-index: 3;
+  cursor: pointer;
 }
 .donate-slider input[type=range]::-moz-range-thumb {
   cursor: pointer;
@@ -526,7 +530,6 @@ input[type=radio] {
   border: 2px solid #FE9013;
   outline: 2px solid #FE9013;
   outline-offset: -10.52px;
-  bottom: 18px;
   width: 40px;
   height: 40px;
   z-index: 10;
@@ -546,10 +549,11 @@ input[type=radio] {
 
 .slider-in-beetween-track__track {
   width: 10px;
-  height: 10px;
+  min-height: 10px;
   border-radius: 100%;
   display: inline-block;
   background: #FFEE2E;
+  z-index: 1;
 }
 
 .donate-value__value {

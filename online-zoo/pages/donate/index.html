@@ -56,17 +56,17 @@
         </div>
         <div class="donate-slider">
           <p class="regular-text donate-slider__text">Amount</p>
-          <input type="range" min="1" max="8" value="3">
-          <div class="slider-in-beetween-tracks">
-            <span class="slider-in-beetween-track__track"></span>
-            <span class="slider-in-beetween-track__track"></span>
-            <span class="slider-in-beetween-track__track"></span>
-            <span class="slider-in-beetween-track__track"></span>
-            <span class="slider-in-beetween-track__track"></span>
-            <span class="slider-in-beetween-track__track"></span>
-            <span class="slider-in-beetween-track__track"></span>
-            <span class="slider-in-beetween-track__track"></span>
-          </div>
+          <input type="range" min="1" max="8" value="3" list="dots">
+          <datalist class="slider-in-beetween-tracks" id="dots">
+            <option class="slider-in-beetween-track__track" value="1"></option>
+            <option class="slider-in-beetween-track__track" value="2"></option>
+            <option class="slider-in-beetween-track__track" value="3"></option>
+            <option class="slider-in-beetween-track__track" value="4"></option>
+            <option class="slider-in-beetween-track__track" value="5"></option>
+            <option class="slider-in-beetween-track__track" value="6"></option>
+            <option class="slider-in-beetween-track__track" value="7"></option>
+            <option class="slider-in-beetween-track__track" value="8"></option>
+          </datalist>
           <div class="donate-values">
             <p class="regular-text donate-value__value">$5000</p>
             <p class="regular-text donate-value__value">$2000</p>
