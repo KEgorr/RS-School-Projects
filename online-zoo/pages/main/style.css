@@ -1528,11 +1528,11 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     margin-top: 55px;
     margin-left: -13px;
   }
-  .separator {
-    margin-top: 25px;
-  }
   .donate-visualization {
     margin-top: 50px;
+  }
+  .donate-visualization .separator {
+    margin-top: 25px;
   }
   .range-bar__1600px {
     display: none;
