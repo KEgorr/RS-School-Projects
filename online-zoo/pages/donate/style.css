@@ -978,6 +978,9 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   .footer__navigation ul {
     column-gap: 48px;
     width: 332px;
+    position: relative;
+    top: -4px;
+    left: -8px;
   }
   .footer-right-column {
     position: relative;
@@ -1399,11 +1402,11 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     margin-top: 55px;
     margin-left: -13px;
   }
-  .separator {
-    margin-top: 25px;
-  }
   .donate-visualization {
     margin-top: 50px;
+  }
+  .donate-visualization .separator {
+    margin-top: 25px;
   }
   .range-bar__1600px {
     display: none;
@@ -1455,7 +1458,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     width: 180px;
     height: 42px;
     padding: 11px 10px 11px 6px;
-    background: transparent;
+    background-position: 158px center;
   }
   .radio-buttons {
     margin-top: 31px;
@@ -1924,7 +1927,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     width: 180px;
     height: 42px;
     padding: 11px 10px 11px 6px;
-    background: transparent;
+    background-position: 158px center;
   }
   .radio-buttons {
     margin-top: 25px;

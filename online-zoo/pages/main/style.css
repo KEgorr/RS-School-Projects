@@ -1584,7 +1584,6 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     width: 180px;
     height: 42px;
     padding: 11px 10px 11px 6px;
-    background: transparent;
   }
   .radio-buttons {
     margin-top: 31px;
