@@ -853,6 +853,64 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   border-radius: 5px;
 }
 
+.burger_menu {
+  width: 18px;
+  position: relative;
+}
+
+.burger_menu_lines::before,
+.burger_menu_lines::after,
+.burger_menu_lines {
+  background-color: #fff;
+  position: absolute;
+  width: 18px;
+  height: 2px;
+}
+
+.burger_menu_lines {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.burger_menu_lines::before {
+  content: "";
+  top: -4px;
+}
+
+.burger_menu_lines::after {
+  content: "";
+  top: 4px;
+}
+
+#burger {
+  position: fixed;
+  transform: translateX(-9999999px);
+}
+
+.burger_menu {
+  display: none;
+}
+
+.burger_menu_active {
+  position: fixed;
+  top: 47px;
+  right: 53px;
+}
+.burger_menu_active .burger_menu_lines::before,
+.burger_menu_active .burger_menu_lines::after,
+.burger_menu_active .burger_menu_lines {
+  background-color: #fff;
+}
+
+.burger_menu:hover {
+  cursor: pointer;
+}
+
+.range-bar__1000px {
+  display: none;
+}
+
 @media (min-width: 1000px) and (max-width: 1599px) {
   .wrapper {
     width: 940px;
@@ -1034,6 +1092,383 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   .email-subscribe {
     position: relative;
     left: -35px;
+  }
+  .donation {
+    height: 1333px;
+  }
+  .giant-panda-background {
+    background-image: url(../../assets/images/panda_bg-donate.png);
+  }
+  .donate-intro__h3 {
+    width: 778px;
+  }
+  .donate-intro__regular-text {
+    margin-top: 30px;
+  }
+  .donate-block {
+    margin-top: 40px;
+    padding: 20px 0 46px;
+    height: 918px;
+  }
+  .donate-block__tittle {
+    text-align: start;
+    padding-left: 231px;
+  }
+  .donate-block__subittle {
+    margin-top: 16px;
+    padding-left: 47px;
+  }
+  .donate-visualization-text {
+    margin-top: 55px;
+    margin-left: -13px;
+  }
+  .separator {
+    margin-top: 25px;
+  }
+  .range-bar__1600px {
+    display: none;
+  }
+  .range-bar__1000px {
+    display: inline-block;
+  }
+  .donate-slider {
+    margin-top: 48px;
+    padding-left: 65px;
+  }
+  .donate-slider input[type=range] {
+    width: 810px;
+    padding: 0;
+    margin-top: 15px;
+  }
+  .donate-slider input[type=range]::before {
+    content: "";
+    width: 780px;
+    top: 525px;
+    left: 79px;
+  }
+  .slider-in-beetween-tracks {
+    width: 781px;
+    top: 522px;
+    left: 79px;
+  }
+  option:first-child {
+    display: none;
+  }
+  .donate-values {
+    width: 852px;
+    margin-top: 10px;
+  }
+  .donate-value__value:first-child {
+    display: none;
+  }
+}
+.green-arrows {
+  display: none;
+}
+
+@media (min-width: 640px) and (max-width: 999px) {
+  .wrapper {
+    width: 600px;
+  }
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header .logo {
+    width: 46.86px;
+    height: 29.03px;
+    border: none;
+  }
+  .header .logo_ico {
+    left: 4px;
+    top: -20.5px;
+    background-size: cover;
+    width: 7.54px;
+    height: 13.56px;
+  }
+  .header .logo__title {
+    margin: 2.99px 0 2.68px;
+    line-height: 120%;
+    font-size: 12.2899px;
+  }
+  .header .wrapper {
+    height: 34px;
+    justify-content: space-between;
+  }
+  .burger_menu {
+    display: block;
+    z-index: 2;
+  }
+  .header__navigation ul {
+    flex-direction: column;
+    justify-content: end;
+    row-gap: 15px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 329px;
+    transform: translateX(100%);
+    background-color: #fff;
+  }
+  .header__navigation ul li a {
+    color: #333B41;
+  }
+  .copyright-link {
+    margin-left: 0;
+    margin-bottom: 40px;
+  }
+  .stream-info {
+    height: 373px;
+    top: -34px;
+  }
+  .stream-info .wrapper {
+    margin-top: 0;
+    height: 373px;
+  }
+  .stream-info-content {
+    margin-top: 82px;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .stream-info-content__ellipse {
+    width: 237.6px;
+    height: 237.6px;
+    top: -244px;
+    left: -48px;
+  }
+  .stream-info-content__text {
+    font-size: 54.2894px;
+    width: 255.64px;
+    height: 204.38px;
+  }
+  .stream-info-buttons {
+    margin: 0;
+    margin-top: 197px;
+  }
+  .backstage-content {
+    padding-top: 60px;
+  }
+  .title-text {
+    padding-left: 4px;
+  }
+  .backstage-content__img {
+    display: none;
+  }
+  .backstage-info {
+    background-position: right -30px center;
+    background-size: contain;
+    height: 476px;
+    margin-top: -35px;
+  }
+  .backstage-text {
+    width: 495px;
+  }
+  .backstage-text__about {
+    margin-top: 25px;
+  }
+  .backstage-text__subittle {
+    margin-top: 33px;
+    padding-left: 4px;
+  }
+  .backstage-text__regular-text {
+    margin-top: 20px;
+  }
+  .pets {
+    margin-top: 28px;
+  }
+  .pet-cards-block {
+    row-gap: 138.76px;
+  }
+  .pet-cards-block .pet-card {
+    width: 285.24px;
+    height: 285.24px;
+  }
+  .pet-cards-block .pet-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .pet-cards-block .pet-card .pet-info {
+    top: -70px;
+    padding: 6.24px 9.11px 10.13px 12.47px;
+  }
+  .pet-ico {
+    width: 25.72px;
+    height: 28.84px;
+  }
+  .pet-card:hover .pet-info {
+    border: 2px solid #FA6F32;
+    border-radius: 5px;
+    top: -4px;
+    background: #fff;
+  }
+  .pet-loc-name__pet-name {
+    font-size: 12.4695px;
+  }
+  .ppet-loc-name__pet-loc {
+    font-size: 11.6901px;
+  }
+  #cheetahs, #penguins {
+    display: none;
+  }
+  .pets-buttons {
+    width: 154px;
+    top: -530px;
+  }
+  .pets-background {
+    margin-top: -167px;
+  }
+  .pets-background__palm {
+    background-size: contain;
+    width: 128px;
+    height: 202px;
+  }
+  .pets-background__strelitzia {
+    width: 175px;
+    height: 131px;
+    background-size: contain;
+  }
+  .pets-content-buttons {
+    margin-top: 106.76px;
+  }
+  .feed-pets {
+    padding: 20px 0 20px;
+  }
+  .feed-pets .wrapper {
+    width: 100%;
+  }
+  .feed-info__tittle {
+    padding-top: 10px;
+    font-size: 42px;
+  }
+  .feed-info {
+    width: 600px;
+    margin: auto;
+  }
+  .feed-info .feed-info__subittle, .feed-info .feed-info__warrning, .feed-info .feed-info__about {
+    padding-left: 0;
+  }
+  .feed-info__subittle {
+    margin-top: 20px;
+    font-size: 22px;
+  }
+  .feed-info__warrning {
+    margin-top: 20px;
+  }
+  .feed-info__about {
+    margin-right: 0;
+  }
+  .feed-info__h3 {
+    margin-top: 33px;
+  }
+  .exploration-card__arrow {
+    display: none;
+  }
+  .feed-exploration {
+    margin-top: -9px;
+    column-gap: 42px;
+  }
+  .feed-pets .wrapper {
+    height: 741px;
+  }
+  .feed-buttons {
+    margin-top: 40px;
+  }
+  .green-arrows {
+    display: flex;
+    column-gap: 124px;
+    top: 5px;
+    left: 143px;
+    position: relative;
+    width: 310px;
+  }
+  .green-arrows__arrow {
+    background-image: url(../../assets/icons/green-arrow.svg);
+    width: 89px;
+    height: 29px;
+    display: inline-block;
+    background-size: cover;
+  }
+  .testimonials__h3 {
+    margin-top: 60px;
+  }
+  .testimonials-block {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    row-gap: 15px;
+    height: 357px;
+    overflow: hidden;
+    padding: 2px;
+  }
+  .testimonials-card {
+    box-sizing: border-box;
+    padding: 15px 29px 8px 12px;
+    width: 596px;
+    height: 109px;
+  }
+  .rew-txt {
+    width: 553px;
+    height: 38px;
+  }
+  .testimonials-slider {
+    display: none;
+  }
+  .testimonials-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+  }
+  .testimonials-buttons .button_squared {
+    width: 240px;
+    height: 54px;
+  }
+  .testimonials {
+    background-position: bottom -65px right -6px;
+    background-size: 120px;
+    height: 608px;
+  }
+  .email-subscribe {
+    display: none;
+  }
+  .footer-left-column .logo {
+    margin-top: 9px;
+    grid-area: logo;
+  }
+  .footer-left-column-buttons {
+    margin-top: 10px;
+    grid-area: button;
+  }
+  .social-logo__name {
+    display: none;
+  }
+  .footer-left-column {
+    grid-area: button-and-socials;
+    display: grid;
+    grid-template-areas: "logo socials" "button socials";
+    column-gap: 276px;
+  }
+  .socials {
+    row-gap: 20px;
+    grid-area: socials;
+    margin-top: 9px;
+  }
+  footer .wrapper {
+    display: grid;
+    grid-template-areas: "button-and-socials button-and-socials" "nav copyright";
+    row-gap: 42px;
+    padding-bottom: 12px;
+  }
+  .footer-center-column {
+    grid-area: nav;
+    margin-left: 0px;
+  }
+  .footer__navigation ul {
+    column-gap: 37px;
   }
 }
 

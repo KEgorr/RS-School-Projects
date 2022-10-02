@@ -1,0 +1,53 @@
+.burger_menu {
+  width: 18px;
+  position: relative;
+}
+
+.burger_menu_lines::before,
+.burger_menu_lines::after,
+.burger_menu_lines {
+  background-color: #fff;
+  position: absolute;
+  width: 18px;
+  height: 2px;
+}
+
+.burger_menu_lines {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.burger_menu_lines::before {
+  content: "";
+  top: -4px;
+}
+
+.burger_menu_lines::after {
+  content: "";
+  top: 4px;
+}
+
+#burger {
+  position: fixed;
+  transform: translateX(-9999999px);
+}
+
+.burger_menu {
+  display: none;
+}
+
+.burger_menu_active {
+  position: fixed;
+  top: 47px;
+  right: 53px;
+  .burger_menu_lines::before,
+  .burger_menu_lines::after,
+  .burger_menu_lines {
+      background-color: #fff;
+  }
+}
+
+.burger_menu:hover {
+  cursor: pointer;
+}

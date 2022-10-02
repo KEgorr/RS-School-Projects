@@ -18,14 +18,20 @@
         </a>
       </div>
       <nav class="header__navigation">
-          <ul>
-            <li>About</li>
-            <li><a href="#">Map</a></li>
-            <li><a href="#">Zoos</a></li>
-            <li><a href="../donate/index.html">Donate</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li class="copyright-link"><a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">Designed by ©</a></li>
-          </ul>
+        <label>
+          <div class="burger_menu">
+              <input type="checkbox" id="burger">
+              <span class="burger_menu_lines"></span>
+          </div>
+        </label>
+        <ul>
+          <li>About</li>
+          <li><a href="#">Map</a></li>
+          <li><a href="#">Zoos</a></li>
+          <li><a href="../donate/index.html">Donate</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li class="copyright-link"><a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online">Designed by ©</a></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -90,7 +96,7 @@
       <div class="wrapper">
         <div class="pets-content">
           <div class="pet-cards-block">
-            <div class="pet-card">
+            <div class="pet-card" id="pandas">
               <img src="../../assets/images/pandas.png" alt="pandas">
               <div class="pet-info">
                 <div class="pet-loc-name">
@@ -100,7 +106,7 @@
                 <div class="pet-ico"><img src="../../assets/icons/banana-bamboo_icon.svg" alt="banana-bamboo_icon" class="pet-info__pet-logo"></div>
               </div>
             </div>
-            <div class="pet-card">
+            <div class="pet-card" id="eagles">
               <img src="../../assets/images/eagles.png" alt="eagles">
               <div class="pet-info">
                 <div class="pet-loc-name">
@@ -110,7 +116,7 @@
                 <div class="pet-ico"><img src="../../assets/icons/meet-fish_icon.svg" alt="meet-fish_icon" class="pet-info__pet-logo"></div>
               </div>
             </div>
-            <div class="pet-card">
+            <div class="pet-card" id="gorillas">
               <img src="../../assets/images/gorillas.png" alt="gorillas">
               <div class="pet-info">
                 <div class="pet-loc-name">
@@ -120,7 +126,7 @@
                 <div class="pet-ico"><img src="../../assets/icons/banana-bamboo_icon.svg" alt="banana-bamboo_icon" class="pet-info__pet-logo"></div>
               </div>
             </div>
-            <div class="pet-card">
+            <div class="pet-card" id="sloth">
               <img src="../../assets/images/sloth.png" alt="sloth">
               <div class="pet-info">
                 <div class="pet-loc-name">
@@ -130,7 +136,7 @@
                 <div class="pet-ico"><img src="../../assets/icons/banana-bamboo_icon.svg" alt="banana-bamboo_icon" class="pet-info__pet-logo"></div>
               </div>
             </div>
-            <div class="pet-card">
+            <div class="pet-card" id="cheetahs">
               <img src="../../assets/images/cheetahs.png" alt="cheetahs">
               <div class="pet-info">
                 <div class="pet-loc-name">
@@ -140,7 +146,7 @@
                 <div class="pet-ico"><img src="../../assets/icons/meet-fish_icon.svg" alt="meet-fish_icon" class="pet-info__pet-logo"></div>
               </div>
             </div>
-            <div class="pet-card">
+            <div class="pet-card" id="penguins">
               <img src="../../assets/images/penguins.png" alt="penguins">
               <div class="pet-info">
                 <div class="pet-loc-name">
@@ -175,6 +181,10 @@
           <h3 class="h3_regular feed-info__h3">
             How it works
           </h3>
+          <div class="green-arrows">
+            <span class="green-arrows__arrow"></span>
+            <span class="green-arrows__arrow"></span>
+          </div>
           <div class="feed-exploration">
             <div class="exploration-card">
               <div class="exploration-img">
