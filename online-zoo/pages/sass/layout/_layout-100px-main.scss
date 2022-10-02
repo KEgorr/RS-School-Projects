@@ -178,6 +178,9 @@
   .footer__navigation ul {
     column-gap: 48px;
     width: 77px + 212px + 43px;
+    position: relative;
+    top: -4px;
+    left: -8px;
 }
   .footer-right-column {
     position: relative;
@@ -218,10 +221,10 @@
   .donate-visualization-text {
     margin-top: 55px;
     margin-left: -13px;
+    .separator {
+      margin-top: 25px;
   }
-  .separator {
-    margin-top: 25px;
-}
+  }
   .range-bar__1600px {
     display: none;
   }
