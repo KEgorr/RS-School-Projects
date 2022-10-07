@@ -371,12 +371,12 @@ a {
 }
 
 .pets-content-wrapper_move-left {
-  transition: 0.2s;
+  transition: 0.3s;
   transform: translateX(33.33333%);
 }
 
 .pets-content-wrapper_move-right {
-  transition: 0.2s;
+  transition: 0.3s;
   transform: translateX(-33.33333%);
 }
 
@@ -1380,7 +1380,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   .ppet-loc-name__pet-loc {
     font-size: 11.6901px;
   }
-  #cheetahs, #penguins {
+  .pet-card:nth-child(-n+2) {
     display: none;
   }
   .pets-buttons {
@@ -1777,7 +1777,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   .ppet-loc-name__pet-loc {
     font-size: 11.6901px;
   }
-  #cheetahs, #penguins {
+  .pet-card:nth-child(-n+2) {
     display: none;
   }
   .pets-buttons {

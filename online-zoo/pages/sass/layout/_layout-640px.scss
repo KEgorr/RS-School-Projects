@@ -155,7 +155,7 @@
   .ppet-loc-name__pet-loc {
     font-size: 11.6901px;
   }
-  #cheetahs, #penguins {
+  .pet-card:nth-child(-n+2) {
     display: none;
   }
   .pets-buttons {

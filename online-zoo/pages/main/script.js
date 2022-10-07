@@ -46,7 +46,7 @@ function petCardMoveLeft() {
     petCardWrapper.classList.remove("pets-content-wrapper_move-left")
     petButtonLeft.addEventListener("click", petCardMoveLeft)
     petButtonRight.addEventListener("click", petCardMoveRight)
-    }, 250);
+    }, 350);
   petCards = document.querySelectorAll(".pet-card")
   petCards.forEach(el => {
     el.addEventListener('mouseover', petCardHoverHelperOn)
@@ -80,7 +80,7 @@ function petCardMoveRight() {
     petCardWrapper.classList.remove("pets-content-wrapper_move-right")
     petButtonLeft.addEventListener("click", petCardMoveLeft)
     petButtonRight.addEventListener("click", petCardMoveRight)
-    }, 250);
+    }, 350);
   petCards = document.querySelectorAll(".pet-card")
   petCards.forEach(el => {
     el.addEventListener('mouseover', petCardHoverHelperOn)
