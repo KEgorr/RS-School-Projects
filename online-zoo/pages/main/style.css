@@ -308,16 +308,20 @@ a {
 }
 
 .pets {
-  margin-top: 106px;
+  margin-top: 90px;
   display: flex;
   flex-direction: column-reverse;
 }
 
 .pet-cards-block {
+  box-sizing: border-box;
+  width: 1160px;
+  height: 885px;
+  padding: 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  row-gap: 80px;
+  row-gap: 20px;
 }
 .pet-cards-block .pet-card {
   width: 366px;
@@ -336,14 +340,17 @@ a {
   justify-content: space-between;
   width: 1322px;
   position: relative;
-  /* z-index: -1; */
-  top: -600px;
+  top: -608px;
 }
 
 .pets-content {
-  column-gap: 20px;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pets-content-wrapper {
+  display: flex;
 }
 
 .pet-info {
@@ -376,7 +383,7 @@ a {
 .pets-content-buttons {
   display: flex;
   justify-content: center;
-  margin-top: 140px;
+  margin-top: 80px;
 }
 
 .pet-loc-name__pet-name {
@@ -990,10 +997,12 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   }
   .pets-buttons {
     width: 295px;
-    top: -565px;
+    top: -555px;
   }
   .pet-cards-block {
-    row-gap: 145px;
+    row-gap: 84px;
+    width: 940px;
+    height: 819px;
   }
   .pet-cards-block .pet-card {
     width: 294px;
@@ -1006,6 +1015,9 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   }
   .pet-cards-block .pet-card .pet-info {
     top: -70px;
+  }
+  .pets-content-buttons {
+    margin-top: 60px;
   }
   .pet-card:hover .pet-info {
     border: 2px solid #FA6F32;
@@ -1308,7 +1320,9 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     margin-top: 28px;
   }
   .pet-cards-block {
-    row-gap: 138.76px;
+    row-gap: 86.76px;
+    width: 604px;
+    height: 765px;
   }
   .pet-cards-block .pet-card {
     width: 285.24px;
@@ -1344,7 +1358,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   }
   .pets-buttons {
     width: 154px;
-    top: -530px;
+    top: -525px;
   }
   .pets-background {
     margin-top: -167px;
@@ -1360,7 +1374,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     background-size: contain;
   }
   .pets-content-buttons {
-    margin-top: 106.76px;
+    margin-top: 57.76px;
   }
   .feed-pets {
     padding: 20px 0 20px;
@@ -1584,6 +1598,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     width: 180px;
     height: 42px;
     padding: 11px 10px 11px 6px;
+    background-position: 158px center;
   }
   .radio-buttons {
     margin-top: 31px;
@@ -1698,8 +1713,10 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     margin-top: 72px;
   }
   .pet-cards-block {
-    row-gap: 63.76px;
+    row-gap: 14px;
     justify-content: center;
+    width: 300px;
+    height: 1388px;
   }
   .pet-cards-block .pet-card {
     width: 285.24px;
@@ -1740,7 +1757,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     display: none;
   }
   .pets-content-buttons {
-    margin-top: 62.76px;
+    margin-top: 21.76px;
   }
   .pets-background {
     margin-top: -10px;
@@ -2052,7 +2069,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     width: 180px;
     height: 42px;
     padding: 11px 10px 11px 6px;
-    background: transparent;
+    background-position: 158px center;
   }
   .radio-buttons {
     margin-top: 25px;

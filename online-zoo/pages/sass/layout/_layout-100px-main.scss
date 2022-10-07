@@ -62,10 +62,12 @@
   }
   .pets-buttons {
     width: 62px * 2 + 171px;
-    top: -565px;
+    top: -555px;
   }
   .pet-cards-block {
-    row-gap: 145px;
+    row-gap: 84px;
+    width: 940px;
+    height: 819px;
     .pet-card {
       width: 294px;
       height: 294px;
@@ -78,6 +80,9 @@
         top: -70px;
       }
     }
+  }
+  .pets-content-buttons {
+    margin-top: 60px;
   }
   .pet-card:hover .pet-info {
     border: 2px solid #FA6F32;

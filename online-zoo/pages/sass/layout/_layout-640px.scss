@@ -122,7 +122,9 @@
     margin-top: 28px;
   }
   .pet-cards-block {
-    row-gap: 138.76px;
+    row-gap: 86.76px;
+    width: 604px;
+    height: 765px;
     .pet-card {
       width: 285.24px;
       height: 285.24px;
@@ -158,8 +160,7 @@
   }
   .pets-buttons {
     width: 62px * 2 + 30px;
-    top: -530px;
-
+    top: -525px;
   }
   .pets-background {
     margin-top: -167px;
@@ -175,7 +176,7 @@
     background-size: contain;
   }
   .pets-content-buttons {
-    margin-top: 106.76px;
+    margin-top: 57.76px;
   }
   .feed-pets {
     padding: 20px 0 20px;

@@ -107,8 +107,10 @@
     margin-top: 72px;
   }
   .pet-cards-block {
-    row-gap: 63.76px;
+    row-gap: 14px;
     justify-content: center;
+    width: 300px;
+    height: 1388px;
     .pet-card {
       width: 285.24px;
       height: 285.24px;
@@ -149,7 +151,7 @@
     display: none;
   }
   .pets-content-buttons {
-    margin-top: 62.76px;
+    margin-top: 21.76px;
   }
   .pets-background {
     margin-top: -10px;
