@@ -45,6 +45,17 @@
   }
 }
 
+.block_left {
+  order: 1;
+}
+.block_center {
+  order: 2;
+}
+
+.block_right{
+  order: 3;
+}
+
 .pets-buttons {
   margin: auto;
   display: flex;
@@ -59,8 +70,22 @@
   justify-content: center;
   overflow: hidden;
 }
+
+.shadow {
+  transition: 0.5s;
+  box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.5);
+}
 .pets-content-wrapper {
   display: flex;
+}
+
+.pets-content-wrapper_move-left {
+  transition: 0.2s;
+  transform: translateX(33.33333%);
+}
+.pets-content-wrapper_move-right {
+  transition: 0.2s;
+  transform: translateX(-33.33333%);
 }
 .pet-info {
   display: flex;
