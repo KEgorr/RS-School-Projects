@@ -1239,7 +1239,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   .header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 101;
   }
   .header .logo {
     width: 46.86px;
@@ -1638,7 +1638,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   .header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 101;
   }
   .header .logo {
     width: 46.86px;
