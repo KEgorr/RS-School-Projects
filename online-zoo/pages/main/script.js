@@ -140,9 +140,13 @@ function petCardMoveRight() {
 
 function testimonialsCarousel() {
   let testimonialsSliderValue = testimonialsSlider.value
-  testimonialsWrapper.style.transform = `translateX(${testimonialsSliderValue * -25.52}%)`
     if (width1600.matches) {
+      testimonialsSlider.max = 8
       testimonialsWrapper.style.transform = `translateX(${testimonialsSliderValue * -34.15}%)`
+    }
+    else {
+      testimonialsSlider.max = 7
+      testimonialsWrapper.style.transform = `translateX(${testimonialsSliderValue * -25.52}%)`
     }
 }
 
