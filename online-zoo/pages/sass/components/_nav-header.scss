@@ -1,5 +1,6 @@
 .header__navigation {
   ul {
+    transition: 0.2s;
     display: flex;
     column-gap: 58px;
     width: 1160px - 82px - 63px;
@@ -14,7 +15,7 @@
       a {
         color: #fff;
       }
-      &:first-child {
+      &:nth-child(2) {
         background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

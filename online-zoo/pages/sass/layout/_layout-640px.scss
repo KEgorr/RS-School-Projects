@@ -33,13 +33,54 @@
       font-size: 12.2899px;
     }
   }
+  .burger_menu {
+    display: block;
+  }
+  .burger-logo {
+    display: block;
+    width: 65.6px;
+    height: 41.6px;
+    border: 0.8px solid #FE9013;
+    border-radius: 2px;
+    margin: 10px 0 15px 10px;
+    .logo__title {
+      margin: 2.84px 3.8px;
+      font-size: 15.2116px;
+      line-height: 120%;
+      text-align: center;
+      color:#FE9013;
+    }
+  }
   .header .wrapper {
     height: 34px;
     justify-content: space-between;
   }
   .burger_menu {
     display: block;
-    z-index: 2;
+  }
+  .burger-logo {
+    display: block;
+    width: 65.6px;
+    height: 41.6px;
+    border: 0.8px solid #FE9013;
+    border-radius: 2px;
+    margin: 10px 0 15px 10px;
+    .logo__title {
+      margin: 2.84px 3.8px;
+      font-size: 15.2116px;
+      line-height: 120%;
+      text-align: center;
+      color:#FE9013;
+    }
+    .logo_ico__burger-menu {
+      position: relative;
+      width: 9.62px;
+      height: 15.79px;
+      left: 8px;
+      top: -23.5px;
+      display: inline-block;
+      background-image: url(../../assets/icons/bamboo-burger-logo.svg);
+    }
   }
   .header__navigation ul {
     flex-direction: column;
@@ -51,8 +92,11 @@
     right: 0;
     width: 100%;
     height: 329px;
-    transform: translateX(100%);
+    transform: translateY(-100%);
     background-color: #fff;
+    li {
+      margin-left: 10px;
+    }
     li a {
       color: #333B41;
     }

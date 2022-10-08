@@ -70,6 +70,10 @@ a {
   margin-right: 63px;
 }
 
+.burger-logo {
+  display: none;
+}
+
 .logo__title {
   margin: 3.55px 4.74px;
   font-size: 19.0145px;
@@ -89,6 +93,7 @@ a {
 }
 
 .header__navigation ul {
+  transition: 0.2s;
   display: flex;
   column-gap: 58px;
   width: 1015px;
@@ -105,7 +110,7 @@ a {
 .header__navigation ul li a {
   color: #fff;
 }
-.header__navigation ul li:first-child {
+.header__navigation ul li:nth-child(2) {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -891,6 +896,7 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   width: 18px;
   height: 10px;
   position: relative;
+  z-index: 102;
 }
 
 .burger_menu_lines::before,
@@ -930,12 +936,14 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   left: 0%;
   top: 0;
   transform: rotate(45deg);
+  background-color: #333B41;
 }
 
 #burger:checked ~ .burger_menu_lines::before {
   left: 0%;
   top: 0;
   transform: rotate(-45deg);
+  background-color: #333B41;
 }
 
 #burger:checked ~ .burger_menu_lines {
@@ -946,19 +954,12 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   display: none;
 }
 
-.burger_menu_active {
-  position: fixed;
-  top: 47px;
-  right: 53px;
-}
-.burger_menu_active .burger_menu_lines::before,
-.burger_menu_active .burger_menu_lines::after,
-.burger_menu_active .burger_menu_lines {
-  background-color: #fff;
-}
-
 .burger_menu:hover {
   cursor: pointer;
+}
+
+.burger-active_ul {
+  box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.5);
 }
 
 .range-bar__1000px {
@@ -1258,13 +1259,54 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     line-height: 120%;
     font-size: 12.2899px;
   }
+  .burger_menu {
+    display: block;
+  }
+  .burger-logo {
+    display: block;
+    width: 65.6px;
+    height: 41.6px;
+    border: 0.8px solid #FE9013;
+    border-radius: 2px;
+    margin: 10px 0 15px 10px;
+  }
+  .burger-logo .logo__title {
+    margin: 2.84px 3.8px;
+    font-size: 15.2116px;
+    line-height: 120%;
+    text-align: center;
+    color: #FE9013;
+  }
   .header .wrapper {
     height: 34px;
     justify-content: space-between;
   }
   .burger_menu {
     display: block;
-    z-index: 2;
+  }
+  .burger-logo {
+    display: block;
+    width: 65.6px;
+    height: 41.6px;
+    border: 0.8px solid #FE9013;
+    border-radius: 2px;
+    margin: 10px 0 15px 10px;
+  }
+  .burger-logo .logo__title {
+    margin: 2.84px 3.8px;
+    font-size: 15.2116px;
+    line-height: 120%;
+    text-align: center;
+    color: #FE9013;
+  }
+  .burger-logo .logo_ico__burger-menu {
+    position: relative;
+    width: 9.62px;
+    height: 15.79px;
+    left: 8px;
+    top: -23.5px;
+    display: inline-block;
+    background-image: url(../../assets/icons/bamboo-burger-logo.svg);
   }
   .header__navigation ul {
     flex-direction: column;
@@ -1276,8 +1318,11 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     right: 0;
     width: 100%;
     height: 329px;
-    transform: translateX(100%);
+    transform: translateY(-100%);
     background-color: #fff;
+  }
+  .header__navigation ul li {
+    margin-left: 10px;
   }
   .header__navigation ul li a {
     color: #333B41;
@@ -1663,7 +1708,30 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   }
   .burger_menu {
     display: block;
-    z-index: 2;
+  }
+  .burger-logo {
+    display: block;
+    width: 65.6px;
+    height: 41.6px;
+    border: 0.8px solid #FE9013;
+    border-radius: 2px;
+    margin: 10px 0 15px 10px;
+  }
+  .burger-logo .logo__title {
+    margin: 2.84px 3.8px;
+    font-size: 15.2116px;
+    line-height: 120%;
+    text-align: center;
+    color: #FE9013;
+  }
+  .burger-logo .logo_ico__burger-menu {
+    position: relative;
+    width: 9.62px;
+    height: 15.79px;
+    left: 8px;
+    top: -23.5px;
+    display: inline-block;
+    background-image: url(../../assets/icons/bamboo-burger-logo.svg);
   }
   .header__navigation ul {
     flex-direction: column;
@@ -1675,8 +1743,11 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     right: 0;
     width: 100%;
     height: 329px;
-    transform: translateX(100%);
+    transform: translateY(-100%);
     background-color: #fff;
+  }
+  .header__navigation ul li {
+    margin-left: 10px;
   }
   .header__navigation ul li a {
     color: #333B41;

@@ -2,6 +2,7 @@
   width: 18px;
   height: 10px;
   position: relative;
+  z-index: 102;
 }
 
 .burger_menu_lines::before,
@@ -41,12 +42,14 @@
   left: 0%;
   top:0;
   transform: rotate(45deg);
+  background-color: #333B41;
 }
 
 #burger:checked ~ .burger_menu_lines::before {
   left: 0%;
   top:0;
   transform: rotate(-45deg);
+  background-color: #333B41;
 }
 
 #burger:checked ~ .burger_menu_lines {
@@ -58,17 +61,10 @@
   display: none;
 }
 
-.burger_menu_active {
-  position: fixed;
-  top: 47px;
-  right: 53px;
-  .burger_menu_lines::before,
-  .burger_menu_lines::after,
-  .burger_menu_lines {
-      background-color: #fff;
-  }
-}
-
 .burger_menu:hover {
   cursor: pointer;
+}
+
+.burger-active_ul {
+  box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.5);
 }

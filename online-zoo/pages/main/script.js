@@ -1,11 +1,57 @@
 let petCards = document.querySelectorAll(".pet-card")
 
 
-let petButtonLeft = document.querySelector(".pets-buttons__left")
-let petButtonRight = document.querySelector(".pets-buttons__right")
+const petButtonLeft = document.querySelector(".pets-buttons__left")
+const petButtonRight = document.querySelector(".pets-buttons__right")
+const burgerMenuBtn = document.querySelector("#burger")
+const burgerMenu = document.querySelector(".burger_menu")
+const sections = document.querySelectorAll("section")
+const li = document.querySelectorAll("li")
+const nav = document.querySelector('nav ul')
+
 let petCardWrapper = document.querySelector(".pets-content-wrapper")
 let petCardsArr = [].slice.call(petCards)
 
+function burgerMenuActive() {
+  if (burgerMenuBtn.checked) {
+    burgerMenuBtn.checked = true
+    nav.classList.add("burger-active_ul")
+    nav.style.transform = "translateY(0%)";
+    burgerMenu.classList.add('burger_menu_active')
+    setTimeout(() => {
+      sections.forEach(element => {
+        element.addEventListener("click", burgerMenuClose)
+      })
+      document.querySelector("footer").addEventListener("click", burgerMenuClose)
+    }, 0.1)
+    li.forEach(element => {
+      element.addEventListener("click", burgerMenuClose)
+    })
+  }
+  else {
+    burgerMenu.classList.remove('burger_menu_active')
+    nav.style.transform = "translateY(-100%)"
+    nav.classList.remove("burger-active_ul")
+  }
+}
+
+function burgerMenuClose() {
+  if (burgerMenu.classList.contains("burger_menu_active")) {
+    setTimeout(() => {
+      burgerMenuBtn.checked = false
+    }, 0.1)
+    nav.style.transform = "translateY(-100%)";
+    nav.classList.remove("burger-active_ul")
+    burgerMenu.classList.remove('burger_menu_active')
+    sections.forEach(element => {
+      element.removeEventListener("click", burgerMenuClose)
+    });
+    li.forEach(element => {
+      element.removeEventListener("click", burgerMenuClose)
+    })
+    document.querySelector("footer").removeEventListener("click", burgerMenuClose)
+  }
+}
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -91,12 +137,6 @@ function petCardMoveRight() {
 }
 
 
-
-
-
-
-
-
 petButtonLeft.addEventListener("click", petCardMoveLeft)
 petButtonRight.addEventListener("click", petCardMoveRight)
 
@@ -115,3 +155,4 @@ petCards.forEach(el => {
   el.addEventListener('mouseout', petCardHoverHelperOff)
 })
 
+burgerMenuBtn.addEventListener('click', burgerMenuActive)
