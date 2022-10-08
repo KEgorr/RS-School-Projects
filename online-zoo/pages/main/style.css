@@ -643,11 +643,15 @@ a {
 }
 
 .testimonials-block {
-  display: flex;
   overflow: hidden;
+}
+
+.testimonials-block__wrapper {
   padding: 2px;
   column-gap: 28px;
   margin-top: 47px;
+  display: flex;
+  transition: 0.3s;
 }
 
 .rew-txt::-webkit-scrollbar {

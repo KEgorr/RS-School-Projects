@@ -8,6 +8,8 @@ const burgerMenu = document.querySelector(".burger_menu")
 const sections = document.querySelectorAll("section")
 const li = document.querySelectorAll("li")
 const nav = document.querySelector('nav ul')
+const testimonialsSlider = document.querySelector(".slider")
+const testimonialsWrapper = document.querySelector(".testimonials-block__wrapper")
 
 let petCardWrapper = document.querySelector(".pets-content-wrapper")
 let petCardsArr = [].slice.call(petCards)
@@ -136,6 +138,12 @@ function petCardMoveRight() {
   })
 }
 
+function testimonialsCarousel() {
+  let testimonialsSliderValue = testimonialsSlider.value
+  testimonialsWrapper.style.transform = `translateX(${testimonialsSliderValue * -25.5}%)`;
+}
+
+testimonialsSlider.addEventListener("input", testimonialsCarousel)
 
 petButtonLeft.addEventListener("click", petCardMoveLeft)
 petButtonRight.addEventListener("click", petCardMoveRight)
