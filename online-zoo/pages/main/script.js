@@ -140,8 +140,23 @@ function petCardMoveRight() {
 
 function testimonialsCarousel() {
   let testimonialsSliderValue = testimonialsSlider.value
-  testimonialsWrapper.style.transform = `translateX(${testimonialsSliderValue * -25.5}%)`;
+  testimonialsWrapper.style.transform = `translateX(${testimonialsSliderValue * -25.52}%)`
+    if (width1600.matches) {
+      testimonialsWrapper.style.transform = `translateX(${testimonialsSliderValue * -34.15}%)`
+    }
 }
+
+const width1000 = window.matchMedia("(max-width:999px)")
+const width1600 = window.matchMedia("(max-width:1599px)")
+
+function testimonialsSetDefault () {
+  if (width1000.matches) {
+    testimonialsWrapper.style.transform = `translateX(0%)`
+  }
+}
+
+width1000.addListener(testimonialsSetDefault)
+width1600.addListener(testimonialsCarousel)
 
 testimonialsSlider.addEventListener("input", testimonialsCarousel)
 

@@ -258,13 +258,11 @@
     font-size: 24px;
     line-height: 120%;
   }
-  .testimonials-block {
-    display: flex;
+  .testimonials-block__wrapper {
     flex-direction: column;
     margin-top: 20px;
     row-gap: 18px;
     height: 357px;
-    overflow: hidden;
     padding: 2px;
   }
   .testimonials-card {

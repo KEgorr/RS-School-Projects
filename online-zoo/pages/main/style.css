@@ -1118,12 +1118,6 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     width: 259px;
     height: 309px;
   }
-  .testimonials-block {
-    overflow: hidden;
-    column-gap: 28px;
-    padding: 2px;
-    margin-top: 30px;
-  }
   .testimonials-buttons {
     margin-top: 52px;
   }
@@ -1515,13 +1509,11 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
   .testimonials__h3 {
     margin-top: 60px;
   }
-  .testimonials-block {
-    display: flex;
+  .testimonials-block__wrapper {
     flex-direction: column;
     margin-top: 30px;
     row-gap: 15px;
     height: 357px;
-    overflow: hidden;
     padding: 2px;
   }
   .testimonials-card {
@@ -1942,13 +1934,11 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     font-size: 24px;
     line-height: 120%;
   }
-  .testimonials-block {
-    display: flex;
+  .testimonials-block__wrapper {
     flex-direction: column;
     margin-top: 20px;
     row-gap: 18px;
     height: 357px;
-    overflow: hidden;
     padding: 2px;
   }
   .testimonials-card {
