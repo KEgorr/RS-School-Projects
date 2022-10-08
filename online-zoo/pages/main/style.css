@@ -1515,6 +1515,10 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     row-gap: 15px;
     height: 357px;
     padding: 2px;
+    overflow: scroll;
+  }
+  .testimonials-block__wrapper::-webkit-scrollbar {
+    display: none;
   }
   .testimonials-card {
     box-sizing: border-box;
@@ -1940,6 +1944,10 @@ input[type=email]:invalid:focus + .email-form-button .button__submit {
     row-gap: 18px;
     height: 357px;
     padding: 2px;
+    overflow: scroll;
+  }
+  .testimonials-block__wrapper::-webkit-scrollbar {
+    display: none;
   }
   .testimonials-card {
     box-sizing: border-box;

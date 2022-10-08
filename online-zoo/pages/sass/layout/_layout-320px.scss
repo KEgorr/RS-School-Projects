@@ -264,6 +264,10 @@
     row-gap: 18px;
     height: 357px;
     padding: 2px;
+    overflow: scroll;
+  }
+  .testimonials-block__wrapper::-webkit-scrollbar {
+    display: none;
   }
   .testimonials-card {
   box-sizing: border-box;
