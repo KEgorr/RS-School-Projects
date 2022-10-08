@@ -31,7 +31,7 @@
 
 .header__navigation_donate-page {
   ul {
-    li:first-child {
+    li:nth-child(2) {
       background: #FFFFFF;
       -webkit-background-clip: text;
       -webkit-text-fill-color: #fff;
@@ -41,7 +41,7 @@
         -webkit-text-fill-color: transparent;
       }
     }
-    li:nth-child(4) {
+    li:nth-child(5) {
       background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
