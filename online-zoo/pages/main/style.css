@@ -644,7 +644,9 @@ a {
 
 .testimonials-block {
   display: flex;
-  column-gap: 30px;
+  overflow: hidden;
+  padding: 2px;
+  column-gap: 28px;
   margin-top: 47px;
 }
 
