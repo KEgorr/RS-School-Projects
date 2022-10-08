@@ -10,6 +10,7 @@ const li = document.querySelectorAll("li")
 const nav = document.querySelector('nav ul')
 const testimonialsSlider = document.querySelector(".slider")
 const testimonialsWrapper = document.querySelector(".testimonials-block__wrapper")
+const testimonialCards = document.querySelectorAll(".testimonials-card")
 
 let petCardWrapper = document.querySelector(".pets-content-wrapper")
 let petCardsArr = [].slice.call(petCards)
@@ -159,7 +160,60 @@ function testimonialsSetDefault () {
   }
 }
 
+function testimonialsPopUpCreate(id) {
+  if (width1000.matches) {
+    let search = id.currentTarget
+
+    let popUpWindow = document.createElement("div")
+    popUpWindow.classList.add("testimonials-popup")
+  
+    let popUpCloseIcon = document.createElement("span")
+    popUpCloseIcon.classList.add("testimonials-close-icon")
+    popUpWindow.append(popUpCloseIcon)
+  
+    popUpWindow.append(search.cloneNode(true))
+  
+    document.querySelector("body").prepend(popUpWindow)
+    document.querySelector("body").classList.add("scroll-off")
+    setTimeout(() => {
+      sections.forEach(element => {
+        element.addEventListener("click", testimonialsPopUpClose)
+      })
+      testimonialCards.forEach(el => {
+        el.removeEventListener("click", testimonialsPopUpCreate)
+      })
+      document.querySelector("footer").addEventListener("click", testimonialsPopUpClose)
+      document.querySelector("header").addEventListener("click", testimonialsPopUpClose)
+      popUpCloseIcon.addEventListener("click", testimonialsPopUpClose)
+    },0.1);
+}
+}
+
+function testimonialsPopUpClose() {
+  let popUpWindow = document.querySelector(".testimonials-popup")
+  popUpWindow.classList.add("testimonials-popup__removal")
+  document.querySelector("body").classList.remove("scroll-off")
+  setTimeout(() => {
+    testimonialCards.forEach(el => {
+      el.addEventListener("click", testimonialsPopUpCreate)
+    })
+    sections.forEach(element => {
+      element.removeEventListener("click", testimonialsPopUpClose)
+    })
+    document.querySelector("footer").removeEventListener("click", testimonialsPopUpClose)
+    document.querySelector("header").removeEventListener("click", testimonialsPopUpClose)
+  }, 0.1)
+  setTimeout(() => {
+    popUpWindow.remove()
+  }, 390);
+}
+
+testimonialCards.forEach(el => {
+  el.addEventListener("click", testimonialsPopUpCreate)
+})
+
 width1000.addListener(testimonialsSetDefault)
+width1000.addListener(testimonialsPopUpClose)
 width1600.addListener(testimonialsCarousel)
 
 testimonialsSlider.addEventListener("input", testimonialsCarousel)
