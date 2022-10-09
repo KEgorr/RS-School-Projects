@@ -54,7 +54,7 @@
 
 .donate-slider {
   margin-top: 48px;
-  input[type="range"] {
+  .input-range {
     -webkit-appearance: none;
     -moz-appearance: none;
     box-sizing: border-box;
@@ -76,18 +76,80 @@
       top: 552px;
       left: 119px;
     }
+    &::-webkit-slider-runnable-track {
+      height: 40px;
+      background-color: transparent;
+      z-index: 3;
+      cursor: pointer;
+    }
+    &::-webkit-slider-thumb {
+      cursor: pointer;
+      position: relative;
+      border: 2px solid #FE9013;
+      outline: 2px solid #FE9013;
+      outline-offset: -10.52px;
+      width: 40px;
+      height: 40px;
+      z-index: 10;
+      border-radius: 100%;
+      background: transparent;
+      -webkit-appearance: none;
+    }
+    &::-moz-range-track {
+      height: 40px;
+      background-color: transparent;
+      z-index: 3;
+      cursor: pointer;
+    }
+    &::-moz-range-thumb {
+      cursor: pointer;
+      position: relative;
+      border: 2px solid #FE9013;
+      outline: 2px solid #FE9013;
+      outline-offset: -10.52px;
+      width: 40px;
+      height: 40px;
+      z-index: 10;
+      border-radius: 100%;
+      background: transparent;
+      -webkit-appearance: none;
+    }
   }
-  input[type="range"]::-webkit-slider-runnable-track {
+}
+
+.non-track {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-sizing: border-box;
+  appearance: none;
+  width: 976px;
+  height: 27px;
+  background: #404950;
+  border-radius: 2px;
+  padding: 0 12px;
+  z-index: 2;
+  margin-top: 17px;
+  &::before {
+    content: "";
+    width:915px;
+    background-color: #72828E;
+    display: inline-block;
+    position: absolute;
+    height: 2px;
+    top: 552px;
+    left: 119px;
+  }
+  &::-webkit-slider-runnable-track {
     height: 40px;
     background-color: transparent;
     z-index: 3;
     cursor: pointer;
   }
-  input[type="range"]::-webkit-slider-thumb {
+  &::-webkit-slider-thumb {
     cursor: pointer;
     position: relative;
-    border: 2px solid #FE9013;
-    outline: 2px solid #FE9013;
+    border: none;
+    outline: none;
     outline-offset: -10.52px;
     width: 40px;
     height: 40px;
@@ -96,14 +158,13 @@
     background: transparent;
     -webkit-appearance: none;
   }
-  
-  input[type="range"]::-moz-range-track {
+  &::-moz-range-track {
     height: 40px;
     background-color: transparent;
     z-index: 3;
     cursor: pointer;
   }
-  input[type="range"]::-moz-range-thumb {
+  &::-moz-range-thumb {
     cursor: pointer;
     position: relative;
     border: 2px solid #FE9013;
@@ -117,6 +178,7 @@
     -webkit-appearance: none;
   }
 }
+
 
 .slider-in-beetween-tracks {
   display: flex;
@@ -149,6 +211,8 @@
   line-height: 140%;
   text-transform: uppercase;
   color: #FE9013;
+  animation-name: amountSelection;
+  animation-duration: 0.5s;
 }
 
 .donate-another-amount {
@@ -208,3 +272,14 @@ input[type="radio"]:checked + .custom-radio-btn::before {
   transform: translate(-50%, -50%) scale(1);
 }  
 
+@keyframes amountSelection {
+  0% {
+    font-size: 26px;
+  }
+  50% {
+    font-size: 32px;
+  }
+  100% {
+    font-size: 26px;
+  }
+}

@@ -413,7 +413,7 @@
   }
   .donate-slider {
     margin-top: 40px;
-    input[type="range"] {
+    .input-range {
       width: 600px;
       padding: 0 23px;
       margin-top: 7px;
@@ -423,6 +423,17 @@
         top: 542px;
         left: 38px;
       }
+    }
+  }
+  .non-track {
+    width: 600px;
+    padding: 0 23px;
+    margin-top: 7px;
+    &::before {
+      content: "";
+      width: 524px;
+      top: 542px;
+      left: 38px;
     }
   }
   .slider-in-beetween-tracks {
@@ -444,9 +455,6 @@
   }
   .donate-value__value:nth-child(-n + 3) {
     display: none;
-  }
-  .donate-value__value:nth-child(6) {
-    color: #FE9013;
   }
   .donate-another-amount input[type=number] {
     width: 180px;

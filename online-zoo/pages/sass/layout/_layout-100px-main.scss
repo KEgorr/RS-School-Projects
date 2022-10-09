@@ -234,7 +234,7 @@
   .donate-slider {
     margin-top: 48px;
     padding-left: 65px;
-    input[type="range"] {
+    .input-range {
       width: 810px;
       padding: 0;
       margin-top: 15px;
@@ -244,6 +244,17 @@
         top: 525px;
         left: 79px;
       }
+    }
+  }
+  .non-track {
+    width: 810px;
+    padding: 0;
+    margin-top: 15px;
+    &::before {
+      content: "";
+      width: 780px;
+      top: 525px;
+      left: 79px;
     }
   }
   .slider-in-beetween-tracks {
