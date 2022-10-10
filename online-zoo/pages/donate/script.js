@@ -31,7 +31,7 @@ function burgerMenuActive() {
   }
   else {
     burgerMenu.classList.remove('burger_menu_active')
-    nav.style.transform = "translateY(-100%)"
+    nav.style.transform = ""
     nav.classList.remove("burger-active_ul")
   }
 }
@@ -41,7 +41,7 @@ function burgerMenuClose() {
     setTimeout(() => {
       burgerMenuBtn.checked = false
     }, 0.1)
-    nav.style.transform = "";
+    nav.style.transform = ""
     nav.classList.remove("burger-active_ul")
     burgerMenu.classList.remove('burger_menu_active')
     sections.forEach(element => {
