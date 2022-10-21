@@ -1,0 +1,16 @@
+.nav__button {
+  height: 40px;
+  width: 100px;
+  border-radius: 15px;
+  color: $contrastColor;
+  background-color: $bodyBackGroundColor;
+}
+
+.nav__button_sound {
+  background-image: url("../../images/sound-logo.svg");
+  background-size: contain;
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  border: none;
+}
