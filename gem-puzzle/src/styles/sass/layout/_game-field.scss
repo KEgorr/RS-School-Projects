@@ -4,8 +4,9 @@ body {
 
 .current-progress {
   display: flex;
-  justify-content: space-between;
-  width: 1000px;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 720px;
   height: 80px;
   margin: 0 auto;
 }

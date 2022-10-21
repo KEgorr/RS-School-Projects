@@ -1,7 +1,7 @@
 import { isSolvable } from "./is-solvable.js"
 import {shuffle} from "./shuffle-arr.js"
 import { findTileToMove } from "./move-tiles.js"
-
+import { updateMovesCount, resetMovesCount } from "./move-tiles.js"
 
 const header = document.createElement("header")
 const nav = document.createElement("nav")
@@ -39,10 +39,51 @@ currentProgress.classList.add("current-progress")
 
 const progressTimer = document.createElement("span")
 progressTimer.classList.add("current-progress__timer")
-const movesCount = document.createElement("span")
+let movesCount = document.createElement("span")
 movesCount.classList.add("current-progress__moves-count")
 
 currentProgress.append(progressTimer,movesCount)
+
+let seconds = 0
+let secondsDecade = 0
+let minutes = 0
+let minutesDecade = 0
+
+function timerStop() {
+  progressTimer.innerHTML = "00:00"
+  seconds = 0
+  secondsDecade = 0
+  minutes = 0
+  minutesDecade = 0
+  clearInterval(timerID)
+}
+
+function timer() {
+  progressTimer.innerHTML = `${minutesDecade}${minutes}:${secondsDecade}${seconds}`
+  seconds++
+  if (seconds === 10) {
+    secondsDecade++
+    if (secondsDecade === 6) {
+      minutes++
+      secondsDecade = 0
+      if (minutes === 10) {
+        minutesDecade++
+        minutes = 0
+        if (minutesDecade === 6) {
+          seconds="#"
+          minutes="#"
+          secondsDecade="#"
+          minutesDecade="#"
+          progressTimer.innerHTML = `${minutesDecade}${minutes}:${secondsDecade}${seconds}`
+          clearInterval(timerID)
+        }
+      }
+    }
+    seconds = 0
+  }
+}
+
+let timerID = setInterval(timer, 1000);
 
 const gameField = document.createElement("div")
 gameField.classList.add("game-field")
@@ -77,7 +118,11 @@ function createGemPuzzleGame (number) {
     gameField.append(element)
   });
   findTileToMove()
-}
+  timerStop()
+  timerID = setInterval(timer, 1000)
+  resetMovesCount()
+  updateMovesCount()
+} 
 
 createGemPuzzleGame(4)
 fieldSizeSelection.value = 4

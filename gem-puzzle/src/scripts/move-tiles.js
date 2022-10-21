@@ -1,15 +1,21 @@
-const gameField = document.querySelector(".game-field")
+let movesCount = 0
 
+export function updateMovesCount() {
+  let movesCountField = document.querySelector(".current-progress__moves-count")
+  movesCountField.innerHTML = `Total Moves: ${movesCount}`
+  movesCount++
+}
 
-function exchangeElements(element1, element2)
-{
-    var clonedElement1 = element1.cloneNode(true);
-    var clonedElement2 = element2.cloneNode(true);
+export function resetMovesCount() {
+  movesCount = 0
+}
 
-    element2.parentNode.replaceChild(clonedElement1, element2);
-    element1.parentNode.replaceChild(clonedElement2, element1);
-
-    return clonedElement1;
+function exchangeElements(element1, element2) {
+  var clonedElement1 = element1.cloneNode(true)
+  var clonedElement2 = element2.cloneNode(true)
+  element2.parentNode.replaceChild(clonedElement1, element2)
+  element1.parentNode.replaceChild(clonedElement2, element1)
+  return clonedElement1
 }
 
 function moveTiles (movedTile) {
@@ -20,10 +26,10 @@ function moveTiles (movedTile) {
     element.removeEventListener("click", moveLeft)
     element.removeEventListener("click", moveRight)
   });
-  // let movedTile = value.currentTarget
   let emptyTile = document.querySelector(".game-tile_empty")
   exchangeElements(movedTile, emptyTile)
   findTileToMove()
+  updateMovesCount()
 }
 
 function moveDown (value) {
@@ -85,7 +91,6 @@ export function findTileToMove() {
       }
     }
   }
-  console.log(tilesToMove)
 }
 
 
