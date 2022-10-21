@@ -1,0 +1,93 @@
+import { isSolvable } from "./is-solvable.js"
+import {shuffle} from "./shuffle-arr.js"
+import { findTileToMove } from "./move-tiles.js"
+
+
+const header = document.createElement("header")
+const nav = document.createElement("nav")
+
+const fieldSizeText = document.createElement("p")
+
+const fieldSizeSelection = document.createElement("select")
+fieldSizeText.innerHTML = "Field Size:"
+for (let i=3; i<=8; i++) {
+  if (i === 3 || i === 4 || i === 8) {
+    let option = document.createElement("option")
+    option.value = i
+    option.innerHTML = `${i} x ${i}`
+    fieldSizeSelection.append(option)
+  }
+}
+
+const newGameButton = document.createElement("button")
+newGameButton.innerHTML = "New Game"
+newGameButton.classList.add("nav__button")
+const saveButton = document.createElement("button")
+saveButton.innerHTML = "Save"
+saveButton.classList.add("nav__button")
+const recordsButton = document.createElement("button")
+recordsButton.innerHTML = "Records"
+recordsButton.classList.add("nav__button")
+const soundButton = document.createElement("button")
+soundButton.classList.add("nav__button_sound")
+
+nav.append(fieldSizeText,fieldSizeSelection, newGameButton, saveButton, recordsButton, soundButton)
+header.append(nav)
+
+const currentProgress = document.createElement("div")
+currentProgress.classList.add("current-progress")
+
+const progressTimer = document.createElement("span")
+progressTimer.classList.add("current-progress__timer")
+const movesCount = document.createElement("span")
+movesCount.classList.add("current-progress__moves-count")
+
+currentProgress.append(progressTimer,movesCount)
+
+const gameField = document.createElement("div")
+gameField.classList.add("game-field")
+
+document.querySelector("body").append(header, currentProgress, gameField)
+
+function createGemPuzzleGame (number) {
+  gameField.innerHTML = ""
+  let gameTiles = []
+  for (let i = 1; i<=number * number; i++) {
+    let gameTile = document.createElement("p")
+    let gameFieldWidth = getComputedStyle(gameField, null).width.replace("px", "");
+    gameTile.style.width = `${(gameFieldWidth/number)-5}px`
+    gameTile.style.height = `${(gameFieldWidth/number)-5}px`
+    if (i === number * number) {
+      gameTile.classList.add("game-tile_empty")
+      gameTile.value = false
+    }
+    else {
+      gameTile.classList.add("game-tile")
+      gameTile.value = i
+      gameTile.innerHTML = `${i}`
+    }
+    gameTiles.push(gameTile)
+  }
+  gameTiles = shuffle(gameTiles)
+  
+  while (!isSolvable(gameTiles)) {
+    shuffle(gameTiles)
+  }
+  gameTiles.forEach(element => {
+    gameField.append(element)
+  });
+  findTileToMove()
+}
+
+createGemPuzzleGame(4)
+fieldSizeSelection.value = 4
+
+newGameButton.addEventListener("click", createGemPuzzleGame.bind(null, 4))
+
+function fieldSizeValueChange () {
+  createGemPuzzleGame(fieldSizeSelection.value)
+  newGameButton.addEventListener("click", createGemPuzzleGame.bind(null, fieldSizeSelection.value))
+
+}
+
+fieldSizeSelection.addEventListener("change", fieldSizeValueChange)
