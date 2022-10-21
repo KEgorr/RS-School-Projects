@@ -1,7 +1,7 @@
 import { isSolvable } from "./is-solvable.js"
 import {shuffle} from "./shuffle-arr.js"
 import { findTileToMove } from "./move-tiles.js"
-import { updateMovesCount, resetMovesCount } from "./move-tiles.js"
+import { updateMovesCount, resetMovesCount, soundMute } from "./move-tiles.js"
 
 const header = document.createElement("header")
 const nav = document.createElement("nav")
@@ -33,6 +33,8 @@ soundButton.classList.add("nav__button_sound")
 
 nav.append(fieldSizeText,fieldSizeSelection, newGameButton, saveButton, recordsButton, soundButton)
 header.append(nav)
+
+soundButton.addEventListener("click", soundMute.bind(null, soundButton))
 
 const currentProgress = document.createElement("div")
 currentProgress.classList.add("current-progress")

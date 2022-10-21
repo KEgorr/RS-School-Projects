@@ -1,4 +1,10 @@
+import soundSlice from "@/audio/slice-gem.mp3"
+
 let movesCount = 0
+
+let audio = new Audio()
+audio.src = soundSlice
+audio.volume = 0.2
 
 export function updateMovesCount() {
   let movesCountField = document.querySelector(".current-progress__moves-count")
@@ -8,6 +14,25 @@ export function updateMovesCount() {
 
 export function resetMovesCount() {
   movesCount = 0
+}
+
+export function soundMute(soundButton) {
+  soundButton.classList.add("nav__button_sound__muted")
+  audio.volume = 0
+  soundButton.addEventListener("click", soundUnMute)
+  soundButton.removeEventListener("click", soundMute)
+}
+
+function soundUnMute() {
+  let soundButton = document.querySelector(".nav__button_sound__muted")
+  soundButton.classList.remove("nav__button_sound__muted")
+  audio.volume = 0.2
+  soundButton.addEventListener("click", soundMute)
+  soundButton.removeEventListener("click", soundUnMute)
+}
+
+function playSound() {
+  audio.play()
 }
 
 function exchangeElements(element1, element2) {
@@ -25,6 +50,7 @@ function moveTiles (movedTile) {
     element.removeEventListener("click", moveUp)
     element.removeEventListener("click", moveLeft)
     element.removeEventListener("click", moveRight)
+    element.removeEventListener("click", playSound)
   });
   let emptyTile = document.querySelector(".game-tile_empty")
   exchangeElements(movedTile, emptyTile)
@@ -89,6 +115,7 @@ export function findTileToMove() {
       else if (i === 3) {
         tilesToMove[3].addEventListener("click", moveUp)
       }
+      tilesToMove[i].addEventListener("click", playSound)
     }
   }
 }
