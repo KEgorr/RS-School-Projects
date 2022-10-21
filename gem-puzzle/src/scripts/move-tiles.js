@@ -12,15 +12,51 @@ function exchangeElements(element1, element2)
     return clonedElement1;
 }
 
-function moveTiles (value) {
+function moveTiles (movedTile) {
   let gameTiles = document.querySelectorAll(".game-tile")
   gameTiles.forEach(element => {
-    element.removeEventListener("click", moveTiles)
+    element.removeEventListener("click", moveDown)
+    element.removeEventListener("click", moveUp)
+    element.removeEventListener("click", moveLeft)
+    element.removeEventListener("click", moveRight)
   });
-  let movedTile = value.currentTarget
+  // let movedTile = value.currentTarget
   let emptyTile = document.querySelector(".game-tile_empty")
   exchangeElements(movedTile, emptyTile)
   findTileToMove()
+}
+
+function moveDown (value) {
+  let movedTile = value.currentTarget
+  movedTile.classList.add("game-tile_move-down")
+  setTimeout(() => {
+    movedTile.classList.remove("game-tile_move-down")
+    moveTiles(movedTile)
+  }, 190);
+}
+function moveUp (value) {
+  let movedTile = value.currentTarget
+  movedTile.classList.add("game-tile_move-up")
+  setTimeout(() => {
+    movedTile.classList.remove("game-tile_move-up")
+    moveTiles(movedTile)
+  }, 190);
+}
+function moveLeft (value) {
+  let movedTile = value.currentTarget
+  movedTile.classList.add("game-tile_move-left")
+  setTimeout(() => {
+    movedTile.classList.remove("game-tile_move-left")
+    moveTiles(movedTile)
+  }, 190);
+}
+function moveRight (value) {
+  let movedTile = value.currentTarget
+  movedTile.classList.add("game-tile_move-right")
+  setTimeout(() => {
+    movedTile.classList.remove("game-tile_move-right")
+    moveTiles(movedTile)
+  }, 190);
 }
 
 export function findTileToMove() {
@@ -35,8 +71,23 @@ export function findTileToMove() {
   tilesToMove.push(document.elementFromPoint(emptyTileCoordinatesCenterX, emptyTileCoordinatesCenterY + (emptyTileCoordinates.width)))
   for (let i = 0; i<tilesToMove.length; i++) {
     if (tilesToMove[i] !=null && tilesToMove[i].classList.contains("game-tile")) {
-      tilesToMove[i].addEventListener("click", moveTiles)
+      if (i === 0) {
+        tilesToMove[i].addEventListener("click", moveRight)
+      }
+      else if (i === 1) {
+        tilesToMove[1].addEventListener("click", moveLeft)
+      }
+      else if (i === 2) {
+        tilesToMove[2].addEventListener("click", moveDown)
+      }
+      else if (i === 3) {
+        tilesToMove[3].addEventListener("click", moveUp)
+      }
     }
   }
+  console.log(tilesToMove)
 }
+
+
+
 

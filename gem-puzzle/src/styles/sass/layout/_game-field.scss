@@ -34,3 +34,49 @@ body {
     cursor: pointer;
   }
 }
+
+.game-tile_move-down {
+  animation: move-down 0.2s;
+}
+.game-tile_move-up {
+  animation: move-up  0.2s;
+}
+.game-tile_move-left {
+  animation: move-left 0.2s;
+}
+.game-tile_move-right {
+  animation: move-right 0.2s;
+}
+
+@keyframes move-down {
+  0%{
+    transform: translateY(0%);
+  }
+  100%{
+    transform: translateY(104%);
+  }
+}
+@keyframes move-right {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(104%);
+  }
+}
+@keyframes move-up {
+  0%{
+    transform: translateY(0%);
+  }
+  100%{
+    transform: translateY(-104%);
+  }
+}
+@keyframes move-left {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-104%);
+  }
+}
