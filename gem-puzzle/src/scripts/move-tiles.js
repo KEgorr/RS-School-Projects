@@ -1,6 +1,7 @@
 import soundSlice from "@/audio/slice-gem.mp3"
+import { createGemPuzzleGame, fieldSizeSelection } from "./layout-create"
 
-let movesCount = 0
+let movesCount = -1
 
 let audio = new Audio()
 audio.src = soundSlice
@@ -54,8 +55,36 @@ function moveTiles (movedTile) {
   });
   let emptyTile = document.querySelector(".game-tile_empty")
   exchangeElements(movedTile, emptyTile)
+  if (isSolved()) {
+    let solveModal = document.createElement("div")
+    solveModal.classList.add("solve-modal")
+    let currentTime = document.querySelector(".current-progress__timer")
+    let solveTextBlock = document.createElement("div")
+    solveTextBlock.classList.add("solve-text-block")
+
+    let solveNewGameButton = document.createElement("button")
+    solveNewGameButton.classList.add("nav__button")
+    solveNewGameButton.innerHTML = "New Game"
+
+    let solveText = document.createElement("p")
+    solveText.classList.add("solve-text")
+    solveText.innerHTML = `Hooray! You solved the puzzle in ${currentTime.innerHTML} and ${movesCount} moves!`
+
+    solveTextBlock.append(solveText, solveNewGameButton)
+    solveModal.append(solveTextBlock)
+
+    document.querySelector("body").append(solveModal)
+
+    solveNewGameButton.addEventListener("click", solveModalClose)
+  }
   findTileToMove()
   updateMovesCount()
+}
+
+function solveModalClose() {
+  let solveModal = document.querySelector(".solve-modal")
+  solveModal.remove()
+  createGemPuzzleGame(fieldSizeSelection.value)
 }
 
 function moveDown (value) {
@@ -120,6 +149,18 @@ export function findTileToMove() {
   }
 }
 
-
-
-
+export function isSolved() {
+  let allTiles = document.querySelector(".game-field").childNodes
+  let arrForCheck = []
+  let allTilesValue = []
+  allTiles.forEach(element => {
+    allTilesValue.push(element.outerText)
+  });
+  for (let i=1; i<allTiles.length; i++) {
+    arrForCheck.push(i.toString())
+    if (i === allTiles.length-1) {
+      arrForCheck.push("")
+    }
+  }
+  return JSON.stringify(arrForCheck) === JSON.stringify(allTilesValue)
+}

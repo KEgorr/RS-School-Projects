@@ -1,6 +1,6 @@
 import { isSolvable } from "./is-solvable.js"
 import {shuffle} from "./shuffle-arr.js"
-import { findTileToMove } from "./move-tiles.js"
+import { findTileToMove, isSolved } from "./move-tiles.js"
 import { updateMovesCount, resetMovesCount, soundMute } from "./move-tiles.js"
 
 const header = document.createElement("header")
@@ -8,7 +8,7 @@ const nav = document.createElement("nav")
 
 const fieldSizeText = document.createElement("p")
 
-const fieldSizeSelection = document.createElement("select")
+export const fieldSizeSelection = document.createElement("select")
 fieldSizeText.innerHTML = "Field Size:"
 for (let i=3; i<=8; i++) {
   if (i === 3 || i === 4 || i === 8) {
@@ -83,6 +83,9 @@ function timer() {
     }
     seconds = 0
   }
+  if (isSolved()) {
+    clearInterval(timerID)
+  }
 }
 
 let timerID = setInterval(timer, 1000);
@@ -92,7 +95,7 @@ gameField.classList.add("game-field")
 
 document.querySelector("body").append(header, currentProgress, gameField)
 
-function createGemPuzzleGame (number) {
+export function createGemPuzzleGame (number) {
   gameField.innerHTML = ""
   let gameTiles = []
   for (let i = 1; i<=number * number; i++) {

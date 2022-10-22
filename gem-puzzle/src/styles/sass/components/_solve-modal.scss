@@ -1,0 +1,32 @@
+.solve-modal {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+}
+
+.solve-text-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 300px;
+  height: 200px;
+  background-color: $contrastColor;
+  color: $bodyBackGroundColor;
+  border-radius: 10px;
+}
+
+.solve-text {
+  font-size: 1.2em;
+  text-align: center;
+}
