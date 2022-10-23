@@ -4,6 +4,10 @@ import { findTileToMove, isSolved } from "./move-tiles.js"
 import { updateMovesCount, resetMovesCount, soundMute } from "./move-tiles.js"
 import { saveGame } from "./save-game.js"
 
+const width320 = window.matchMedia("(min-width: 320px) and (max-width: 767px)")
+const width768 = window.matchMedia("(min-width: 768px) and (max-width: 1279px)")
+const width1280 = window.matchMedia("(min-width: 1280px)")
+
 const header = document.createElement("header")
 const nav = document.createElement("nav")
 
@@ -112,6 +116,7 @@ export function createGemPuzzleGame (number) {
     timerID = setInterval(timer, 1000)
     updateMovesCount()
     fieldSizeSelection.value = localStorage.fieldSize
+    gameFieldNewWidth()
   }
   else {
     gameField.innerHTML = ""
@@ -119,8 +124,14 @@ export function createGemPuzzleGame (number) {
     for (let i = 1; i<=number * number; i++) {
       let gameTile = document.createElement("p")
       let gameFieldWidth = getComputedStyle(gameField, null).width.replace("px", "");
-      gameTile.style.width = `${(gameFieldWidth/number)-5}px`
-      gameTile.style.height = `${(gameFieldWidth/number)-5}px`
+      if (width320.matches) {
+        gameTile.style.width = `${(gameFieldWidth/number)-2}px`
+        gameTile.style.height = `${(gameFieldWidth/number)-2}px`
+      }
+      else {
+        gameTile.style.width = `${(gameFieldWidth/number)-5}px`
+        gameTile.style.height = `${(gameFieldWidth/number)-5}px`
+      }
       if (i === number * number) {
         gameTile.classList.add("game-tile_empty")
         gameTile.value = false
@@ -224,6 +235,32 @@ function closeRecords(event) {
     recordsWindow.remove()
   }
 }
+
+function gameFieldNewWidth() {
+  let gameTiles = document.querySelectorAll(".game-tile")
+  let gameTileEmpty = document.querySelector(".game-tile_empty")
+  let gameFieldWidth = getComputedStyle(gameField, null).width.replace("px", "")
+  let number = fieldSizeSelection.value
+  if (width768.matches) {
+    gameTiles.forEach(element => {
+      element.style.width = `${(gameFieldWidth/number)-5}px`
+      element.style.height = `${(gameFieldWidth/number)-5}px`
+    });
+    gameTileEmpty.style.width = `${(gameFieldWidth/number)-5}px`
+    gameTileEmpty.style.height = `${(gameFieldWidth/number)-5}px`
+  }
+  if (width320.matches) {
+    gameTiles.forEach(element => {
+      element.style.width = `${(gameFieldWidth/number)-2}px`
+      element.style.height = `${(gameFieldWidth/number)-2}px`
+    });
+    gameTileEmpty.style.width = `${(gameFieldWidth/number)-2}px`
+    gameTileEmpty.style.height = `${(gameFieldWidth/number)-2}px`
+  }
+}
+
+width768.addListener(gameFieldNewWidth)
+width320.addListener(gameFieldNewWidth)
 
 recordsButton.addEventListener("click", showRecords)
 

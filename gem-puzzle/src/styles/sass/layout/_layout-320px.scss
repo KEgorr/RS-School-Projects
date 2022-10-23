@@ -1,0 +1,35 @@
+@media (min-width: 320px) and (max-width: 767px) {
+  .game-field {
+      width: 300px;
+      height: 300px;
+      row-gap: 2px;
+      border: #dcdcdc solid 5px;
+  }
+
+  nav {
+    width: 300px;
+    flex-wrap: wrap;
+    padding: 20px 10px;
+    row-gap: 10px;
+    p {
+      margin-right: 120px;
+    }
+  }
+
+  .nav__button {
+    height: 50px;
+    width: 65px;
+  }
+  .game-tile {
+    font-size: 1.2em;
+  }
+  .current-progress {
+    width: 300px;
+    .current-progress__timer {
+      font-size: 1.3em;
+    }
+    .current-progress__moves-count {
+      font-size: 1.3em;
+    }
+  }
+}
