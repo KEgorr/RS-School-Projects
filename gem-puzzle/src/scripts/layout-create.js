@@ -2,6 +2,7 @@ import { isSolvable } from "./is-solvable.js"
 import {shuffle} from "./shuffle-arr.js"
 import { findTileToMove, isSolved } from "./move-tiles.js"
 import { updateMovesCount, resetMovesCount, soundMute } from "./move-tiles.js"
+import { saveGame } from "./save-game.js"
 
 const header = document.createElement("header")
 const nav = document.createElement("nav")
@@ -51,12 +52,16 @@ let secondsDecade = 0
 let minutes = 0
 let minutesDecade = 0
 
-function timerStop() {
+function timerReset() {
   progressTimer.innerHTML = "00:00"
   seconds = 0
   secondsDecade = 0
   minutes = 0
   minutesDecade = 0
+  clearInterval(timerID)
+}
+
+function stopTimer() {
   clearInterval(timerID)
 }
 
@@ -96,48 +101,135 @@ gameField.classList.add("game-field")
 document.querySelector("body").append(header, currentProgress, gameField)
 
 export function createGemPuzzleGame (number) {
-  gameField.innerHTML = ""
-  let gameTiles = []
-  for (let i = 1; i<=number * number; i++) {
-    let gameTile = document.createElement("p")
-    let gameFieldWidth = getComputedStyle(gameField, null).width.replace("px", "");
-    gameTile.style.width = `${(gameFieldWidth/number)-5}px`
-    gameTile.style.height = `${(gameFieldWidth/number)-5}px`
-    if (i === number * number) {
-      gameTile.classList.add("game-tile_empty")
-      gameTile.value = false
-    }
-    else {
-      gameTile.classList.add("game-tile")
-      gameTile.value = i
-      gameTile.innerHTML = `${i}`
-    }
-    gameTiles.push(gameTile)
+  if (localStorage.currentGameField != null) {
+    gameField.innerHTML = JSON.parse(localStorage.currentGameField)
+    progressTimer.innerHTML = JSON.parse(localStorage.currentProgressTimer)
+    stopTimer()
+    seconds = progressTimer.innerHTML[4]
+    secondsDecade = progressTimer.innerHTML[3]
+    minutes = progressTimer.innerHTML[1]
+    minutesDecade = progressTimer.innerHTML[0]
+    timerID = setInterval(timer, 1000)
+    updateMovesCount()
+    fieldSizeSelection.value = localStorage.fieldSize
   }
-  gameTiles = shuffle(gameTiles)
-  
-  while (!isSolvable(gameTiles)) {
-    shuffle(gameTiles)
+  else {
+    gameField.innerHTML = ""
+    let gameTiles = []
+    for (let i = 1; i<=number * number; i++) {
+      let gameTile = document.createElement("p")
+      let gameFieldWidth = getComputedStyle(gameField, null).width.replace("px", "");
+      gameTile.style.width = `${(gameFieldWidth/number)-5}px`
+      gameTile.style.height = `${(gameFieldWidth/number)-5}px`
+      if (i === number * number) {
+        gameTile.classList.add("game-tile_empty")
+        gameTile.value = false
+      }
+      else {
+        gameTile.classList.add("game-tile")
+        gameTile.value = i
+        gameTile.innerHTML = `${i}`
+      }
+      gameTiles.push(gameTile)
+    }
+    gameTiles = shuffle(gameTiles)
+    
+    while (!isSolvable(gameTiles)) {
+      shuffle(gameTiles)
+    }
+    gameTiles.forEach(element => {
+      gameField.append(element)
+    });
+    timerReset()
+    timerID = setInterval(timer, 1000)
+    resetMovesCount()
+    updateMovesCount()
   }
-  gameTiles.forEach(element => {
-    gameField.append(element)
-  });
   findTileToMove()
-  timerStop()
-  timerID = setInterval(timer, 1000)
-  resetMovesCount()
-  updateMovesCount()
 } 
 
-createGemPuzzleGame(4)
 fieldSizeSelection.value = 4
+createGemPuzzleGame(4)
 
 newGameButton.addEventListener("click", createGemPuzzleGame.bind(null, 4))
 
 function fieldSizeValueChange () {
+  deepNewGame()
   createGemPuzzleGame(fieldSizeSelection.value)
   newGameButton.addEventListener("click", createGemPuzzleGame.bind(null, fieldSizeSelection.value))
-
 }
 
+function deepNewGame() {
+  localStorage.removeItem("currentGameField")
+  localStorage.removeItem("currentProgressMovesCount")
+  localStorage.removeItem("currentProgressTimer")
+  createGemPuzzleGame(fieldSizeSelection.value)
+}
+
+function showRecords() {
+  let recordsWindow = document.createElement("div")
+  recordsWindow.classList.add("records-window")
+
+  let recordsBlock = document.createElement("div")
+  recordsBlock.classList.add("records-block")
+
+  let recordsIntro = document.createElement("p")
+  recordsIntro.classList.add("records-intro")
+  recordsIntro.innerHTML = "Results are sorted by the average number of moves per second"
+
+  let results = document.createElement("div")
+  results.classList.add("results")
+
+  if (localStorage.getItem("recordsArr") === null) {
+    let resultsText = document.createElement("p")
+    resultsText.classList.add("results-text")
+    resultsText.innerHTML = "Nothing yet :("
+    results.append(resultsText)
+  }
+  else {
+    let recordsArr = JSON.parse(localStorage.getItem("recordsArr"))
+    recordsArr.sort((a,b) => {
+      let timeA = a[0].split(":")
+      let minutesA = Number(timeA[0])
+      let secondsA = Number (timeA[1])
+      let allTimeA = (minutesA * 60) + secondsA
+
+      let timeB = b[0].split(":")
+      let minutesB = Number(timeB[0])
+      let secondsB = Number (timeB[1])
+      let allTimeB = (minutesB * 60) + secondsB
+
+      return allTimeA/a[1] - allTimeB/b[1]
+    })
+    if (recordsArr.length > 10) {
+      recordsArr = recordsArr.slice(0,10)
+    }
+    for (let i = 0; i<recordsArr.length; i++) {
+      let records = document.createElement("p")
+      results.append(records)
+      records.innerHTML = `${i+1}: Time ${recordsArr[i][0]}, Moves: ${recordsArr[i][1]}`
+    }
+  }
+
+  recordsBlock.append(recordsIntro, results)
+  recordsWindow.append(recordsBlock)
+  document.querySelector("body").append(recordsWindow)
+  recordsWindow.addEventListener("click", closeRecords)
+}
+
+function closeRecords(event) {
+  let recordsWindow = document.querySelector(".records-window")
+  let target = event.target.closest(".records-block")
+  if (!target) {
+    recordsWindow.remove()
+  }
+}
+
+recordsButton.addEventListener("click", showRecords)
+
+newGameButton.addEventListener("click", deepNewGame)
+
+saveButton.addEventListener("click", saveGame)
+
 fieldSizeSelection.addEventListener("change", fieldSizeValueChange)
+newGameButton.addEventListener("click", deepNewGame.bind(null, fieldSizeSelection.value))

@@ -1,7 +1,10 @@
 import soundSlice from "@/audio/slice-gem.mp3"
 import { createGemPuzzleGame, fieldSizeSelection } from "./layout-create"
 
-let movesCount = -1
+export let movesCount = 0
+if (localStorage.currentProgressMovesCount != null) {
+  movesCount = localStorage.currentProgressMovesCount-1
+}
 
 let audio = new Audio()
 audio.src = soundSlice
@@ -76,6 +79,16 @@ function moveTiles (movedTile) {
     document.querySelector("body").append(solveModal)
 
     solveNewGameButton.addEventListener("click", solveModalClose)
+    if (localStorage.getItem("recordsArr") === null) {
+      let recordsArr = []
+      recordsArr.push([currentTime.innerHTML, movesCount])
+      localStorage.setItem("recordsArr", JSON.stringify(recordsArr))
+    }
+    else {
+      let recordsArr = JSON.parse(localStorage.getItem("recordsArr"))
+      recordsArr.push([currentTime.innerHTML, movesCount])
+      localStorage.setItem("recordsArr", JSON.stringify(recordsArr))
+    }
   }
   findTileToMove()
   updateMovesCount()
