@@ -4,6 +4,13 @@
   border-radius: 15px;
   color: $contrastColor;
   background-color: $bodyBackGroundColor;
+  &:hover {
+    background-color: darken( $bodyBackGroundColor, 10);
+    cursor: pointer;
+  }
+  &:active {
+    background-color: $bodyBackGroundColor;
+  }
 }
 
 .nav__button_sound {
@@ -13,6 +20,7 @@
   width: 40px;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .nav__button_sound__muted {
