@@ -54,8 +54,8 @@ function moveTiles (movedTile) {
     element.removeEventListener("click", moveUp)
     element.removeEventListener("click", moveLeft)
     element.removeEventListener("click", moveRight)
-    element.removeEventListener("click", playSound)
   });
+  playSound()
   let emptyTile = document.querySelector(".game-tile_empty")
   exchangeElements(movedTile, emptyTile)
   if (isSolved()) {
@@ -157,7 +157,6 @@ export function findTileToMove() {
       else if (i === 3) {
         tilesToMove[3].addEventListener("click", moveUp)
       }
-      tilesToMove[i].addEventListener("click", playSound)
     }
   }
 }
