@@ -16,12 +16,10 @@ const fieldSizeText = document.createElement("p")
 export const fieldSizeSelection = document.createElement("select")
 fieldSizeText.innerHTML = "Field Size:"
 for (let i=3; i<=8; i++) {
-  if (i === 3 || i === 4 || i === 8) {
     let option = document.createElement("option")
     option.value = i
     option.innerHTML = `${i} x ${i}`
     fieldSizeSelection.append(option)
-  }
 }
 
 const newGameButton = document.createElement("button")
