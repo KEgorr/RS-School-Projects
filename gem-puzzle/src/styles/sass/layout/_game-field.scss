@@ -36,6 +36,16 @@ body {
   }
 }
 
+.drag-prepare {
+  background-color: aqua;
+  opacity: 0.5;
+}
+
+.draggable-tile {
+  opacity: 0.7;
+  border: 2px dashed $contrastColor;
+}
+
 .game-tile_move-down {
   animation: move-down 0.2s;
 }

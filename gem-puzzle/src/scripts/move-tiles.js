@@ -54,6 +54,7 @@ function moveTiles (movedTile) {
     element.removeEventListener("click", moveUp)
     element.removeEventListener("click", moveLeft)
     element.removeEventListener("click", moveRight)
+    element.removeEventListener("mousedown", dragMove)
   });
   playSound()
   let emptyTile = document.querySelector(".game-tile_empty")
@@ -133,6 +134,67 @@ function moveRight (value) {
   }, 190);
 }
 
+function dragMove(item) {
+  let target = item.currentTarget
+  let search = item.currentTarget.cloneNode(true)
+
+  search.classList.add("draggable-tile")
+
+  search.style.position = 'absolute'
+  search.style.zIndex = 1000
+
+  let shiftX = item.clientX - target.getBoundingClientRect().left
+  let shiftY = item.clientY - target.getBoundingClientRect().top
+
+  document.querySelector(".game-field").append(search)
+
+  search.style.display = "none";
+  function moveAt(pageX, pageY) {
+    search.style.left = pageX - shiftX + 'px';
+    search.style.top = pageY - shiftY+ 'px';
+  }
+
+  function onMouseMove(item) {
+    moveAt(item.pageX, item.pageY);
+    let gameTileEmpty = document.querySelector(".game-tile_empty")
+
+    search.style.display = "none";
+    let elemBelow = document.elementFromPoint(item.clientX, item.clientY);
+    search.style.display = "flex";
+
+    if (!elemBelow) {
+      search.remove()
+    }
+    if (elemBelow === elemBelow.closest('.game-tile_empty')) {
+      gameTileEmpty.classList.add("drag-prepare")
+      search.onmouseup = function() {
+        search.remove()
+        moveTiles(target)
+        let gameTileEmpty = document.querySelector(".game-tile_empty")
+        gameTileEmpty.classList.remove("drag-prepare")
+        document.removeEventListener('mousemove', onMouseMove);
+        search.onmouseup = null;
+      }
+    }
+    else {
+      gameTileEmpty.classList.remove("drag-prepare")
+      search.onmouseup = function() {
+        search.remove()
+        document.removeEventListener('mousemove', onMouseMove);
+        search.onmouseup = null;
+      }
+    }
+  }
+  function removeDrag () {
+    document.removeEventListener('mousemove', onMouseMove);
+    search.remove()
+  }
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', removeDrag);
+}
+
+
+
 export function findTileToMove() {
   let emptyTile = document.querySelector(".game-tile_empty")
   let emptyTileCoordinates = emptyTile.getBoundingClientRect()
@@ -145,6 +207,7 @@ export function findTileToMove() {
   tilesToMove.push(document.elementFromPoint(emptyTileCoordinatesCenterX, emptyTileCoordinatesCenterY + (emptyTileCoordinates.width)))
   for (let i = 0; i<tilesToMove.length; i++) {
     if (tilesToMove[i] !=null && tilesToMove[i].classList.contains("game-tile")) {
+      tilesToMove[i].addEventListener("mousedown", dragMove)
       if (i === 0) {
         tilesToMove[i].addEventListener("click", moveRight)
       }
