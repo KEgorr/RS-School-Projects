@@ -241,7 +241,7 @@ function gameFieldNewWidth() {
   let gameTileEmpty = document.querySelector(".game-tile_empty")
   let gameFieldWidth = getComputedStyle(gameField, null).width.replace("px", "")
   let number = fieldSizeSelection.value
-  if (width768.matches) {
+  if (width768.matches || width1280.matches) {
     gameTiles.forEach(element => {
       element.style.width = `${(gameFieldWidth/number)-5}px`
       element.style.height = `${(gameFieldWidth/number)-5}px`
@@ -260,6 +260,7 @@ function gameFieldNewWidth() {
 }
 
 width768.addListener(gameFieldNewWidth)
+width1280.addListener(gameFieldNewWidth)
 width320.addListener(gameFieldNewWidth)
 
 recordsButton.addEventListener("click", showRecords)
