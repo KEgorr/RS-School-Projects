@@ -160,6 +160,7 @@ function createOldPuzzle() {
     fieldSizeSelection.value = 4
     createGemPuzzleGame(4)
   }
+  findTileToMove()
 }
 
 createOldPuzzle()
