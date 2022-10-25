@@ -103,20 +103,6 @@ gameField.classList.add("game-field")
 document.querySelector("body").append(header, currentProgress, gameField)
 
 export function createGemPuzzleGame (number) {
-  if (localStorage.currentGameField != null) {
-    gameField.innerHTML = JSON.parse(localStorage.currentGameField)
-    progressTimer.innerHTML = JSON.parse(localStorage.currentProgressTimer)
-    stopTimer()
-    seconds = progressTimer.innerHTML[4]
-    secondsDecade = progressTimer.innerHTML[3]
-    minutes = progressTimer.innerHTML[1]
-    minutesDecade = progressTimer.innerHTML[0]
-    timerID = setInterval(timer, 1000)
-    updateMovesCount()
-    fieldSizeSelection.value = localStorage.fieldSize
-    gameFieldNewWidth()
-  }
-  else {
     gameField.innerHTML = ""
     let gameTiles = []
     for (let i = 1; i<=number * number; i++) {
@@ -153,17 +139,35 @@ export function createGemPuzzleGame (number) {
     timerID = setInterval(timer, 1000)
     resetMovesCount()
     updateMovesCount()
-  }
   findTileToMove()
-} 
+}
 
-fieldSizeSelection.value = 4
-createGemPuzzleGame(4)
+function createOldPuzzle() {
+  if (localStorage.currentGameField != null) {
+    gameField.innerHTML = JSON.parse(localStorage.currentGameField)
+    progressTimer.innerHTML = JSON.parse(localStorage.currentProgressTimer)
+    stopTimer()
+    seconds = progressTimer.innerHTML[4]
+    secondsDecade = progressTimer.innerHTML[3]
+    minutes = progressTimer.innerHTML[1]
+    minutesDecade = progressTimer.innerHTML[0]
+    timerID = setInterval(timer, 1000)
+    updateMovesCount()
+    fieldSizeSelection.value = localStorage.fieldSize
+    gameFieldNewWidth()
+  }
+  else {
+    fieldSizeSelection.value = 4
+    createGemPuzzleGame(4)
+  }
+}
+
+createOldPuzzle()
 
 newGameButton.addEventListener("click", createGemPuzzleGame.bind(null, 4))
 
 function fieldSizeValueChange () {
-  deepNewGame()
+  // deepNewGame()
   createGemPuzzleGame(fieldSizeSelection.value)
   newGameButton.addEventListener("click", createGemPuzzleGame.bind(null, fieldSizeSelection.value))
 }
