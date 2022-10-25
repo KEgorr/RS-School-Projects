@@ -103,6 +103,7 @@ function solveModalClose() {
 
 function moveDown (value) {
   let movedTile = value.currentTarget
+  movedTile.removeEventListener("click", moveDown)
   movedTile.classList.add("game-tile_move-down")
   setTimeout(() => {
     movedTile.classList.remove("game-tile_move-down")
@@ -111,6 +112,7 @@ function moveDown (value) {
 }
 function moveUp (value) {
   let movedTile = value.currentTarget
+  movedTile.removeEventListener("click", moveUp)
   movedTile.classList.add("game-tile_move-up")
   setTimeout(() => {
     movedTile.classList.remove("game-tile_move-up")
@@ -119,6 +121,7 @@ function moveUp (value) {
 }
 function moveLeft (value) {
   let movedTile = value.currentTarget
+  movedTile.removeEventListener("click", moveLeft)
   movedTile.classList.add("game-tile_move-left")
   setTimeout(() => {
     movedTile.classList.remove("game-tile_move-left")
@@ -127,6 +130,7 @@ function moveLeft (value) {
 }
 function moveRight (value) {
   let movedTile = value.currentTarget
+  movedTile.removeEventListener("click", moveRight)
   movedTile.classList.add("game-tile_move-right")
   setTimeout(() => {
     movedTile.classList.remove("game-tile_move-right")
@@ -222,7 +226,6 @@ export function findTileToMove() {
       }
     }
   }
-  console.log(tilesToMove)
 }
 
 export function isSolved() {
