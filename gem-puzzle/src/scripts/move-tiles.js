@@ -201,10 +201,10 @@ export function findTileToMove() {
   let tilesToMove = []
   let emptyTileCoordinatesCenterX = emptyTileCoordinates.x + emptyTileCoordinates.width/2
   let emptyTileCoordinatesCenterY = emptyTileCoordinates.y + emptyTileCoordinates.height/2
-  tilesToMove.push(document.elementFromPoint(emptyTileCoordinatesCenterX - (emptyTileCoordinates.width), emptyTileCoordinatesCenterY))
-  tilesToMove.push(document.elementFromPoint(emptyTileCoordinatesCenterX + (emptyTileCoordinates.width), emptyTileCoordinatesCenterY))
-  tilesToMove.push(document.elementFromPoint(emptyTileCoordinatesCenterX, emptyTileCoordinatesCenterY - (emptyTileCoordinates.width)))
-  tilesToMove.push(document.elementFromPoint(emptyTileCoordinatesCenterX, emptyTileCoordinatesCenterY + (emptyTileCoordinates.width)))
+  tilesToMove.push(document.elementFromPoint(emptyTileCoordinatesCenterX - (emptyTileCoordinates.width*1.5), emptyTileCoordinatesCenterY))
+  tilesToMove.push(document.elementFromPoint(emptyTileCoordinatesCenterX + (emptyTileCoordinates.width*1.5), emptyTileCoordinatesCenterY))
+  tilesToMove.push(document.elementFromPoint(emptyTileCoordinatesCenterX, emptyTileCoordinatesCenterY - (emptyTileCoordinates.width*1.5)))
+  tilesToMove.push(document.elementFromPoint(emptyTileCoordinatesCenterX, emptyTileCoordinatesCenterY + (emptyTileCoordinates.width*1.5)))
   for (let i = 0; i<tilesToMove.length; i++) {
     if (tilesToMove[i] !=null && tilesToMove[i].classList.contains("game-tile")) {
       tilesToMove[i].addEventListener("mousedown", dragMove)
@@ -222,6 +222,7 @@ export function findTileToMove() {
       }
     }
   }
+  console.log(tilesToMove)
 }
 
 export function isSolved() {
