@@ -25,7 +25,6 @@ module.exports = {
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
-      "@audio": path.resolve(__dirname, "src/audio")
     }
   },
   optimization: {
@@ -57,7 +56,10 @@ module.exports = {
     },
     {
       test: /\.mp3$/,
-      type: "asset"
+      loader: "file-loader",
+      options: {
+        name: "[path][contenthash].[ext]"
+      }
     },
   ]
   }
