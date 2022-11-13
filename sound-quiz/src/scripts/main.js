@@ -1,5 +1,5 @@
-import "./custom-audio-player"
+import "./custom-audio-player";
 
-import "./create-layout"
+import "./create-game-layout";
 
-import "@/styles/sass/main.scss"
+import "@/styles/sass/main.scss";
