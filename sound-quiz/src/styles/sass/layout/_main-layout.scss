@@ -1,0 +1,48 @@
+body {
+  background-color: #222;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 20vh;
+  justify-content: space-around;
+}
+
+.navigation {
+  display: flex;
+  column-gap: 30px;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.introduction {
+  width: 300px;
+}
+
+.footer {
+  height: 10vh;
+}
+
+.footer-navigation {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: end;
+  column-gap: 20px;
+}
+
+.start-button {
+  margin-top: 25px;
+}
