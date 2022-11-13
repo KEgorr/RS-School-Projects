@@ -1,4 +1,4 @@
-import batmanArcham from "@/assets/music/mixed/batman-archam.mp3"
+import batmanArkham from "@/assets/music/mixed/batman-archam.mp3"
 import darkSouls2 from "@/assets/music/mixed/dark-souls2.mp3"
 import heavyRain from "@/assets/music/mixed/heavy-rain.mp3"
 import hitmanBloodMoney from "@/assets/music/mixed/hitman-blood-money.mp3"
@@ -33,7 +33,7 @@ import doom from "@/assets/music/shooters/doom-2016.mp3"
 import halo4 from "@/assets/music/shooters/halo4.mp3"
 import quake from "@/assets/music/shooters/quake.mp3"
 
-import assasinsSreed2 from "@/assets/music/worldwide hits/assasins-sreed-2.mp3"
+import assasinsCreed2 from "@/assets/music/worldwide hits/assasins-sreed-2.mp3"
 import godOfWar from "@/assets/music/worldwide hits/god-of-war.mp3"
 import gtaSA from "@/assets/music/worldwide hits/gta-sa.mp3"
 import halfLife2 from "@/assets/music/worldwide hits/half-life2.mp3"
@@ -49,7 +49,7 @@ export const gamesData = [
       songName: "Nick Arundel - Joker Escapes",
       description: "Batman: Arkham Asylum - компьютерная игра в жанре action-adventure с элементами стелса, разработанная британской студией Rocksteady Studios и изданная Eidos Interactive совместно с Warner Bros. Interactive Entertainment. Игра основана на комиксах DC Comics о Бэтмене, и сценарий для неё написал Пол Дини, много лет работавший над комиксами этой серии.",
       img: "https://upload.wikimedia.org/wikipedia/ru/4/4f/Arkham_Asylum.jpg",
-      audio: batmanArcham,
+      audio: batmanArkham,
     },
     {
       id: 2,
@@ -99,7 +99,7 @@ export const gamesData = [
       songName: "Jesper Kyd - Ezio's Family",
       description: "мультиплатформенная компьютерная игра в жанре action-adventure, продолжение игры Assassin’s Creed от компании Ubisoft. Официальный анонс состоялся 16 апреля 2009 года в журнале Game Informer.",
       img: "https://upload.wikimedia.org/wikipedia/ru/thumb/e/ee/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Assassins_Creed_2.jpg/274px-%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Assassins_Creed_2.jpg",
-      audio: assasinsSreed2,
+      audio: assasinsCreed2,
     },
     {
       id: 2,
