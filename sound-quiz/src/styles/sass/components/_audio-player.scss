@@ -1,0 +1,130 @@
+.controls-block {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+
+.volume-block {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.play-pause-block__play-button {
+  background-image: url("@/assets/icons/play-button.svg");
+  background-size: contain;
+  display: block;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  background-position-x: 2px;
+}
+
+.play-pause-block {
+  border: 2px solid rgb(0, 188, 140);
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-pause-block__pause-button {
+  background-image: url("@/assets/icons/pause-button.svg");
+  background-position-x: 0;
+}
+
+.time-bar {
+  margin-top: 15px;
+}
+
+.audio-time {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-slider {
+  transition: 0.3s;
+  cursor: pointer;
+  -webkit-appearance: none;
+  width: 200px;
+  height: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(68, 68, 68);
+  background-size: 0%;
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 188, 140) 0%,
+    rgb(61, 133, 140) 100%,
+    rgb(115, 115, 115) 100%,
+    rgb(115, 115, 115) 100%
+  );
+  background-repeat: no-repeat;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 5px;
+    height: 5px;
+    background: transparent;
+  }
+  &::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+}
+
+.volume-block__volume-ico {
+  background-image: url("@/assets/icons/volume-ico.svg");
+  background-size: contain;
+  display: block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border: 2px solid rgb(0, 188, 140);
+  border-radius: 50%;
+}
+
+.volume-block__volume-ico_muted {
+  background-image: url("@/assets/icons/volume-off-ico.svg");
+}
+
+.volume-block__volume-slider {
+  cursor: pointer;
+  transition: 0.2s;
+  -webkit-appearance: none;
+  width: 0;
+  height: 5px;
+  border-radius: 5px;
+  background-size: 50% 100%;
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 188, 140) 0%,
+    rgb(61, 133, 140) 100%,
+    rgb(115, 115, 115) 100%,
+    rgb(115, 115, 115) 100%
+  );
+  background-repeat: no-repeat;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 5px;
+    height: 5px;
+    background: transparent;
+  }
+
+  &::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+}
+
+.volume-block:hover {
+  .volume-block__volume-slider {
+    width: 50px;
+    border: 1px solid rgb(102, 101, 101);
+  }
+}
