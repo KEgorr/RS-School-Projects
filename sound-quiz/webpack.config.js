@@ -1,66 +1,61 @@
-const path = require("path")
-const HTMLWebpackPlugin = require("html-webpack-plugin")
-const {CleanWebpackPlugin} = require("clean-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
+const path = require("path");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
-const cssLoaders = extra => {
-  let loaders = [
-    MiniCssExtractPlugin.loader,
-    "css-loader"
-  ]
+const cssLoaders = (extra) => {
+  let loaders = [MiniCssExtractPlugin.loader, "css-loader"];
   if (extra) {
-    loaders.push(extra)
+    loaders.push(extra);
   }
-  return loaders
-}
+  return loaders;
+};
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
   entry: "./scripts/main.js",
   output: {
     filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "bundle")
+    path: path.resolve(__dirname, "bundle"),
   },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
-    }
+    },
   },
   optimization: {
-    minimizer: [
-      new CssMinimizerPlugin(),
-    ],
+    minimizer: [new CssMinimizerPlugin()],
   },
   devServer: {
-    port: 4200
+    port: 4200,
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: "./index.html"
+      template: "./index.html",
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css"
-    })
+      filename: "[name].[contenthash].css",
+    }),
   ],
-  module : {
+  module: {
     rules: [
-    {
-      test: /\.css$/,
-      use: cssLoaders()
-    },
-    {
-      test: /\.scss$/,
-      use: cssLoaders("sass-loader")
-    },
-    {
-      test: /\.mp3$/,
-      loader: "file-loader",
-      options: {
-        name: "[path][contenthash].[ext]"
-      }
-    },
-  ]
-  }
-}
+      {
+        test: /\.css$/,
+        use: cssLoaders(),
+      },
+      {
+        test: /\.scss$/,
+        use: cssLoaders("sass-loader"),
+      },
+      {
+        test: /\.mp3$/,
+        loader: "file-loader",
+        options: {
+          name: "[path][contenthash].[ext]",
+        },
+      },
+    ],
+  },
+};
