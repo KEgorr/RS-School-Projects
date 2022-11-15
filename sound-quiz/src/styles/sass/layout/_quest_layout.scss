@@ -1,0 +1,40 @@
+.question-block {
+  display: flex;
+  min-width: 100%;
+  flex-direction: column;
+}
+
+.unknown-game-block {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  min-width: 100%;
+  column-gap: 20px;
+}
+
+.unknown-game-description {
+  flex-grow: 1;
+}
+
+.answers-block {
+  display: flex;
+  margin-top: 20px;
+  column-gap: 20px;
+}
+
+.answers-list {
+  flex-grow: 1;
+}
+
+.answer-info {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}

@@ -1,6 +1,4 @@
-import { gamesData } from "./games-data";
-
-function createAudioPlayer(audioSrc) {
+export function createAudioPlayer(audioSrc) {
   let audioPlayer = document.createElement("div");
   audioPlayer.classList.add("audio-player");
 
@@ -171,11 +169,3 @@ function createAudioPlayer(audioSrc) {
   audio.addEventListener("ended", pause);
   return audioPlayer;
 }
-
-// let newAudioPlayer = createAudioPlayer(gamesData[0][0].audio);
-// let newAudioPlayer2 = createAudioPlayer(gamesData[0][2].audio);
-// let newAudioPlayer3 = createAudioPlayer(gamesData[0][3].audio);
-
-// document.querySelector("body").append(newAudioPlayer);
-// document.querySelector("body").append(newAudioPlayer2);
-// document.querySelector("body").append(newAudioPlayer3);

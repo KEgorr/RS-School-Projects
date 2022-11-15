@@ -1,0 +1,122 @@
+import { createAudioPlayer } from "./custom-audio-player";
+import { gamesData } from "./games-data";
+
+let questNumber = 0;
+let currentGame;
+
+const main = document.querySelector(".main");
+
+function createGameLayout() {
+  document.querySelector(".navigation").remove();
+
+  let score = document.createElement("span");
+  score.classList.add("score-count");
+  score.innerHTML = "Score: 0";
+  document.querySelector("header").append(score);
+
+  while (main.firstChild) {
+    main.removeChild(main.firstChild);
+  }
+
+  let questionsName = document.createElement("ul");
+  questionsName.classList.add("questions-types");
+  for (let i = 0; i < gamesData.length; i++) {
+    let quest = document.createElement("li");
+    quest.classList.add("questions-types__type");
+    quest.innerHTML = gamesData[i][0].questionType;
+    questionsName.append(quest);
+  }
+
+  let question = createQuestion();
+
+  let nextLevelButton = document.createElement("button");
+  nextLevelButton.classList.add("button");
+  nextLevelButton.classList.add("next-level__button");
+  nextLevelButton.classList.add("next-level__button_disabled");
+  nextLevelButton.innerHTML = "Следующий вопрос";
+
+  main.append(questionsName, question, nextLevelButton);
+  updateActiveQuest();
+}
+
+function createQuestion() {
+  let questionBlock = document.createElement("div");
+  questionBlock.classList.add("question-block");
+
+  let question = document.createElement("div");
+  question.classList.add("question");
+
+  let unknownGameBlock = document.createElement("div");
+  unknownGameBlock.classList.add("unknown-game-block");
+
+  let unknownGameImg = document.createElement("img");
+  unknownGameImg.classList.add("game-img");
+  unknownGameImg.src =
+    "https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-a929531dce98fb7054af1aa20c31466c.png";
+
+  let unknownGameDescription = document.createElement("div");
+  unknownGameDescription.classList.add("unknown-game-description");
+
+  currentGame = gamesData[questNumber][getRandomGame(6)];
+  let unknownAudio = createAudioPlayer(currentGame.audio);
+
+  let unknownGameName = document.createElement("p");
+  unknownGameName.classList.add("unknown-game-description__name");
+  unknownGameName.innerHTML = "*****";
+
+  unknownGameDescription.append(unknownGameName, unknownAudio);
+
+  unknownGameBlock.append(unknownGameImg, unknownGameDescription);
+
+  let answersBlock = document.createElement("div");
+  answersBlock.classList.add("answers-block");
+
+  let answers = document.createElement("ul");
+  answers.classList.add("answers-list");
+
+  for (let i = 1; i < gamesData[questNumber].length; i++) {
+    let answer = document.createElement("li");
+    answer.classList.add("answer");
+
+    let answerIndicator = document.createElement("span");
+    answerIndicator.classList.add("answer__indicator");
+
+    let answerTxt = document.createElement("p");
+    answerTxt.classList.add("answer__text");
+
+    answerTxt.innerHTML = gamesData[questNumber][i].name;
+    answer.append(answerIndicator, answerTxt);
+    answers.append(answer);
+  }
+
+  let answerInfo = document.createElement("div");
+  answerInfo.classList.add("answer-info");
+
+  let answerInfoTxt = document.createElement("pre");
+  answerInfoTxt.classList.add("answer-info__intro-text");
+  answerInfoTxt.innerHTML = "Послушайте плеер.\nВыберете игру из списка";
+
+  answerInfo.append(answerInfoTxt);
+  answersBlock.append(answers, answerInfo);
+  question.append(unknownGameBlock, answersBlock);
+  questionBlock.append(question);
+  return questionBlock;
+}
+
+function getRandomGame(max) {
+  return Math.ceil(Math.random() * max);
+}
+
+function updateActiveQuest() {
+  if (document.querySelector(".questions-types__type_active")) {
+    let currentActive = document.querySelector(".questions-types__type_active");
+    currentActive.classList.remove("questions-types__type_active");
+  }
+
+  let quests = document.querySelectorAll(".questions-types__type");
+  quests[questNumber].classList.add("questions-types__type_active");
+}
+
+let startGameButton = document.querySelector(".start-button__button");
+
+startGameButton.addEventListener("click", createGameLayout);

@@ -1,3 +1,7 @@
+.audio-player {
+  margin-top: 5px;
+}
+
 .controls-block {
   display: flex;
   align-items: center;
@@ -36,18 +40,20 @@
 
 .time-bar {
   margin-top: 15px;
+  min-width: 82%;
 }
 
 .audio-time {
   display: flex;
   justify-content: space-between;
+  color: #fff;
 }
 
 .player-slider {
   transition: 0.3s;
   cursor: pointer;
   -webkit-appearance: none;
-  width: 200px;
+  min-width: 100%;
   height: 5px;
   border-radius: 5px;
   border: 1px solid rgb(68, 68, 68);
