@@ -12,6 +12,7 @@ export function gameSelection(answer) {
   let target = answer.currentTarget;
   let targetText = target.lastChild;
   let answerIndicator = target.firstChild;
+  let userSelection = findSelected(targetText);
 
   if (targetText.innerHTML === currentGame.name) {
     answerIndicator.classList.add("answer__indicator_success");
@@ -19,6 +20,17 @@ export function gameSelection(answer) {
     let scoreCountText = document.querySelector(".score-count");
     let scoreCount = scoreCountText.innerHTML.split(": ")[1];
     scoreCountText.innerHTML = `Score: ${Number(scoreCount) + score}`;
+
+    let questImg = document.querySelector(".game-img");
+    questImg.src = userSelection.img;
+
+    let gameName = document.querySelector(".unknown-game-description__name");
+    gameName.innerHTML = userSelection.name;
+
+    let audioGame = document.querySelector(
+      ".unknown-game-description .audio-player audio"
+    );
+    audioGame.pause();
 
     let nextLevelButton = document.querySelector(".next-level__button");
     nextLevelButton.classList.remove("next-level__button_disabled");
@@ -34,7 +46,6 @@ export function gameSelection(answer) {
     answerInfo.removeChild(answerInfo.firstChild);
   }
 
-  let userSelection = findSelected(targetText);
   let selectedGameMain = document.createElement("div");
   selectedGameMain.classList.add("selected-game");
 
