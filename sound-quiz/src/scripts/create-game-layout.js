@@ -1,8 +1,9 @@
 import { createAudioPlayer } from "./custom-audio-player";
+import { gameSelection } from "./game-selection";
 import { gamesData } from "./games-data";
 
-let questNumber = 0;
-let currentGame;
+export let questNumber = 0;
+export let currentGame;
 
 const main = document.querySelector(".main");
 
@@ -27,7 +28,12 @@ function createGameLayout() {
     questionsName.append(quest);
   }
 
+  let questionBlock = document.createElement("div");
+  questionBlock.classList.add("question-block");
+
   let question = createQuestion();
+
+  questionBlock.append(question);
 
   let nextLevelButton = document.createElement("button");
   nextLevelButton.classList.add("button");
@@ -35,14 +41,11 @@ function createGameLayout() {
   nextLevelButton.classList.add("next-level__button_disabled");
   nextLevelButton.innerHTML = "Следующий вопрос";
 
-  main.append(questionsName, question, nextLevelButton);
+  main.append(questionsName, questionBlock, nextLevelButton);
   updateActiveQuest();
 }
 
 function createQuestion() {
-  let questionBlock = document.createElement("div");
-  questionBlock.classList.add("question-block");
-
   let question = document.createElement("div");
   question.classList.add("question");
 
@@ -87,6 +90,8 @@ function createQuestion() {
     answerTxt.innerHTML = gamesData[questNumber][i].name;
     answer.append(answerIndicator, answerTxt);
     answers.append(answer);
+
+    answer.addEventListener("click", gameSelection);
   }
 
   let answerInfo = document.createElement("div");
@@ -99,8 +104,7 @@ function createQuestion() {
   answerInfo.append(answerInfoTxt);
   answersBlock.append(answers, answerInfo);
   question.append(unknownGameBlock, answersBlock);
-  questionBlock.append(question);
-  return questionBlock;
+  return question;
 }
 
 function getRandomGame(max) {
@@ -120,3 +124,13 @@ function updateActiveQuest() {
 let startGameButton = document.querySelector(".start-button__button");
 
 startGameButton.addEventListener("click", createGameLayout);
+
+export function createNextLevel() {
+  questNumber++;
+  let nexQuest = createQuestion();
+  let currentQuestion = document.querySelector(".question");
+  currentQuestion.remove();
+  let questionBlock = document.querySelector(".question-block");
+  questionBlock.append(nexQuest);
+  updateActiveQuest();
+}

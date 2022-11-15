@@ -58,14 +58,22 @@ li {
     background-color: lighten($color: #303030, $amount: 10);
     cursor: pointer;
   }
+}
 
-  .answer__indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: inline-block;
-    background-color: #555;
-  }
+.answer__indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #555;
+}
+
+.answer__indicator_success {
+  background-color: green;
+}
+
+.answer__indicator_error {
+  background-color: crimson;
 }
 
 .answer-info {
@@ -75,4 +83,9 @@ li {
   .answer-info__intro-text {
     color: #fff;
   }
+}
+
+.selected-game-info__item {
+  border-bottom: 1px solid #555;
+  padding-bottom: 10px;
 }
