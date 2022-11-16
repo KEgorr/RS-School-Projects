@@ -1,3 +1,4 @@
+import { createResults } from "./create-results-layout";
 import { createAudioPlayer } from "./custom-audio-player";
 import { audioRight, gameSelection } from "./game-selection";
 import { gamesData } from "./games-data";
@@ -7,13 +8,15 @@ export let currentGame;
 
 const main = document.querySelector(".main");
 
-function createGameLayout() {
-  document.querySelector(".navigation").remove();
+export function createGameLayout() {
+  let main = document.querySelector(".main");
+  if (document.querySelector(".navigation")) {
+    document.querySelector(".navigation").remove();
+  }
 
   let score = document.createElement("span");
   score.classList.add("score-count");
   score.innerHTML = "Score: 0";
-  document.querySelector("header").append(score);
 
   while (main.firstChild) {
     main.removeChild(main.firstChild);
@@ -33,7 +36,7 @@ function createGameLayout() {
 
   let question = createQuestion();
 
-  questionBlock.append(question);
+  questionBlock.append(score, question);
 
   let nextLevelButton = document.createElement("button");
   nextLevelButton.classList.add("button");
@@ -125,8 +128,19 @@ let startGameButton = document.querySelector(".start-button__button");
 
 startGameButton.addEventListener("click", createGameLayout);
 
-export function createNextLevel() {
+export function createNextLevel(button) {
+  let target = button.currentTarget;
   questNumber++;
+  if (questNumber === 6) {
+    let resultsBlock = createResults();
+
+    while (main.firstChild) {
+      main.removeChild(main.firstChild);
+    }
+    main.appendChild(resultsBlock);
+    questNumber = 0;
+    return;
+  }
   let nexQuest = createQuestion();
   let currentQuestion = document.querySelector(".question");
   currentQuestion.remove();
@@ -136,4 +150,7 @@ export function createNextLevel() {
   audioRight.pause();
   audioRight.currentTime = 0;
   audioRight.volume = 0.1;
+  console.log(questNumber);
+  target.classList.add("next-level__button_disabled");
+  target.removeEventListener("click", createNextLevel);
 }
