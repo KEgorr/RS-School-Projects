@@ -10,9 +10,9 @@ const main = document.querySelector(".main");
 
 export function createGameLayout() {
   let main = document.querySelector(".main");
-  if (document.querySelector(".navigation")) {
-    document.querySelector(".navigation").remove();
-  }
+  // if (document.querySelector(".navigation")) {
+  //   document.querySelector(".navigation").remove();
+  // }
 
   let score = document.createElement("span");
   score.classList.add("score-count");
