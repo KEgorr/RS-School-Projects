@@ -153,9 +153,21 @@ export function createAudioPlayer(audioSrc) {
   function play() {
     audio.play();
     audio.addEventListener("timeupdate", changePlayerSlider);
+    if (document.querySelector(".play-pause-block__pause-button")) {
+      let playingBefore = document.querySelector(
+        ".play-pause-block__pause-button"
+      );
+      playingBefore.classList.remove("play-pause-block__pause-button");
+    }
     playButton.classList.add("play-pause-block__pause-button");
     playButton.removeEventListener("click", play);
     playButton.addEventListener("click", pause);
+    let allAudios = document.querySelectorAll("audio");
+    allAudios.forEach((element) => {
+      if (element.src != audioSrc) {
+        element.pause();
+      }
+    });
   }
 
   function pause() {
