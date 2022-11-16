@@ -1,5 +1,5 @@
 import { createAudioPlayer } from "./custom-audio-player";
-import { gameSelection } from "./game-selection";
+import { audioRight, gameSelection } from "./game-selection";
 import { gamesData } from "./games-data";
 
 export let questNumber = 0;
@@ -133,4 +133,7 @@ export function createNextLevel() {
   let questionBlock = document.querySelector(".question-block");
   questionBlock.append(nexQuest);
   updateActiveQuest();
+  audioRight.pause();
+  audioRight.currentTime = 0;
+  audioRight.volume = 0.1;
 }

@@ -5,6 +5,16 @@ import {
 } from "./create-game-layout";
 import { createAudioPlayer } from "./custom-audio-player";
 import { gamesData } from "./games-data";
+import rightSound from "@/assets/sounds/right-sound.mp3";
+import errorSound from "@/assets/sounds/error-sound.mp3";
+
+export let audioRight = new Audio();
+audioRight.src = rightSound;
+audioRight.volume = 0.1;
+
+let audioError = new Audio();
+audioError.src = errorSound;
+audioError.volume = 0.1;
 
 let score = 5;
 
@@ -36,9 +46,14 @@ export function gameSelection(answer) {
     nextLevelButton.classList.remove("next-level__button_disabled");
     nextLevelButton.addEventListener("click", createNextLevel);
     score = 5;
+
+    audioRight.play();
+    audioRight.addEventListener("ended", () => (audioRight.volume = 0));
   } else if (!document.querySelector(".answer__indicator_success")) {
     answerIndicator.classList.add("answer__indicator_error");
     score--;
+    audioError.currentTime = 0;
+    audioError.play();
   }
 
   let answerInfo = document.querySelector(".answer-info");
