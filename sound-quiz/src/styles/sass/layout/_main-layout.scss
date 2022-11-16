@@ -10,8 +10,8 @@ body {
 .header {
   display: flex;
   align-items: center;
-  height: 15vh;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 .navigation {
@@ -24,7 +24,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 75vh;
+  min-height: 78vh;
 }
 
 .introduction {
@@ -32,9 +32,9 @@ body {
 }
 
 .footer {
-  height: 10vh;
   display: flex;
   align-items: center;
+  margin-top: 35px;
 }
 
 .footer-navigation {

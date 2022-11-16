@@ -36,7 +36,7 @@ export function createGameLayout() {
 
   let question = createQuestion();
 
-  questionBlock.append(score, question);
+  questionBlock.append(question);
 
   let nextLevelButton = document.createElement("button");
   nextLevelButton.classList.add("button");
@@ -44,7 +44,7 @@ export function createGameLayout() {
   nextLevelButton.classList.add("next-level__button_disabled");
   nextLevelButton.innerHTML = "Следующий вопрос";
 
-  main.append(questionsName, questionBlock, nextLevelButton);
+  main.append(score, questionsName, questionBlock, nextLevelButton);
   updateActiveQuest();
 }
 
