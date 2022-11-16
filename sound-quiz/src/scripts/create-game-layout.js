@@ -10,9 +10,6 @@ const main = document.querySelector(".main");
 
 export function createGameLayout() {
   let main = document.querySelector(".main");
-  // if (document.querySelector(".navigation")) {
-  //   document.querySelector(".navigation").remove();
-  // }
 
   let score = document.createElement("span");
   score.classList.add("score-count");
@@ -125,8 +122,15 @@ function updateActiveQuest() {
 }
 
 let startGameButton = document.querySelector(".start-button__button");
+let newGameButton = document.querySelector(".new-game-button");
 
 startGameButton.addEventListener("click", createGameLayout);
+newGameButton.addEventListener("click", newGame);
+
+function newGame() {
+  questNumber = 0;
+  createGameLayout();
+}
 
 export function createNextLevel(button) {
   let target = button.currentTarget;
@@ -150,7 +154,6 @@ export function createNextLevel(button) {
   audioRight.pause();
   audioRight.currentTime = 0;
   audioRight.volume = 0.1;
-  console.log(questNumber);
   target.classList.add("next-level__button_disabled");
   target.removeEventListener("click", createNextLevel);
 }
