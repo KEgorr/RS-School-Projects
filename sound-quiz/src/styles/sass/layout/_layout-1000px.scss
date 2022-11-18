@@ -1,0 +1,28 @@
+@media (min-width: 1000px) and (max-width: 1599px) {
+  .wrapper {
+    width: 940px;
+  }
+  .question {
+    width: 940px;
+  }
+  .questions-types__type {
+    width: calc(940px / 6);
+  }
+
+  .answers-list {
+    max-width: 38%;
+    min-width: 38%;
+  }
+
+  .audio-player {
+    width: 90%;
+  }
+
+  .selected-audio-player {
+    width: 55%;
+  }
+
+  .gallery-audio {
+    width: 50%;
+  }
+}
