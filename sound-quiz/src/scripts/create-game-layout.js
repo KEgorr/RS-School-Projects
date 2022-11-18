@@ -139,6 +139,9 @@ function newGame() {
 export function createNextLevel(button) {
   let target = button.currentTarget;
   questNumber++;
+  if (questNumber === 5) {
+    target.innerHTML = "Закончить викторину";
+  }
   if (questNumber === 6) {
     let resultsBlock = createResults();
 
