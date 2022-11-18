@@ -109,7 +109,7 @@ export const gamesData = [
       name: "Assassin's Creed 2",
       songName: "Jesper Kyd - Ezio's Family",
       description:
-        "мультиплатформенная компьютерная игра в жанре action-adventure, продолжение игры Assassin’s Creed от компании Ubisoft. Официальный анонс состоялся 16 апреля 2009 года в журнале Game Informer.",
+        "Assassin's Creed 2 - мультиплатформенная компьютерная игра в жанре action-adventure, продолжение игры Assassin’s Creed от компании Ubisoft. Официальный анонс состоялся 16 апреля 2009 года в журнале Game Informer.",
       img: "https://upload.wikimedia.org/wikipedia/ru/thumb/e/ee/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Assassins_Creed_2.jpg/274px-%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_Assassins_Creed_2.jpg",
       audio: assasinsCreed2,
     },
@@ -186,7 +186,7 @@ export const gamesData = [
       name: "Far Cry 3",
       songName: "Brian Tyler - Far Cry 3",
       description:
-        "Far Cry 3 - компьютерная игра в жанре шутера от первого лица с элементами RPG[3], разработанная Ubisoft Montreal при участии Ubisoft Shanghai и Ubisoft Massive и изданная Ubisoft. Является третьей (не считая дополнений и спин-оффов) игрой из одноимённой серии игр. Официальный анонс состоялся 6 июня 2011 года во время пресс-конференции Ubisoft в рамках выставки E3. Выход игры состоялся 29 ноября 2012 года на PC, Xbox360 и PlayStation 3.",
+        "Far Cry 3 - компьютерная игра в жанре шутера от первого лица с элементами RPG, разработанная Ubisoft Montreal при участии Ubisoft Shanghai и Ubisoft Massive и изданная Ubisoft. Является третьей (не считая дополнений и спин-оффов) игрой из одноимённой серии игр. Официальный анонс состоялся 6 июня 2011 года во время пресс-конференции Ubisoft в рамках выставки E3. Выход игры состоялся 29 ноября 2012 года на PC, Xbox360 и PlayStation 3.",
       img: "https://upload.wikimedia.org/wikipedia/ru/thumb/a/a0/Far_Cry_3_Box_Art_PC.jpeg/274px-Far_Cry_3_Box_Art_PC.jpeg",
       audio: farCry3,
     },
@@ -204,7 +204,7 @@ export const gamesData = [
       name: "Saints Row: The Third",
       songName: "Aldo - Nova Fantasy",
       description:
-        "Saints Row: The Third - компьютерная игра, экшен от третьего лица с ролевыми элементами, разработанный компанией Volition, Inc.. Дата выхода — 15 ноября 2011 года в США[3] и 18 ноября 2011 года в Европе. Игра выпущена на PC, PlayStation 3, Xbox 360 и Nintendo Switch.",
+        "Saints Row: The Third - компьютерная игра, экшен от третьего лица с ролевыми элементами, разработанный компанией Volition, Inc.. Дата выхода — 15 ноября 2011 года в США и 18 ноября 2011 года в Европе. Игра выпущена на PC, PlayStation 3, Xbox 360 и Nintendo Switch.",
       img: "https://upload.wikimedia.org/wikipedia/ru/thumb/0/0a/Saints_Row_The_Third_Cover_Art.jpg/274px-Saints_Row_The_Third_Cover_Art.jpg",
       audio: saintsRow3,
     },
@@ -372,7 +372,7 @@ export const gamesData = [
       name: "GRID 2",
       songName: "Ian Livingstone - Eliminator",
       description:
-        "GRID 2 - компьютерная игра в жанре гоночной аркады, разработанная компанией Codemasters[2]. Является сиквелом игры Race Driver: GRID, вышедшей пятью годами ранее. Изначально игра была выпущена на платформах Microsoft Windows, Xbox 360 и PlayStation 3. Её релиз состоялся 28 мая 2013 года в Северной Америке, а спустя пару дней GRID 2 добралась до Европы и Австралии.",
+        "GRID 2 - компьютерная игра в жанре гоночной аркады, разработанная компанией Codemasters. Является сиквелом игры Race Driver: GRID, вышедшей пятью годами ранее. Изначально игра была выпущена на платформах Microsoft Windows, Xbox 360 и PlayStation 3. Её релиз состоялся 28 мая 2013 года в Северной Америке, а спустя пару дней GRID 2 добралась до Европы и Австралии.",
       img: "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b2/Grid_2_Cover.jpg/274px-Grid_2_Cover.jpg",
       audio: grid2,
     },
