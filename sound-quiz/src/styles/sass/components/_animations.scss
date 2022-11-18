@@ -1,0 +1,14 @@
+.move-left {
+  animation-name: move-left;
+  transform: translateX(-50%);
+  animation-duration: 0.3s;
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

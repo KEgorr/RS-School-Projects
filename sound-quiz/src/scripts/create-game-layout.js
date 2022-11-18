@@ -151,9 +151,14 @@ export function createNextLevel(button) {
   }
   let nexQuest = createQuestion();
   let currentQuestion = document.querySelector(".question");
-  currentQuestion.remove();
+  // currentQuestion.remove();
   let questionBlock = document.querySelector(".question-block");
   questionBlock.append(nexQuest);
+  questionBlock.classList.add("move-left");
+  questionBlock.addEventListener("animationend", function () {
+    currentQuestion.remove();
+    questionBlock.classList.remove("move-left");
+  });
   updateActiveQuest();
   audioRight.pause();
   audioRight.currentTime = 0;
