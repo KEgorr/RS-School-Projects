@@ -153,6 +153,11 @@ export function createNextLevel(button) {
     main.appendChild(resultsBlock);
     main.addEventListener("animationend", function () {
       resultsBlock.classList.add("opacity-up");
+      main.childNodes.forEach((element) => {
+        if (element != resultsBlock) {
+          element.remove();
+        }
+      });
     });
     questNumber = 0;
     return;
