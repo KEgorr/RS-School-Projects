@@ -34,6 +34,8 @@ export function createResults() {
     resultsBlock.append(resultsText, resultsDescription, buttonsBlock);
     newGameButton.addEventListener("click", createGameLayout);
   } else {
+    resultsDescription.innerHTML =
+      "Да вы настоящий игровой меломан. Поздравляем с максимальный баллом за викторину";
     buttonsBlock.append(backToStartLink);
     resultsBlock.append(resultsText, resultsDescription, buttonsBlock);
   }

@@ -13,3 +13,7 @@
   background-color: rgb(0, 188, 140);
   border-radius: 5px;
 }
+
+.navigation__link_active {
+  background-color: darken($color: rgb(0, 188, 140), $amount: 10);
+}

@@ -1,7 +1,8 @@
+import "./custom-audio-player";
+import "@/styles/sass/main.scss";
+
 import { createAudioPlayer } from "./custom-audio-player";
 import { gamesData } from "./games-data";
-
-const galleryButton = document.querySelector(".gallery-button");
 
 const main = document.querySelector(".main");
 
@@ -50,4 +51,4 @@ function createGallery() {
   main.append(galleryBlock);
 }
 
-galleryButton.addEventListener("click", createGallery);
+createGallery();

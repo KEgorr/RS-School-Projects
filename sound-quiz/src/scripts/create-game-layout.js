@@ -9,6 +9,10 @@ export let currentGame;
 const main = document.querySelector(".main");
 
 export function createGameLayout() {
+  if (document.querySelector(".navigation__link_active")) {
+    let activeLink = document.querySelector(".navigation__link_active");
+    activeLink.classList.remove("navigation__link_active");
+  }
   let main = document.querySelector(".main");
 
   let score = document.createElement("span");
@@ -121,10 +125,10 @@ function updateActiveQuest() {
   quests[questNumber].classList.add("questions-types__type_active");
 }
 
-let startGameButton = document.querySelector(".start-button__button");
 let newGameButton = document.querySelector(".new-game-button");
 
-startGameButton.addEventListener("click", createGameLayout);
+createGameLayout();
+
 newGameButton.addEventListener("click", newGame);
 
 function newGame() {
