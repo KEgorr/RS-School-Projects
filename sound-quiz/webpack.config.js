@@ -15,7 +15,11 @@ const cssLoaders = (extra) => {
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
-  entry: "./scripts/main.js",
+  entry: {
+    main: "./scripts/main.js",
+    gallery: "./scripts/create-galery.js",
+    quiz: "./scripts/quiz.js",
+  },
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "bundle"),
@@ -40,6 +44,18 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: "./index.html",
+      filename: "index.html",
+      chunks: ["main"],
+    }),
+    new HTMLWebpackPlugin({
+      template: "./gallery.html",
+      filename: "gallery.html",
+      chunks: ["gallery"],
+    }),
+    new HTMLWebpackPlugin({
+      template: "./quiz.html",
+      filename: "quiz.html",
+      chunks: ["quiz"],
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
