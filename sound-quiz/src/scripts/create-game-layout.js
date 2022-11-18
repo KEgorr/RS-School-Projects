@@ -142,16 +142,20 @@ export function createNextLevel(button) {
   if (questNumber === 6) {
     let resultsBlock = createResults();
 
-    while (main.firstChild) {
-      main.removeChild(main.firstChild);
-    }
+    main.childNodes.forEach((element) => {
+      if (element != resultsBlock) {
+        element.classList.add("opacity-down");
+      }
+    });
     main.appendChild(resultsBlock);
+    main.addEventListener("animationend", function () {
+      resultsBlock.classList.add("opacity-up");
+    });
     questNumber = 0;
     return;
   }
   let nexQuest = createQuestion();
   let currentQuestion = document.querySelector(".question");
-  // currentQuestion.remove();
   let questionBlock = document.querySelector(".question-block");
   questionBlock.append(nexQuest);
   questionBlock.classList.add("move-left");

@@ -4,6 +4,37 @@
   animation-duration: 0.3s;
 }
 
+.opacity-down {
+  animation-name: opacity-down;
+  animation-duration: 0.5s;
+  opacity: 0;
+  position: relative;
+}
+
+.opacity-up {
+  animation-name: opacity-up;
+  animation-duration: 1s;
+  opacity: 100;
+}
+
+@keyframes opacity-up {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+@keyframes opacity-down {
+  0% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes move-left {
   0% {
     transform: translateX(0);

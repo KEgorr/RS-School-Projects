@@ -1,6 +1,6 @@
 .results-block {
   min-height: 50vh;
-  width: 80%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,6 +8,8 @@
   border-radius: 5px;
   border: 1px solid #555;
   background: #303030;
+  position: absolute;
+  opacity: 0;
 }
 
 .results-buttons-block {

@@ -1,7 +1,12 @@
 .question-block {
   display: flex;
   min-width: 100%;
-  flex-direction: column;
+  align-self: flex-start;
+}
+
+.question {
+  width: 1200px;
+  margin-right: 20px;
 }
 
 .unknown-game-block {
