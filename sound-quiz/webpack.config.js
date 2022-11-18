@@ -3,6 +3,7 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const cssLoaders = (extra) => {
   let loaders = [MiniCssExtractPlugin.loader, "css-loader"];
@@ -25,7 +26,13 @@ module.exports = {
     },
   },
   optimization: {
-    minimizer: [new CssMinimizerPlugin()],
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin({
+        test: /\.m?js(\?.*)?$/i,
+      }),
+    ],
   },
   devServer: {
     port: 4200,
