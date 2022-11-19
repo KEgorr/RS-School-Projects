@@ -5,6 +5,8 @@
   .navigation {
     flex-direction: column;
     row-gap: 10px;
+    flex-wrap: wrap;
+    row-gap: 15px;
   }
 
   .navigation__link {
@@ -123,5 +125,27 @@
 
   .footer-navigation__RS-school {
     height: 35px;
+  }
+
+  .language-en,
+  .language-ru {
+    height: 20px;
+    width: 40px;
+  }
+  .language-selector {
+    height: 30px;
+    width: 55px;
+    margin-right: auto;
+  }
+  .selector-options {
+    height: 20px;
+  }
+  .selector-options_active {
+    height: 50px;
+  }
+
+  .navigation-links {
+    justify-content: center;
+    width: 100%;
   }
 }

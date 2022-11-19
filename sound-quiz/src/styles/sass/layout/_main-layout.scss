@@ -18,6 +18,15 @@ body {
 .navigation {
   display: flex;
   column-gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.navigation-links {
+  margin-left: auto;
+  display: flex;
+  column-gap: 20px;
 }
 
 .main {
