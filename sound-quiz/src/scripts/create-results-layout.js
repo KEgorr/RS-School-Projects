@@ -1,4 +1,12 @@
 import { createGameLayout } from "./create-game-layout";
+import { textDataEn, textDataRu } from "./text-data";
+
+let textData;
+if (localStorage.getItem("language") === "en") {
+  textData = textDataEn;
+} else {
+  textData = textDataRu;
+}
 
 export function createResults() {
   let resultsBlock = document.createElement("div");
@@ -9,7 +17,7 @@ export function createResults() {
 
   let resultsText = document.createElement("p");
   resultsText.classList.add("introduction");
-  resultsText.innerHTML = `Набранные баллы: ${currentScore}/30`;
+  resultsText.innerHTML = `${textData.resultsScoreText} ${currentScore}/30`;
 
   let resultsDescription = document.createElement("p");
   resultsDescription.classList.add("introduction");
@@ -18,7 +26,7 @@ export function createResults() {
   backToStartLink.classList.add("button");
   backToStartLink.classList.add("start-button__button");
   backToStartLink.href = "index.html";
-  backToStartLink.innerHTML = "На главную";
+  backToStartLink.innerHTML = textData.resultsBackToStartButton;
 
   let buttonsBlock = document.createElement("div");
   buttonsBlock.classList.add("results-buttons-block");
@@ -27,15 +35,13 @@ export function createResults() {
     let newGameButton = document.createElement("button");
     newGameButton.classList.add("button");
     newGameButton.classList.add("start-button__button");
-    newGameButton.innerHTML = "Новая игра";
-    resultsDescription.innerHTML =
-      "К сожелению набрано не максимальное колличество баллов. Желаете пройти викторину занаво?";
+    newGameButton.innerHTML = textData.resultsNewGame;
+    resultsDescription.innerHTML = textData.resultsFail;
     buttonsBlock.append(newGameButton, backToStartLink);
     resultsBlock.append(resultsText, resultsDescription, buttonsBlock);
     newGameButton.addEventListener("click", createGameLayout);
   } else {
-    resultsDescription.innerHTML =
-      "Да вы настоящий игровой меломан. Поздравляем с максимальный баллом за викторину";
+    resultsDescription.innerHTML = textData.resultsSuccess;
     buttonsBlock.append(backToStartLink);
     resultsBlock.append(resultsText, resultsDescription, buttonsBlock);
   }

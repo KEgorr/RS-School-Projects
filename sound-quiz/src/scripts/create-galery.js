@@ -1,8 +1,17 @@
 import "./custom-audio-player";
+import "./language-selector";
 import "@/styles/sass/main.scss";
 
 import { createAudioPlayer } from "./custom-audio-player";
-import { gamesData } from "./games-data";
+import { gamesDataRu, gamesDataEn } from "./games-data";
+
+let gamesData;
+
+if (localStorage.getItem("language") === "en") {
+  gamesData = gamesDataEn;
+} else {
+  gamesData = gamesDataRu;
+}
 
 const main = document.querySelector(".main");
 

@@ -1,7 +1,19 @@
 import { createResults } from "./create-results-layout";
 import { createAudioPlayer } from "./custom-audio-player";
 import { audioRight, gameSelection } from "./game-selection";
-import { gamesData } from "./games-data";
+import { gamesDataRu, gamesDataEn } from "./games-data";
+import { textDataEn, textDataRu } from "./text-data";
+import "./language-selector";
+
+let gamesData;
+let textData;
+if (localStorage.getItem("language") === "en") {
+  gamesData = gamesDataEn;
+  textData = textDataEn;
+} else {
+  gamesData = gamesDataRu;
+  textData = textDataRu;
+}
 
 export let questNumber = 0;
 export let currentGame;
@@ -17,7 +29,7 @@ export function createGameLayout() {
 
   let score = document.createElement("span");
   score.classList.add("score-count");
-  score.innerHTML = "Score: 0";
+  score.innerHTML = textData.score;
 
   while (main.firstChild) {
     main.removeChild(main.firstChild);
@@ -43,7 +55,7 @@ export function createGameLayout() {
   nextLevelButton.classList.add("button");
   nextLevelButton.classList.add("next-level__button");
   nextLevelButton.classList.add("next-level__button_disabled");
-  nextLevelButton.innerHTML = "Следующий вопрос";
+  nextLevelButton.innerHTML = textData.nextLevelButton;
 
   main.append(score, questionsName, questionBlock, nextLevelButton);
   updateActiveQuest();
@@ -103,7 +115,7 @@ function createQuestion() {
 
   let answerInfoTxt = document.createElement("pre");
   answerInfoTxt.classList.add("answer-info__intro-text");
-  answerInfoTxt.innerHTML = "Послушайте плеер.\nВыберете игру из списка";
+  answerInfoTxt.innerHTML = textData.answerInfo;
 
   answerInfo.append(answerInfoTxt);
   answersBlock.append(answers, answerInfo);
@@ -140,7 +152,7 @@ export function createNextLevel(button) {
   let target = button.currentTarget;
   questNumber++;
   if (questNumber === 5) {
-    target.innerHTML = "Закончить викторину";
+    target.innerHTML = textData.quizEnd;
   }
   if (questNumber === 6) {
     let resultsBlock = createResults();

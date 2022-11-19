@@ -4,9 +4,17 @@ import {
   questNumber,
 } from "./create-game-layout";
 import { createAudioPlayer } from "./custom-audio-player";
-import { gamesData } from "./games-data";
 import rightSound from "@/assets/sounds/right-sound.mp3";
 import errorSound from "@/assets/sounds/error-sound.mp3";
+import { gamesDataRu, gamesDataEn } from "./games-data";
+
+let gamesData;
+
+if (localStorage.getItem("language") === "en") {
+  gamesData = gamesDataEn;
+} else {
+  gamesData = gamesDataRu;
+}
 
 export let audioRight = new Audio();
 audioRight.src = rightSound;

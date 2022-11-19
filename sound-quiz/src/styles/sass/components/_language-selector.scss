@@ -1,0 +1,42 @@
+.language-selector {
+  position: relative;
+  z-index: 100;
+  width: 72px;
+  height: 42px;
+}
+
+.selector-options {
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  flex-direction: column;
+  row-gap: 10px;
+  background: #303030;
+  border: 1px solid #555;
+  border-radius: 5px;
+  padding: 5px;
+  overflow: hidden;
+  height: 30px;
+}
+
+.selector-options_active {
+  height: 72px;
+}
+
+.language-ru {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg);
+}
+
+.language-en,
+.language-ru {
+  width: 60px;
+  height: 30px;
+  display: block;
+  flex-shrink: 0;
+  background-size: contain;
+}
+
+.language-en {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg);
+}
