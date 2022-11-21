@@ -33,37 +33,41 @@ export function gameSelection(answer) {
   let userSelection = findSelected(targetText);
 
   if (targetText.innerHTML === currentGame.name) {
-    answerIndicator.classList.add("answer__indicator_success");
+    if (!answerIndicator.classList.contains("answer__indicator_success")) {
+      answerIndicator.classList.add("answer__indicator_success");
 
-    let scoreCountText = document.querySelector(".score-count");
-    let scoreCount = scoreCountText.innerHTML.split(": ")[1];
-    scoreCountText.innerHTML = `${scoreCountText.innerHTML.split(":")[0]}: ${
-      Number(scoreCount) + score
-    }`;
+      let scoreCountText = document.querySelector(".score-count");
+      let scoreCount = scoreCountText.innerHTML.split(": ")[1];
+      scoreCountText.innerHTML = `${scoreCountText.innerHTML.split(":")[0]}: ${
+        Number(scoreCount) + score
+      }`;
 
-    let questImg = document.querySelector(".game-img");
-    questImg.src = userSelection.img;
+      let questImg = document.querySelector(".game-img");
+      questImg.src = userSelection.img;
 
-    let gameName = document.querySelector(".unknown-game-description__name");
-    gameName.innerHTML = userSelection.name;
+      let gameName = document.querySelector(".unknown-game-description__name");
+      gameName.innerHTML = userSelection.name;
 
-    let audioGame = document.querySelector(
-      ".unknown-game-description .audio-player audio"
-    );
-    audioGame.pause();
+      let audioGame = document.querySelector(
+        ".unknown-game-description .audio-player audio"
+      );
+      audioGame.pause();
 
-    let nextLevelButton = document.querySelector(".next-level__button");
-    nextLevelButton.classList.remove("next-level__button_disabled");
-    nextLevelButton.addEventListener("click", createNextLevel);
-    score = 5;
+      let nextLevelButton = document.querySelector(".next-level__button");
+      nextLevelButton.classList.remove("next-level__button_disabled");
+      nextLevelButton.addEventListener("click", createNextLevel);
+      score = 5;
 
-    audioRight.play();
-    audioRight.addEventListener("ended", () => (audioRight.volume = 0));
+      audioRight.play();
+      audioRight.addEventListener("ended", () => (audioRight.volume = 0));
+    }
   } else if (!document.querySelector(".answer__indicator_success")) {
-    answerIndicator.classList.add("answer__indicator_error");
-    score--;
-    audioError.currentTime = 0;
-    audioError.play();
+    if (!answerIndicator.classList.contains("answer__indicator_error")) {
+      answerIndicator.classList.add("answer__indicator_error");
+      score--;
+      audioError.currentTime = 0;
+      audioError.play();
+    }
   }
 
   let answerInfo = document.querySelector(".answer-info");
