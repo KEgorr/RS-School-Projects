@@ -37,7 +37,9 @@ export function gameSelection(answer) {
 
     let scoreCountText = document.querySelector(".score-count");
     let scoreCount = scoreCountText.innerHTML.split(": ")[1];
-    scoreCountText.innerHTML = `Score: ${Number(scoreCount) + score}`;
+    scoreCountText.innerHTML = `${scoreCountText.innerHTML.split(":")[0]}: ${
+      Number(scoreCount) + score
+    }`;
 
     let questImg = document.querySelector(".game-img");
     questImg.src = userSelection.img;
