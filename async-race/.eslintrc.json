@@ -23,7 +23,14 @@
     "no-debugger": "off",
     "no-console": 0,
     "class-methods-use-this": "off",
-    "@typescript-eslint/no-explicit-any": 2
+    "@typescript-eslint/no-explicit-any": 2,
+    "object-curly-newline": [
+      "error",
+      {
+        "ImportDeclaration": "never"
+      }
+    ],
+    "@typescript-eslint/comma-dangle": "off"
   },
   "ignorePatterns": ["*config.js"],
   "settings": {
