@@ -1,6 +1,7 @@
-import { CarEngine, Cars, EngineStatus, Winners } from '../dataTypes/dataTypes';
+import { Car, Winner } from '../../dataTypes/dataTypes';
+import TypeGuard from '../../dataTypes/typeGuards';
 
-export class ApiHandler {
+export default class ApiHandler {
   private baseUrl: string;
 
   private garage: string;
@@ -9,29 +10,36 @@ export class ApiHandler {
 
   private winners: string;
 
+  private typeGuard: TypeGuard;
+
   constructor() {
     this.baseUrl = 'http://127.0.0.1:3000';
     this.garage = 'garage';
     this.engine = 'engine';
     this.winners = 'winners';
+    this.typeGuard = new TypeGuard();
   }
 
   public async getCars(page: number, limit = 7) {
     const response = await fetch(`${this.baseUrl}/${this.garage}?_page=${page}&_limit=${limit}`);
-    const data = (await response.json()) as Cars[];
-    return {
-      items: data,
-      count: response.headers.get('X-Total-Count'),
-    };
+    const data: unknown = await response.json();
+    if (this.typeGuard.isCarsArr(data)) {
+      return {
+        items: data,
+        count: response.headers.get('X-Total-Count'),
+      };
+    }
+    throw new Error(`${response.statusText}`);
   }
 
   public async getCar(id: number) {
     const response = await fetch(`${this.baseUrl}/${this.garage}/${id}`);
-    const data = (await response.json()) as Cars;
-    return data;
+    const data: unknown = await response.json();
+    if (this.typeGuard.isCar(data)) return data;
+    throw new Error(`${response.statusText}`);
   }
 
-  public async createCar(body: Cars) {
+  public async createCar(body: Car) {
     await fetch(`${this.baseUrl}/${this.garage}`, {
       method: 'POST',
       body: JSON.stringify(body),
@@ -47,7 +55,7 @@ export class ApiHandler {
     });
   }
 
-  public async updateCar(id: number, body: Cars) {
+  public async updateCar(id: number, body: Car) {
     await fetch(`${this.baseUrl}/${this.garage}/${id}`, {
       method: 'PUT',
       body: JSON.stringify(body),
@@ -58,19 +66,21 @@ export class ApiHandler {
   }
 
   public async startEngine(id: number) {
-    const response = fetch(`${this.baseUrl}/${this.engine}/?id=${id}&status=started`, {
+    const response = await fetch(`${this.baseUrl}/${this.engine}/?id=${id}&status=started`, {
       method: 'PATCH',
     });
-    const data = (await response).json() as Promise<CarEngine>;
-    return data;
+    const data: unknown = await response.json();
+    if (this.typeGuard.isCarEngine(data)) return data;
+    throw new Error(`${response.statusText}`);
   }
 
   public async stopEngine(id: number) {
-    const response = fetch(`${this.baseUrl}/${this.engine}/?id=${id}&status=stopped`, {
+    const response = await fetch(`${this.baseUrl}/${this.engine}/?id=${id}&status=stopped`, {
       method: 'PATCH',
     });
-    const data = (await response).json() as Promise<CarEngine>;
-    return data;
+    const data: unknown = await response.json();
+    if (this.typeGuard.isCarEngine(data)) return data;
+    throw new Error(`${response.statusText}`);
   }
 
   public async drive(id: number) {
@@ -80,8 +90,9 @@ export class ApiHandler {
     if (response.status !== 200) {
       return { success: false };
     }
-    const data = (await response.json()) as EngineStatus;
-    return data;
+    const data: unknown = await response.json();
+    if (this.typeGuard.isEngineStatus(data)) return data;
+    throw new Error(`${response.statusText}`);
   }
 
   public async getWinners(page: number, sort?: string, order?: string, limit = 10) {
@@ -90,33 +101,38 @@ export class ApiHandler {
       sorting = `&_sort=${sort}&_order=${order}`;
     }
     const response = await fetch(`${this.baseUrl}/${this.winners}?_page=${page}&_limit=${limit}${sorting}`);
-    const winners = (await response.json()) as Winners[];
+    const winners: unknown = await response.json();
 
-    const cars = Promise.all(
-      winners.map(async (winner) => {
-        if (winner.id) {
-          return {
-            ...winner,
-            car: await this.getCar(winner.id),
-          };
-        }
-        return 'winner.id is not defined';
-      })
-    );
-
-    return {
-      items: await cars,
-      count: response.headers.get('X-Total-Count'),
-    };
+    if (this.typeGuard.isWinnersArr(winners)) {
+      const cars = Promise.all(
+        winners.map(async (winner) => {
+          if (winner.id) {
+            return {
+              ...winner,
+              car: await this.getCar(winner.id),
+            };
+          }
+          throw new Error('winner.id is not defined');
+        })
+      );
+      return {
+        items: await cars,
+        count: response.headers.get('X-Total-Count'),
+      };
+    }
+    throw new Error(`${response.statusText}`);
   }
 
   public async getWinner(id: number) {
     const response = await fetch(`${this.baseUrl}/${this.winners}/${id}`);
-    const winner = (await response.json()) as Winners;
-    return winner;
+    const winner: unknown = await response.json();
+    if (this.typeGuard.isWinner(winner)) {
+      return winner;
+    }
+    throw new Error(`${response.statusText}`);
   }
 
-  public async createWinner(body: Winners) {
+  public async createWinner(body: Winner) {
     await fetch(`${this.baseUrl}/${this.winners}`, {
       method: 'POST',
       body: JSON.stringify(body),
@@ -132,7 +148,7 @@ export class ApiHandler {
     });
   }
 
-  public async updateWinner(id: number, body: Winners) {
+  public async updateWinner(id: number, body: Winner) {
     await fetch(`${this.baseUrl}/${this.winners}/${id}`, {
       method: 'PUT',
       body: JSON.stringify(body),
@@ -142,5 +158,3 @@ export class ApiHandler {
     });
   }
 }
-
-export default { ApiHandler };

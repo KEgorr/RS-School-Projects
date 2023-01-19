@@ -1,4 +1,4 @@
-export interface Cars {
+export interface Car {
   name: string;
   color: string;
   id?: number;
@@ -13,7 +13,7 @@ export interface EngineStatus {
   success: boolean;
 }
 
-export interface Winners {
+export interface Winner {
   id?: number;
   wins: number;
   time: number;
