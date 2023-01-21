@@ -1,0 +1,14 @@
+.car-settings {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.create-car-block,
+.update-car-block,
+.other-buttons {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}

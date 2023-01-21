@@ -1,0 +1,45 @@
+.car-item::after {
+  content: '';
+  display: block;
+  position: relative;
+  border-bottom: 2px dashed $color_header_garage;
+  bottom: 30px;
+}
+
+.car-info {
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
+  .car-buttons {
+    display: flex;
+    column-gap: 0.5rem;
+  }
+}
+
+.car-area-buttons {
+  display: flex;
+  column-gap: 0.4rem;
+  align-items: center;
+  margin-right: 1rem;
+  margin-bottom: 10px;
+}
+
+.car-name {
+  color: $color_header_garage;
+  font-size: 1.5rem;
+}
+
+.car-area {
+  display: flex;
+  width: 90%;
+}
+
+.car-img {
+  width: 90px;
+  transform: scale(-1, 1);
+}
+
+.red-flag {
+  width: 50px;
+  margin-left: auto;
+}

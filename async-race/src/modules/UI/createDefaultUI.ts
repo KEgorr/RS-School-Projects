@@ -39,6 +39,9 @@ export default class CreateUI {
     const updateColor = this.tools.createElem('input', 'update-color', undefined, 'color');
     const updateBtnBlock = this.tools.createElem('div', 'update-button');
     const updateBtn = this.tools.createElem('button', 'default-button', 'Update');
+    if (updateBtn instanceof HTMLButtonElement) {
+      updateBtn.disabled = true;
+    }
     updateBtnBlock.append(updateBtn);
     updateCarBlock.append(updateCar, updateColor, updateBtnBlock);
 
@@ -56,7 +59,10 @@ export default class CreateUI {
     raceBtnBlock.append(raceBtn);
 
     const resetBtnBlock = this.tools.createElem('div', 'reset-button');
-    const resetBtn = this.tools.createElem('button', 'special-button', 'Race');
+    const resetBtn = this.tools.createElem('button', 'special-button', 'Reset');
+    if (resetBtn instanceof HTMLButtonElement) {
+      resetBtn.disabled = true;
+    }
     resetBtnBlock.append(resetBtn);
 
     const generateCarsBtnBlock = this.tools.createElem('div', 'generate-cars-button');
@@ -85,6 +91,9 @@ export default class CreateUI {
 
     const paginationPrevBlock = this.tools.createElem('div', 'prev-button');
     const prevBtn = this.tools.createElem('button', 'special-button', 'Prev');
+    if (prevBtn instanceof HTMLButtonElement) {
+      prevBtn.disabled = true;
+    }
     paginationPrevBlock.append(prevBtn);
 
     const paginationNextBlock = this.tools.createElem('div', 'next-button');

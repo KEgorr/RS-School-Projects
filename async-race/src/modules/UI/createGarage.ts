@@ -57,6 +57,9 @@ export default class CreateGarage {
     startEngineBtnBlock.append(startEngineBtn);
     const disableEngineBtnBlock = this.tools.createElem('div', 'disable-engine-button');
     const disableEngineBtn = this.tools.createElem('button', 'disable-button', 'B');
+    if (disableEngineBtn instanceof HTMLButtonElement) {
+      disableEngineBtn.disabled = true;
+    }
     disableEngineBtnBlock.append(disableEngineBtn);
     carAreaButtons.append(startEngineBtnBlock, disableEngineBtnBlock);
 

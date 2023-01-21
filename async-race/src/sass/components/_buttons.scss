@@ -1,0 +1,55 @@
+.special-button,
+.drive-button {
+  box-sizing: border-box;
+  padding: 0.4rem;
+  background-color: $color_special_btn;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+
+  &:hover {
+    background-color: darken($color_special_btn, 10);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color: darken($color_special_btn, 30);
+    border-color: darken($color_special_btn, 30);
+  }
+}
+
+.default-button {
+  box-sizing: border-box;
+  padding: 0.4rem;
+  background-color: $color_default_btn;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color_default_btn, 10);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: darken($color_default_btn, 30);
+    border-color: darken($color_default_btn, 30);
+  }
+}
+
+.disable-button {
+  box-sizing: border-box;
+  padding: 0.4rem;
+  background-color: $color_disable_btn;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+
+  &:hover {
+    background-color: darken($color_disable_btn, 10);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    background-color: darken($color_disable_btn, 30);
+    border-color: darken($color_disable_btn, 30);
+  }
+}
