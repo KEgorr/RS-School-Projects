@@ -1,6 +1,7 @@
 import CreateUI from '../modules/UI/createRaceUI';
 import CreateGarage from '../modules/UI/createGarage';
 import Winners from '../modules/UI/WinnersUI';
+import Navigation from '../modules/UI/navigation';
 
 export default class App {
   createUI: CreateUI;
@@ -9,10 +10,13 @@ export default class App {
 
   winners: Winners;
 
+  navigation: Navigation;
+
   constructor() {
     this.createUI = new CreateUI();
     this.garage = new CreateGarage();
     this.winners = new Winners();
+    this.navigation = new Navigation();
   }
 
   public async start() {
@@ -28,7 +32,7 @@ export default class App {
 
     winnersSection.append(winners, winnersPagination);
 
-    winners.classList.add('hide-section');
+    winnersSection.classList.add('hide-section');
 
     raceSection.append(garage, RacePagination);
     const body = document.querySelector('.body');
@@ -36,5 +40,7 @@ export default class App {
     if (body) {
       body.append(navigation, raceSection, winnersSection);
     }
+
+    navigation.addEventListener('click', (event) => this.navigation.navigate(event));
   }
 }
