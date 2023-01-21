@@ -11,6 +11,11 @@ export default class Winners {
     this.api = new ApiHandler();
   }
 
+  public createWinnersSection() {
+    const winnersSection = this.tools.createElem('section', 'winners-section');
+    return winnersSection;
+  }
+
   public async createWinners(page: number, sort?: string, order?: string) {
     const winners = await this.api.getWinners(page);
     const winnersInfo = this.tools.createElem('div', 'winners-info');
@@ -23,12 +28,9 @@ export default class Winners {
 
     const carTable = await this.createCarTable(page, sort, order);
 
-    const winnersSection = this.tools.createElem('section', 'winners-section');
-
     winnersInfo.append(winnersHeader, winnersPage, carTable);
-    winnersSection.append(winnersInfo);
 
-    return winnersSection;
+    return winnersInfo;
   }
 
   private async createCarTable(page: number, sort?: string, order?: string) {
@@ -46,13 +48,12 @@ export default class Winners {
     tableHeader.append(tableHeaderRow);
 
     const tableBody = this.tools.createElem('tbody', 'table-body');
-    winners.items.forEach((item) => {
+    winners.items.forEach((item, value) => {
       const tableBodyContent = this.tools.createElem('tr', 'table-body-row');
-      if (item.id) {
-        const winnerId = this.tools.createElem('td', 'table-body-row__content', `${item.id}`);
-        tableBodyContent.append(winnerId);
-      }
+      const winnerId = this.tools.createElem('td', 'table-body-row__content', `${value + 1}`);
+      tableBodyContent.append(winnerId);
       const carImgTd = this.tools.createElem('td', 'table-body-row__content_img');
+      carImgTd.classList.add('table-body-row__content');
       const carImg = this.tools.createCarImg(item.car.color);
       carImgTd.innerHTML = carImg;
       const carName = this.tools.createElem('td', 'table-body-row__content', item.car.name);

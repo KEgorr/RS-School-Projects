@@ -22,16 +22,19 @@ export default class App {
 
     const garage = await this.garage.createGarage();
 
+    const winnersSection = this.winners.createWinnersSection();
     const winners = await this.winners.createWinners(1, undefined, undefined);
     const winnersPagination = this.winners.createPaginationWinners();
 
-    winners.append(winnersPagination);
+    winnersSection.append(winners, winnersPagination);
+
+    winners.classList.add('hide-section');
 
     raceSection.append(garage, RacePagination);
     const body = document.querySelector('.body');
 
     if (body) {
-      body.append(navigation, raceSection, winners);
+      body.append(navigation, raceSection, winnersSection);
     }
   }
 }
