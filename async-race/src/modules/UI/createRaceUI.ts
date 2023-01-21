@@ -84,10 +84,10 @@ export default class CreateUI {
     return raceSection;
   }
 
-  public createFooter() {
-    const footer = this.tools.createElem('div', 'footer');
+  public createRacePagination() {
+    const RacePagination = this.tools.createElem('div', 'race-pagination');
 
-    const paginationButtons = this.tools.createElem('div', 'footer-buttons');
+    const paginationButtons = this.tools.createElem('div', 'pagination-buttons');
 
     const paginationPrevBlock = this.tools.createElem('div', 'prev-button');
     const prevBtn = this.tools.createElem('button', 'special-button', 'Prev');
@@ -102,8 +102,8 @@ export default class CreateUI {
 
     paginationButtons.append(paginationPrevBlock, paginationNextBlock);
 
-    footer.append(paginationButtons);
+    RacePagination.append(paginationButtons);
 
-    return footer;
+    return RacePagination;
   }
 }

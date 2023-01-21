@@ -69,9 +69,9 @@ export default class Winners {
   }
 
   public createPaginationWinners() {
-    const winnersPaginationBlock = this.tools.createElem('div', 'footer');
+    const winnersPaginationBlock = this.tools.createElem('div', 'winners-pagination');
 
-    const paginationButtons = this.tools.createElem('div', 'footer-buttons');
+    const paginationButtons = this.tools.createElem('div', 'pagination-buttons');
 
     const paginationPrevBlock = this.tools.createElem('div', 'prev-button');
     const prevBtn = this.tools.createElem('button', 'special-button', 'Prev');

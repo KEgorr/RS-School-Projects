@@ -18,7 +18,7 @@ export default class App {
   public async start() {
     const navigation = this.createUI.crateNavigation();
     const raceSection = this.createUI.createRaceSection();
-    const footer = this.createUI.createFooter();
+    const RacePagination = this.createUI.createRacePagination();
 
     const garage = await this.garage.createGarage();
 
@@ -27,7 +27,7 @@ export default class App {
 
     winners.append(winnersPagination);
 
-    raceSection.append(garage, footer);
+    raceSection.append(garage, RacePagination);
     const body = document.querySelector('.body');
 
     if (body) {
