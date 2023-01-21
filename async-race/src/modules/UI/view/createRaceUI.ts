@@ -1,4 +1,4 @@
-import Tools from './tools/Tools';
+import Tools from '../tools/Tools';
 
 export default class CreateUI {
   tools: Tools;

@@ -1,5 +1,5 @@
-import ApiHandler from '../api/API';
-import Tools from './tools/Tools';
+import ApiHandler from '../../api/API';
+import Tools from '../tools/Tools';
 
 export default class Winners {
   tools: Tools;

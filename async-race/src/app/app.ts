@@ -1,6 +1,6 @@
-import CreateUI from '../modules/UI/createRaceUI';
-import CreateGarage from '../modules/UI/createGarage';
-import Winners from '../modules/UI/WinnersUI';
+import CreateUI from '../modules/UI/view/createRaceUI';
+import CreateGarage from '../modules/UI/view/createGarage';
+import Winners from '../modules/UI/view/WinnersUI';
 import Navigation from '../modules/UI/navigation';
 
 export default class App {
