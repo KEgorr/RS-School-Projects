@@ -85,7 +85,7 @@ export default class CreateUI {
   }
 
   public createFooter() {
-    const footer = this.tools.createElem('footer', 'footer');
+    const footer = this.tools.createElem('div', 'footer');
 
     const paginationButtons = this.tools.createElem('div', 'footer-buttons');
 

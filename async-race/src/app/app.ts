@@ -1,14 +1,18 @@
-import CreateUI from '../modules/UI/createDefaultUI';
+import CreateUI from '../modules/UI/createRaceUI';
 import CreateGarage from '../modules/UI/createGarage';
+import Winners from '../modules/UI/WinnersUI';
 
 export default class App {
   createUI: CreateUI;
 
   garage: CreateGarage;
 
+  winners: Winners;
+
   constructor() {
     this.createUI = new CreateUI();
     this.garage = new CreateGarage();
+    this.winners = new Winners();
   }
 
   public async start() {
@@ -18,11 +22,16 @@ export default class App {
 
     const garage = await this.garage.createGarage();
 
-    raceSection.append(garage);
+    const winners = await this.winners.createWinners(1, undefined, undefined);
+    const winnersPagination = this.winners.createPaginationWinners();
+
+    winners.append(winnersPagination);
+
+    raceSection.append(garage, footer);
     const body = document.querySelector('.body');
 
     if (body) {
-      body.append(navigation, raceSection, footer);
+      body.append(navigation, raceSection, winners);
     }
   }
 }
