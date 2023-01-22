@@ -1,7 +1,7 @@
 import { Car, Winner } from '../../dataTypes/dataTypes';
 import TypeGuard from '../../dataTypes/typeGuards';
 
-export default class ApiHandler {
+class ApiHandler {
   private baseUrl: string;
 
   private garage: string;
@@ -158,3 +158,7 @@ export default class ApiHandler {
     });
   }
 }
+
+const api = new ApiHandler();
+
+export default api;

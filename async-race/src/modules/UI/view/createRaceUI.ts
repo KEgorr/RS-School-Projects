@@ -1,22 +1,16 @@
-import Tools from '../tools/Tools';
+import tools from '../tools/Tools';
 
 export default class CreateUI {
-  tools: Tools;
-
-  constructor() {
-    this.tools = new Tools();
-  }
-
   public crateNavigation() {
-    const buttonsBlock = this.tools.createElem('nav', 'navigate-buttons');
+    const buttonsBlock = tools.createElem('nav', 'navigate-buttons');
 
-    const toGarageBtnBlock = this.tools.createElem('div', 'to-garage-button');
-    const toWinnersBtnBlock = this.tools.createElem('div', 'to-winners-button');
+    const toGarageBtnBlock = tools.createElem('div', 'to-garage-button');
+    const toWinnersBtnBlock = tools.createElem('div', 'to-winners-button');
 
-    const garageBtn = this.tools.createElem('button', 'special-button', 'To Garage');
+    const garageBtn = tools.createElem('button', 'special-button', 'To Garage');
     toGarageBtnBlock.append(garageBtn);
 
-    const winnersBtn = this.tools.createElem('button', 'special-button', 'To Winners');
+    const winnersBtn = tools.createElem('button', 'special-button', 'To Winners');
     toWinnersBtnBlock.append(winnersBtn);
 
     buttonsBlock.append(toGarageBtnBlock, toWinnersBtnBlock);
@@ -24,21 +18,21 @@ export default class CreateUI {
   }
 
   private createCarSetting() {
-    const carsSettingBlock = this.tools.createElem('div', 'car-settings');
+    const carsSettingBlock = tools.createElem('div', 'car-settings');
 
-    const createCarBlock = this.tools.createElem('div', 'create-car-block');
-    const inputCar = this.tools.createElem('input', 'create-car', undefined, 'text');
-    const createColor = this.tools.createElem('input', 'create-color', undefined, 'color');
-    const createBtnBlock = this.tools.createElem('div', 'create-button');
-    const createBtn = this.tools.createElem('button', 'default-button', 'Create');
+    const createCarBlock = tools.createElem('div', 'create-car-block');
+    const inputCar = tools.createElem('input', 'create-car', undefined, 'text');
+    const createColor = tools.createElem('input', 'create-color', undefined, 'color');
+    const createBtnBlock = tools.createElem('div', 'create-button');
+    const createBtn = tools.createElem('button', 'default-button', 'Create');
     createBtnBlock.append(createBtn);
     createCarBlock.append(inputCar, createColor, createBtnBlock);
 
-    const updateCarBlock = this.tools.createElem('div', 'update-car-block');
-    const updateCar = this.tools.createElem('input', 'update-car', undefined, 'text');
-    const updateColor = this.tools.createElem('input', 'update-color', undefined, 'color');
-    const updateBtnBlock = this.tools.createElem('div', 'update-button');
-    const updateBtn = this.tools.createElem('button', 'default-button', 'Update');
+    const updateCarBlock = tools.createElem('div', 'update-car-block');
+    const updateCar = tools.createElem('input', 'update-car', undefined, 'text');
+    const updateColor = tools.createElem('input', 'update-color', undefined, 'color');
+    const updateBtnBlock = tools.createElem('div', 'update-button');
+    const updateBtn = tools.createElem('button', 'default-button', 'Update');
     if (updateBtn instanceof HTMLButtonElement) {
       updateBtn.disabled = true;
     }
@@ -52,21 +46,21 @@ export default class CreateUI {
   }
 
   private createOtherButtons() {
-    const otherBtn = this.tools.createElem('div', 'other-buttons');
+    const otherBtn = tools.createElem('div', 'other-buttons');
 
-    const raceBtnBlock = this.tools.createElem('div', 'race-button');
-    const raceBtn = this.tools.createElem('button', 'special-button', 'Race');
+    const raceBtnBlock = tools.createElem('div', 'race-button');
+    const raceBtn = tools.createElem('button', 'special-button', 'Race');
     raceBtnBlock.append(raceBtn);
 
-    const resetBtnBlock = this.tools.createElem('div', 'reset-button');
-    const resetBtn = this.tools.createElem('button', 'special-button', 'Reset');
+    const resetBtnBlock = tools.createElem('div', 'reset-button');
+    const resetBtn = tools.createElem('button', 'special-button', 'Reset');
     if (resetBtn instanceof HTMLButtonElement) {
       resetBtn.disabled = true;
     }
     resetBtnBlock.append(resetBtn);
 
-    const generateCarsBtnBlock = this.tools.createElem('div', 'generate-cars-button');
-    const generateCarsBtn = this.tools.createElem('button', 'default-button', 'Generate Cars');
+    const generateCarsBtnBlock = tools.createElem('div', 'generate-cars-button');
+    const generateCarsBtn = tools.createElem('button', 'default-button', 'Generate Cars');
     generateCarsBtnBlock.append(generateCarsBtn);
 
     otherBtn.append(raceBtnBlock, resetBtnBlock, generateCarsBtnBlock);
@@ -75,7 +69,7 @@ export default class CreateUI {
   }
 
   public createRaceSection() {
-    const raceSection = this.tools.createElem('section', 'race-section');
+    const raceSection = tools.createElem('section', 'race-section');
 
     const carSettings = this.createCarSetting();
 
@@ -85,19 +79,19 @@ export default class CreateUI {
   }
 
   public createRacePagination() {
-    const RacePagination = this.tools.createElem('div', 'race-pagination');
+    const RacePagination = tools.createElem('div', 'race-pagination');
 
-    const paginationButtons = this.tools.createElem('div', 'pagination-buttons');
+    const paginationButtons = tools.createElem('div', 'pagination-buttons');
 
-    const paginationPrevBlock = this.tools.createElem('div', 'prev-button');
-    const prevBtn = this.tools.createElem('button', 'special-button', 'Prev');
+    const paginationPrevBlock = tools.createElem('div', 'prev-button');
+    const prevBtn = tools.createElem('button', 'special-button', 'Prev');
     if (prevBtn instanceof HTMLButtonElement) {
       prevBtn.disabled = true;
     }
     paginationPrevBlock.append(prevBtn);
 
-    const paginationNextBlock = this.tools.createElem('div', 'next-button');
-    const nextBtn = this.tools.createElem('button', 'special-button', 'Next');
+    const paginationNextBlock = tools.createElem('div', 'next-button');
+    const nextBtn = tools.createElem('button', 'special-button', 'Next');
     paginationNextBlock.append(nextBtn);
 
     paginationButtons.append(paginationPrevBlock, paginationNextBlock);

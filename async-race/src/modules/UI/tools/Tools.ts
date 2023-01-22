@@ -1,4 +1,4 @@
-export default class Tools {
+class Tools {
   public createElem(elem: string, className: string, text?: string, type?: string) {
     const newElement = document.createElement(`${elem}`);
     newElement.classList.add(className);
@@ -24,3 +24,7 @@ export default class Tools {
     </svg>`;
   }
 }
+
+const tools = new Tools();
+
+export default tools;

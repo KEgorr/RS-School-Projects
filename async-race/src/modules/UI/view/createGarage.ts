@@ -1,21 +1,12 @@
-import ApiHandler from '../../api/API';
+import api from '../../api/API';
 import data from '../race-data';
-import Tools from '../tools/Tools';
+import tools from '../tools/Tools';
 
 export default class CreateGarage {
-  tools: Tools;
-
-  api: ApiHandler;
-
-  constructor() {
-    this.tools = new Tools();
-    this.api = new ApiHandler();
-  }
-
   private async createGarageHeader(page: number) {
-    const garageHeader = this.tools.createElem('h1', 'count-header');
+    const garageHeader = tools.createElem('h1', 'count-header');
 
-    const carsCount = (await this.api.getCars(page)).count;
+    const carsCount = (await api.getCars(page)).count;
 
     if (carsCount) {
       garageHeader.textContent = `Garage (${carsCount})`;
@@ -25,49 +16,49 @@ export default class CreateGarage {
   }
 
   private createPageCount() {
-    const pageCount = this.tools.createElem('h2', 'page-count', 'Page #1');
+    const pageCount = tools.createElem('h2', 'page-count', 'Page #1');
     return pageCount;
   }
 
   private createCar(id: number, name: string, color: string) {
-    const car = this.tools.createElem('div', 'car-item');
+    const car = tools.createElem('div', 'car-item');
     car.id = `${id}`;
 
-    const carInfo = this.tools.createElem('div', 'car-info');
+    const carInfo = tools.createElem('div', 'car-info');
 
-    const carButtons = this.tools.createElem('div', 'car-buttons');
+    const carButtons = tools.createElem('div', 'car-buttons');
 
-    const selectButtonBlock = this.tools.createElem('div', 'select-button');
-    const selectBtn = this.tools.createElem('button', 'default-button', 'Select');
+    const selectButtonBlock = tools.createElem('div', 'select-button');
+    const selectBtn = tools.createElem('button', 'default-button', 'Select');
     selectButtonBlock.append(selectBtn);
 
-    const removeButtonBlock = this.tools.createElem('div', 'remove-button');
-    const removeBtn = this.tools.createElem('button', 'default-button', 'Remove');
+    const removeButtonBlock = tools.createElem('div', 'remove-button');
+    const removeBtn = tools.createElem('button', 'default-button', 'Remove');
     removeButtonBlock.append(removeBtn);
 
     carButtons.append(selectButtonBlock, removeButtonBlock);
 
-    const carName = this.tools.createElem('p', 'car-name', `${name}`);
+    const carName = tools.createElem('p', 'car-name', `${name}`);
     carInfo.append(carButtons, carName);
 
-    const carArea = this.tools.createElem('div', 'car-area');
+    const carArea = tools.createElem('div', 'car-area');
 
-    const carAreaButtons = this.tools.createElem('div', 'car-area-buttons');
-    const startEngineBtnBlock = this.tools.createElem('div', 'start-engine-button');
-    const startEngineBtn = this.tools.createElem('button', 'drive-button', 'A');
+    const carAreaButtons = tools.createElem('div', 'car-area-buttons');
+    const startEngineBtnBlock = tools.createElem('div', 'start-engine-button');
+    const startEngineBtn = tools.createElem('button', 'drive-button', 'A');
     startEngineBtnBlock.append(startEngineBtn);
-    const disableEngineBtnBlock = this.tools.createElem('div', 'disable-engine-button');
-    const disableEngineBtn = this.tools.createElem('button', 'disable-button', 'B');
+    const disableEngineBtnBlock = tools.createElem('div', 'disable-engine-button');
+    const disableEngineBtn = tools.createElem('button', 'disable-button', 'B');
     if (disableEngineBtn instanceof HTMLButtonElement) {
       disableEngineBtn.disabled = true;
     }
     disableEngineBtnBlock.append(disableEngineBtn);
     carAreaButtons.append(startEngineBtnBlock, disableEngineBtnBlock);
 
-    const carImg = this.tools.createElem('div', 'car-img');
-    carImg.innerHTML = this.tools.createCarImg(color);
+    const carImg = tools.createElem('div', 'car-img');
+    carImg.innerHTML = tools.createCarImg(color);
 
-    const redFlag = this.tools.createElem('div', 'red-flag');
+    const redFlag = tools.createElem('div', 'red-flag');
     redFlag.innerHTML = this.createFlag();
 
     carArea.append(carAreaButtons, carImg, redFlag);
@@ -77,9 +68,9 @@ export default class CreateGarage {
   }
 
   public async renderCars(page: number) {
-    const carsBlock = this.tools.createElem('div', 'cars-block');
+    const carsBlock = tools.createElem('div', 'cars-block');
 
-    const cars = await this.api.getCars(page);
+    const cars = await api.getCars(page);
     cars.items.forEach((item) => {
       if (item.id) {
         const car = this.createCar(item.id, item.name, item.color);
@@ -92,7 +83,7 @@ export default class CreateGarage {
 
   public async createGarage() {
     const racePage = data.getRacePage();
-    const garage = this.tools.createElem('div', 'garage');
+    const garage = tools.createElem('div', 'garage');
     const header = await this.createGarageHeader(racePage);
     const page = this.createPageCount();
     const cars = await this.renderCars(racePage);
