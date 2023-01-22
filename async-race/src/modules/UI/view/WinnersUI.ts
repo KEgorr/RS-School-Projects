@@ -1,4 +1,5 @@
 import ApiHandler from '../../api/API';
+import data from '../store-data';
 import Tools from '../tools/Tools';
 
 export default class Winners {
@@ -16,7 +17,7 @@ export default class Winners {
     return winnersSection;
   }
 
-  public async createWinners(page: number, sort?: string, order?: string) {
+  private async createWinners(page: number, sort?: string, order?: string) {
     const winners = await this.api.getWinners(page);
     const winnersInfo = this.tools.createElem('div', 'winners-info');
     const winnersHeader = this.tools.createElem('h1', 'count-header');
@@ -90,5 +91,13 @@ export default class Winners {
     winnersPaginationBlock.append(paginationButtons);
 
     return winnersPaginationBlock;
+  }
+
+  public getWinners() {
+    const winnersPage = data.getWinnersPage();
+    const sort = data.getSort();
+    const order = data.getOrder();
+
+    return this.createWinners(winnersPage, sort, order);
   }
 }

@@ -1,4 +1,5 @@
 import ApiHandler from '../../api/API';
+import data from '../store-data';
 import Tools from '../tools/Tools';
 
 export default class CreateGarage {
@@ -11,10 +12,10 @@ export default class CreateGarage {
     this.api = new ApiHandler();
   }
 
-  public async createGarageHeader() {
+  private async createGarageHeader(page: number) {
     const garageHeader = this.tools.createElem('h1', 'count-header');
 
-    const carsCount = (await this.api.getCars(1)).count;
+    const carsCount = (await this.api.getCars(page)).count;
 
     if (carsCount) {
       garageHeader.textContent = `Garage (${carsCount})`;
@@ -90,10 +91,11 @@ export default class CreateGarage {
   }
 
   public async createGarage() {
+    const racePage = data.getRacePage();
     const garage = this.tools.createElem('div', 'garage');
-    const header = await this.createGarageHeader();
+    const header = await this.createGarageHeader(racePage);
     const page = this.createPageCount();
-    const cars = await this.renderCars(1);
+    const cars = await this.renderCars(racePage);
 
     garage.append(header, page, cars);
 

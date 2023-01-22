@@ -27,7 +27,7 @@ export default class App {
     const garage = await this.garage.createGarage();
 
     const winnersSection = this.winners.createWinnersSection();
-    const winners = await this.winners.createWinners(1, undefined, undefined);
+    const winners = await this.winners.getWinners();
     const winnersPagination = this.winners.createPaginationWinners();
 
     winnersSection.append(winners, winnersPagination);
