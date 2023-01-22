@@ -1,5 +1,5 @@
 import ApiHandler from '../../api/API';
-import data from '../store-data';
+import data from '../race-data';
 import Tools from '../tools/Tools';
 
 export default class CreateGarage {
