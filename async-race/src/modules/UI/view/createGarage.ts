@@ -2,7 +2,7 @@ import api from '../../api/API';
 import data from '../race-data';
 import tools from '../tools/Tools';
 
-export default class CreateGarage {
+class CreateGarage {
   private async createGarageHeader(page: number) {
     const garageHeader = tools.createElem('h1', 'count-header');
 
@@ -15,8 +15,8 @@ export default class CreateGarage {
     return garageHeader;
   }
 
-  private createPageCount() {
-    const pageCount = tools.createElem('h2', 'page-count', 'Page #1');
+  private createPageCount(page: number) {
+    const pageCount = tools.createElem('h2', 'page-count', `Page #${page}`);
     return pageCount;
   }
 
@@ -85,10 +85,11 @@ export default class CreateGarage {
     const racePage = data.getRacePage();
     const garage = tools.createElem('div', 'garage');
     const header = await this.createGarageHeader(racePage);
-    const page = this.createPageCount();
+    const page = this.createPageCount(racePage);
     const cars = await this.renderCars(racePage);
+    const racePagination = await this.createRacePagination();
 
-    garage.append(header, page, cars);
+    garage.append(header, page, cars, racePagination);
 
     return garage;
   }
@@ -106,4 +107,40 @@ export default class CreateGarage {
     </g>
     </svg>`;
   }
+
+  private async createRacePagination() {
+    const RacePagination = tools.createElem('div', 'race-pagination');
+
+    const paginationButtons = tools.createElem('div', 'pagination-buttons');
+
+    const paginationPrevBlock = tools.createElem('div', 'prev-button');
+    const prevBtn = tools.createElem('button', 'special-button', 'Prev');
+    if (prevBtn instanceof HTMLButtonElement) {
+      if (data.getRacePage() === 1) {
+        prevBtn.disabled = true;
+      }
+    }
+    paginationPrevBlock.append(prevBtn);
+
+    const paginationNextBlock = tools.createElem('div', 'next-button');
+    const nextBtn = tools.createElem('button', 'special-button', 'Next');
+
+    if (nextBtn instanceof HTMLButtonElement) {
+      const maxPages = Number(await data.getMaxRacePages());
+      if (data.getRacePage() === maxPages) {
+        nextBtn.disabled = true;
+      }
+    }
+    paginationNextBlock.append(nextBtn);
+
+    paginationButtons.append(paginationPrevBlock, paginationNextBlock);
+
+    RacePagination.append(paginationButtons);
+
+    return RacePagination;
+  }
 }
+
+const garage = new CreateGarage();
+
+export default garage;

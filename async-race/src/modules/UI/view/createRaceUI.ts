@@ -77,27 +77,4 @@ export default class CreateUI {
 
     return raceSection;
   }
-
-  public createRacePagination() {
-    const RacePagination = tools.createElem('div', 'race-pagination');
-
-    const paginationButtons = tools.createElem('div', 'pagination-buttons');
-
-    const paginationPrevBlock = tools.createElem('div', 'prev-button');
-    const prevBtn = tools.createElem('button', 'special-button', 'Prev');
-    if (prevBtn instanceof HTMLButtonElement) {
-      prevBtn.disabled = true;
-    }
-    paginationPrevBlock.append(prevBtn);
-
-    const paginationNextBlock = tools.createElem('div', 'next-button');
-    const nextBtn = tools.createElem('button', 'special-button', 'Next');
-    paginationNextBlock.append(nextBtn);
-
-    paginationButtons.append(paginationPrevBlock, paginationNextBlock);
-
-    RacePagination.append(paginationButtons);
-
-    return RacePagination;
-  }
 }

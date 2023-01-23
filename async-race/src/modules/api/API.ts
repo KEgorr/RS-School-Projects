@@ -123,6 +123,16 @@ class ApiHandler {
     throw new Error(`${response.statusText}`);
   }
 
+  public async getAllWinners() {
+    const response = await fetch(`${this.baseUrl}/${this.winners}`);
+    const winners: unknown = await response.json();
+
+    if (this.typeGuard.isWinnersArr(winners)) {
+      return winners;
+    }
+    throw new Error(`${response.statusText}`);
+  }
+
   public async getWinner(id: number) {
     const response = await fetch(`${this.baseUrl}/${this.winners}/${id}`);
     const winner: unknown = await response.json();

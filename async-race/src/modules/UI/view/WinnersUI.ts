@@ -2,7 +2,7 @@ import api from '../../api/API';
 import data from '../race-data';
 import tools from '../tools/Tools';
 
-export default class Winners {
+class Winners {
   public createWinnersSection() {
     const winnersSection = tools.createElem('section', 'winners-section');
     return winnersSection;
@@ -92,3 +92,7 @@ export default class Winners {
     return this.createWinners(winnersPage, sort, order);
   }
 }
+
+const winners = new Winners();
+
+export default winners;
