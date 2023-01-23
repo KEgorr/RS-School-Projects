@@ -13,7 +13,7 @@ class ApiHandler {
   private typeGuard: TypeGuard;
 
   constructor() {
-    this.baseUrl = 'http://127.0.0.1:3000';
+    this.baseUrl = 'http://localhost:3000';
     this.garage = 'garage';
     this.engine = 'engine';
     this.winners = 'winners';
