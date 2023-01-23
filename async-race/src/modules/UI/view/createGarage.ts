@@ -82,7 +82,11 @@ class CreateGarage {
   }
 
   public async createGarage() {
-    const racePage = data.getRacePage();
+    let racePage = data.getRacePage();
+    if (racePage > (await data.getMaxRacePages())) {
+      racePage -= 1;
+      data.setRacePage(racePage);
+    }
     const garage = tools.createElem('div', 'garage');
     const header = await this.createGarageHeader(racePage);
     const page = this.createPageCount(racePage);
