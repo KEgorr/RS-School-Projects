@@ -141,6 +141,74 @@ class RaceHandlers {
     }
   }
 
+  private async getNewWinner(winnerID: number) {
+    const engine = await api.startEngine(winnerID);
+    const newWinner = new Promise((resolve) => {
+      const winTime = engine.distance / engine.velocity;
+      const carArea = document.querySelector('.car-area');
+      if (carArea instanceof HTMLElement) {
+        const width = carArea.offsetWidth;
+        const state = this.startAnim(winnerID, width - 100, winTime);
+
+        const timerId = setTimeout(() => {
+          resolve({ id: winnerID, time: winTime, success: true });
+        }, winTime);
+        api
+          .drive(winnerID)
+          .then((val) => val.success)
+          .then((success) => {
+            if (!success) {
+              clearTimeout(timerId);
+              this.stopAnim(state.id);
+              resolve(success);
+            }
+          })
+          .catch((err) => console.log(err));
+      }
+    });
+    return newWinner;
+  }
+
+  public async startRace(event: Event) {
+    const { target } = event;
+    if (target instanceof HTMLElement) {
+      if (target.closest('.start-engine-button')) {
+        const carItem = target.closest('.car-item');
+        if (carItem instanceof HTMLElement) {
+          const carItemId = Number(carItem.id);
+          await this.getNewWinner(carItemId);
+        }
+      }
+    }
+  }
+
+  private startAnim(carId: number, distance: number, animationTime: number) {
+    let start = 0;
+    const state = { id: 0 };
+    const carElem = document.getElementById(`${carId}`);
+
+    function step(timestamp: number) {
+      if (!start) start = timestamp;
+      const time = timestamp - start;
+      const passed = Math.round(time * (distance / animationTime));
+      if (carElem instanceof HTMLElement) {
+        const carImg = carElem.querySelector('.car-img');
+        if (carImg instanceof HTMLElement) {
+          carImg.style.transform = `translateX(${Math.min(passed, distance)}px)  scale(-1, 1)`;
+        }
+        if (passed < distance) {
+          state.id = window.requestAnimationFrame(step);
+        }
+      }
+    }
+    state.id = window.requestAnimationFrame(step);
+    return state;
+  }
+
+  private stopAnim(state: number) {
+    window.cancelAnimationFrame(state);
+  }
+
   private generateRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';

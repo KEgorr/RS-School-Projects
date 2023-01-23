@@ -66,6 +66,12 @@ export default class App {
           await raceHandlers.paginationHandler(event);
         })().catch((err) => console.log(err));
       });
+
+      raceSection.addEventListener('click', (event) => {
+        (async () => {
+          await raceHandlers.startRace(event);
+        })().catch((err) => console.log(err));
+      });
       document.querySelector('.update-button')?.addEventListener('click', () => {
         (async () => {
           await raceHandlers.updateCar();
