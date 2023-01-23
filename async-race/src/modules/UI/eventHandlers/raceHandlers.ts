@@ -123,17 +123,20 @@ class RaceHandlers {
     const { target } = event;
 
     if (target instanceof HTMLElement) {
+      const upDateBtn = this.getUpdateBtn();
       if (target.closest('.next-button')) {
         const currentPage = data.getRacePage();
         data.setRacePage(currentPage + 1);
 
         await this.replaceGarage();
+        upDateBtn.disabled = true;
       }
       if (target.closest('.prev-button')) {
         const currentPage = data.getRacePage();
         data.setRacePage(currentPage - 1);
 
         await this.replaceGarage();
+        upDateBtn.disabled = true;
       }
     }
   }
