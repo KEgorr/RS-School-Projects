@@ -9,8 +9,6 @@ class RaceData {
 
   order: string | undefined;
 
-  winnersIDs = [1];
-
   public getRacePage() {
     return this.currentRacePage;
   }
@@ -38,18 +36,6 @@ class RaceData {
   public setSorting(sort: string, order: string) {
     this.sort = sort;
     this.order = order;
-  }
-
-  public getWinnersIds() {
-    return this.winnersIDs;
-  }
-
-  public appendWinner(id: number) {
-    this.winnersIDs.push(id);
-  }
-
-  public removeWinner(id: number) {
-    this.winnersIDs.slice(this.winnersIDs.indexOf(id), 1);
   }
 
   public async getMaxRacePages() {

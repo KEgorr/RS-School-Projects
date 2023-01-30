@@ -1,8 +1,8 @@
 import CreateUI from '../modules/UI/view/createRaceUI';
 import Navigation from '../modules/UI/navigation';
-import raceHandlers from '../modules/UI/eventHandlers/raceHandlers';
 import garage from '../modules/UI/view/createGarage';
 import winners from '../modules/UI/view/WinnersUI';
+import carsHandlers from '../modules/UI/eventHandlers/carsHandlers';
 
 export default class App {
   createUI: CreateUI;
@@ -46,7 +46,7 @@ export default class App {
     if (createBtn) {
       createBtn.addEventListener('click', () => {
         (async () => {
-          await raceHandlers.createWithParams();
+          await carsHandlers.createWithParams();
         })().catch((err) => console.log(err));
       });
     }
@@ -55,32 +55,38 @@ export default class App {
     if (raceSection) {
       raceSection.addEventListener('click', (event) => {
         (async () => {
-          await raceHandlers.removeCar(event);
+          await carsHandlers.removeCar(event);
         })().catch((err) => console.log(err));
       });
 
-      raceSection.addEventListener('click', (event) => raceHandlers.setCarToUpdate(event));
+      raceSection.addEventListener('click', (event) => carsHandlers.setCarToUpdate(event));
 
       raceSection.addEventListener('click', (event) => {
         (async () => {
-          await raceHandlers.paginationHandler(event);
+          await carsHandlers.paginationHandler(event);
         })().catch((err) => console.log(err));
       });
 
       raceSection.addEventListener('click', (event) => {
         (async () => {
-          await raceHandlers.startRace(event);
+          await carsHandlers.startRace(event);
         })().catch((err) => console.log(err));
       });
       document.querySelector('.update-button')?.addEventListener('click', () => {
         (async () => {
-          await raceHandlers.updateCar();
+          await carsHandlers.updateCar();
         })().catch((err) => console.log(err));
       });
 
       document.querySelector('.generate-cars-button')?.addEventListener('click', () => {
         (async () => {
-          await raceHandlers.generateCars();
+          await carsHandlers.generateCars();
+        })().catch((err) => console.log(err));
+      });
+
+      document.querySelector('.race-button')?.addEventListener('click', () => {
+        (async () => {
+          await carsHandlers.raceAll();
         })().catch((err) => console.log(err));
       });
     }

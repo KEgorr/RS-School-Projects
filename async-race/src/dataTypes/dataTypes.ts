@@ -18,3 +18,9 @@ export interface Winner {
   wins: number;
   time: number;
 }
+
+export interface CarInRace {
+  id: number;
+  time: number;
+  CarSuccess: boolean;
+}

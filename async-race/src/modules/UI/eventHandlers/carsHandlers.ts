@@ -1,9 +1,11 @@
+import { CarInRace } from '../../../dataTypes/dataTypes';
 import api from '../../api/API';
 import data from '../race-data';
+import tools from '../tools/Tools';
 import garage from '../view/createGarage';
 import winners from '../view/WinnersUI';
 
-class RaceHandlers {
+class CarsHandlers {
   public async createWithParams() {
     const createCarInput = document.querySelector('.create-car');
     const createCarColor = document.querySelector('.create-color');
@@ -27,11 +29,13 @@ class RaceHandlers {
           const carId = Number(carToRemove.id);
 
           await api.deleteCar(carId);
-          if (data.getWinnersIds().includes(carId)) {
+          try {
             await api.deleteWinner(carId);
-            data.removeWinner(carId);
             await this.replaceWinners();
+          } catch (error) {
+            console.log(error);
           }
+
           await this.replaceGarage();
         }
       }
@@ -76,6 +80,7 @@ class RaceHandlers {
 
           await api.updateCar(carId, { name: carName, color: carColor });
           await this.replaceGarage();
+          await this.replaceWinners();
 
           const updateBtn = this.getUpdateBtn();
 
@@ -114,7 +119,7 @@ class RaceHandlers {
     }
 
     carNames.map(async (car) => {
-      await api.createCar({ name: car, color: this.generateRandomColor() });
+      await api.createCar({ name: car, color: tools.generateRandomColor() });
     });
     await this.replaceGarage();
   }
@@ -141,17 +146,30 @@ class RaceHandlers {
     }
   }
 
-  private async getNewWinner(winnerID: number) {
+  private setToDriveMod(id: number) {
+    const carItem = document.getElementById(`${id}`);
+
+    if (carItem) {
+      const driveButton = carItem.querySelector('.drive-button');
+      const stopButton = carItem.querySelector('.disable-button');
+      if (driveButton instanceof HTMLButtonElement && stopButton instanceof HTMLButtonElement) {
+        driveButton.disabled = true;
+        stopButton.disabled = false;
+      }
+    }
+  }
+
+  private async getNewWinner(winnerID: number): Promise<CarInRace> {
     const engine = await api.startEngine(winnerID);
-    const newWinner = new Promise((resolve) => {
+    const newWinner = new Promise<CarInRace>((resolve, reject) => {
       const winTime = engine.distance / engine.velocity;
       const carArea = document.querySelector('.car-area');
       if (carArea instanceof HTMLElement) {
         const width = carArea.offsetWidth;
-        const state = this.startAnim(winnerID, width - 100, winTime);
-
+        const state = tools.startAnim(winnerID, width - 100, winTime);
+        this.setToDriveMod(winnerID);
         const timerId = setTimeout(() => {
-          resolve({ id: winnerID, time: winTime, success: true });
+          resolve({ id: winnerID, time: Number((winTime / 1000).toFixed(2)), CarSuccess: true });
         }, winTime);
         api
           .drive(winnerID)
@@ -159,8 +177,8 @@ class RaceHandlers {
           .then((success) => {
             if (!success) {
               clearTimeout(timerId);
-              this.stopAnim(state.id);
-              resolve(success);
+              tools.stopAnim(state.id);
+              reject();
             }
           })
           .catch((err) => console.log(err));
@@ -182,40 +200,34 @@ class RaceHandlers {
     }
   }
 
-  private startAnim(carId: number, distance: number, animationTime: number) {
-    let start = 0;
-    const state = { id: 0 };
-    const carElem = document.getElementById(`${carId}`);
+  public async raceAll() {
+    const carItems = document.querySelectorAll('.car-item');
+    const winnersPromises: Promise<CarInRace>[] = [];
+    carItems.forEach((car) => {
+      (async () => {
+        if (car instanceof HTMLElement) {
+          const carId = Number(car.id);
+          winnersPromises.push(this.getNewWinner(carId));
+        }
+      })().catch((err) => console.log(err));
+    });
+    const newWinner = await Promise.any(winnersPromises);
+    const allWinner = await api.getAllWinners();
 
-    function step(timestamp: number) {
-      if (!start) start = timestamp;
-      const time = timestamp - start;
-      const passed = Math.round(time * (distance / animationTime));
-      if (carElem instanceof HTMLElement) {
-        const carImg = carElem.querySelector('.car-img');
-        if (carImg instanceof HTMLElement) {
-          carImg.style.transform = `translateX(${Math.min(passed, distance)}px)  scale(-1, 1)`;
-        }
-        if (passed < distance) {
-          state.id = window.requestAnimationFrame(step);
-        }
+    if (allWinner.filter((winner) => winner.id === newWinner.id).length) {
+      const oldWinner = await api.getWinner(newWinner.id);
+      const newWinsCount = oldWinner.wins + 1;
+      let newTime = 0;
+      if (oldWinner.time < newWinner.time) {
+        newTime = oldWinner.time;
+      } else {
+        newTime = newWinner.time;
       }
+      await api.updateWinner(newWinner.id, { wins: newWinsCount, time: newTime });
+    } else {
+      await api.createWinner({ id: newWinner.id, wins: 1, time: newWinner.time });
     }
-    state.id = window.requestAnimationFrame(step);
-    return state;
-  }
-
-  private stopAnim(state: number) {
-    window.cancelAnimationFrame(state);
-  }
-
-  private generateRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i += 1) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+    await this.replaceWinners();
   }
 
   private async replaceGarage() {
@@ -246,6 +258,6 @@ class RaceHandlers {
   }
 }
 
-const raceHandlers = new RaceHandlers();
+const carsHandlers = new CarsHandlers();
 
-export default raceHandlers;
+export default carsHandlers;

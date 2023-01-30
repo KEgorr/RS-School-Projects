@@ -23,6 +23,42 @@ class Tools {
       </g>
     </svg>`;
   }
+
+  public startAnim(carId: number, distance: number, animationTime: number) {
+    let start = 0;
+    const state = { id: 0 };
+    const carElem = document.getElementById(`${carId}`);
+
+    function step(timestamp: number) {
+      if (!start) start = timestamp;
+      const time = timestamp - start;
+      const passed = Math.round(time * (distance / animationTime));
+      if (carElem instanceof HTMLElement) {
+        const carImg = carElem.querySelector('.car-img');
+        if (carImg instanceof HTMLElement) {
+          carImg.style.transform = `translateX(${Math.min(passed, distance)}px)  scale(-1, 1)`;
+        }
+        if (passed < distance) {
+          state.id = window.requestAnimationFrame(step);
+        }
+      }
+    }
+    state.id = window.requestAnimationFrame(step);
+    return state;
+  }
+
+  public stopAnim(state: number) {
+    window.cancelAnimationFrame(state);
+  }
+
+  public generateRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i += 1) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 }
 
 const tools = new Tools();
